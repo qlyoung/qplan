@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+<manifest filename="/home/qlyoung/projects/dp2/diveplan/manifest.xml"/>
+<pcToLineNum>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="1" lineNum="5" parent="globals/diveplanApp" pc="268435460" symbol="&lt;init&gt;"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanMenuDelegate.mc" id="2" lineNum="5" parent="globals/diveplanMenuDelegate" pc="268435479" symbol="&lt;init&gt;"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="3" lineNum="26" parent="globals" pc="268435498" symbol="getApp"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="3" lineNum="27" parent="globals" pc="268435508" symbol="getApp"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="4" lineNum="5" parent="globals/diveplanSegmentDelegate" pc="268435524" symbol="&lt;init&gt;"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="5" lineNum="7" parent="globals/Rez" pc="268435543" symbol="&lt;init&gt;"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanDelegate.mc" id="6" lineNum="4" parent="globals/diveplanDelegate" pc="268435567" symbol="&lt;init&gt;"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanView.mc" id="7" lineNum="4" parent="globals/diveplanView" pc="268435586" symbol="&lt;init&gt;"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="8" lineNum="12" parent="globals/diveplanApp" pc="268435605" symbol="onStart"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="9" lineNum="20" parent="globals/diveplanApp" pc="268435608" symbol="getInitialView"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="9" lineNum="21" parent="globals/diveplanApp" pc="268435610" symbol="getInitialView"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="10" lineNum="7" parent="globals/diveplanApp" pc="268435693" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="10" lineNum="8" parent="globals/diveplanApp" pc="268435695" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanApp.mc" id="11" lineNum="16" parent="globals/diveplanApp" pc="268435714" symbol="onStop"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanMenuDelegate.mc" id="12" lineNum="11" parent="globals/diveplanMenuDelegate" pc="268435717" symbol="onMenuItem"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanMenuDelegate.mc" id="12" lineNum="12" parent="globals/diveplanMenuDelegate" pc="268435719" symbol="onMenuItem"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanMenuDelegate.mc" id="12" lineNum="13" parent="globals/diveplanMenuDelegate" pc="268435730" symbol="onMenuItem"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanMenuDelegate.mc" id="13" lineNum="7" parent="globals/diveplanMenuDelegate" pc="268435815" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanMenuDelegate.mc" id="13" lineNum="8" parent="globals/diveplanMenuDelegate" pc="268435817" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="14" lineNum="7" parent="globals/diveplanSegmentDelegate" pc="268435836" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="14" lineNum="8" parent="globals/diveplanSegmentDelegate" pc="268435838" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="15" lineNum="11" parent="globals/diveplanSegmentDelegate" pc="268435857" symbol="onMenu2Item"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="16" lineNum="15" parent="globals/diveplanSegmentDelegate" pc="268435860" symbol="onSelect"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="16" lineNum="16" parent="globals/diveplanSegmentDelegate" pc="268435862" symbol="onSelect"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="16" lineNum="17" parent="globals/diveplanSegmentDelegate" pc="268435895" symbol="onSelect"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="16" lineNum="19" parent="globals/diveplanSegmentDelegate" pc="268435909" symbol="onSelect"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="16" lineNum="21" parent="globals/diveplanSegmentDelegate" pc="268435923" symbol="onSelect"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" id="16" lineNum="23" parent="globals/diveplanSegmentDelegate" pc="268435937" symbol="onSelect"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanDelegate.mc" id="17" lineNum="10" parent="globals/diveplanDelegate" pc="268435952" symbol="onMenu"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanDelegate.mc" id="17" lineNum="11" parent="globals/diveplanDelegate" pc="268435954" symbol="onMenu"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanDelegate.mc" id="17" lineNum="12" parent="globals/diveplanDelegate" pc="268436035" symbol="onMenu"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanDelegate.mc" id="18" lineNum="6" parent="globals/diveplanDelegate" pc="268436038" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanDelegate.mc" id="18" lineNum="7" parent="globals/diveplanDelegate" pc="268436040" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanView.mc" id="20" lineNum="11" parent="globals/diveplanView" pc="268436059" symbol="onLayout"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanView.mc" id="21" lineNum="6" parent="globals/diveplanView" pc="268436062" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanView.mc" id="21" lineNum="7" parent="globals/diveplanView" pc="268436064" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanView.mc" id="23" lineNum="22" parent="globals/diveplanView" pc="268436083" symbol="onUpdate"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/source/old/diveplanView.mc" id="23" lineNum="24" parent="globals/diveplanView" pc="268436085" symbol="onUpdate"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="24" lineNum="14" parent="globals/Rez/Layouts" pc="268436106" symbol="MainLayout"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="24" lineNum="15" parent="globals/Rez/Layouts" pc="268436118" symbol="MainLayout"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="24" lineNum="17" parent="globals/Rez/Layouts" pc="268436249" symbol="MainLayout"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="24" lineNum="18" parent="globals/Rez/Layouts" pc="268436354" symbol="MainLayout"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="24" lineNum="20" parent="globals/Rez/Layouts" pc="268436394" symbol="MainLayout"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="25" lineNum="32" parent="globals/Rez/Menus/SegmentMenu" pc="268436421" symbol="&lt;init&gt;"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="26" lineNum="25" parent="globals/Rez/Menus/MainMenu" pc="268436440" symbol="&lt;init&gt;"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="27" lineNum="33" parent="globals/Rez/Menus/SegmentMenu" pc="268436459" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="27" lineNum="34" parent="globals/Rez/Menus/SegmentMenu" pc="268436461" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="27" lineNum="35" parent="globals/Rez/Menus/SegmentMenu" pc="268436480" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="27" lineNum="36" parent="globals/Rez/Menus/SegmentMenu" pc="268436572" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="27" lineNum="37" parent="globals/Rez/Menus/SegmentMenu" pc="268436645" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="28" lineNum="26" parent="globals/Rez/Menus/MainMenu" pc="268436719" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="28" lineNum="27" parent="globals/Rez/Menus/MainMenu" pc="268436721" symbol="initialize"/>
+<entry filename="/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" id="28" lineNum="28" parent="globals/Rez/Menus/MainMenu" pc="268436739" symbol="initialize"/>
+</pcToLineNum>
+<symbolTable>
+<entry id="8388639" module="true" symbol="Graphics"/>
+<entry id="8389346" symbol="text"/>
+<entry id="32" symbol="cylinder"/>
+<entry field="true" id="21" symbol="menu_calc_segment"/>
+<entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+<entry id="5" module="true" symbol="globals/Rez/Menus"/>
+<entry id="17" method="true" symbol="MainLayout"/>
+<entry id="12" method="true" symbol="onMenu2Item"/>
+<entry field="true" id="26" symbol="menu_label_scr"/>
+<entry id="10" object="true" symbol="diveplanSegmentDelegate"/>
+<entry field="true" id="8388611" module="true" symbol="Toybox"/>
+<entry field="true" id="28" symbol="tank_al80"/>
+<entry field="true" id="20" symbol="AppName"/>
+<entry id="6" module="true" symbol="globals/Rez/Strings"/>
+<entry id="8389080" method="true" symbol="onMenu"/>
+<entry id="8389345" symbol="rezId"/>
+<entry id="8388648" module="true" symbol="WatchUi"/>
+<entry id="2" module="true" symbol="globals/Rez"/>
+<entry field="true" id="27" symbol="prompt"/>
+<entry field="true" id="16" symbol="id_monkey"/>
+<entry id="31" symbol="depth"/>
+<entry id="8389124" method="true" symbol="onUpdate"/>
+<entry field="true" id="8389065" symbol="locY"/>
+<entry field="true" id="8389064" symbol="locX"/>
+<entry id="8388771" module="true" object="true" symbol="Drawables"/>
+<entry id="8389348" symbol="font"/>
+<entry id="29" symbol="calc_segment"/>
+<entry id="14" module="true" symbol="Menus"/>
+<entry id="8389275" method="true" symbol="getApp"/>
+<entry id="4" module="true" symbol="globals/Rez/Layouts"/>
+<entry id="19" object="true" symbol="SegmentMenu"/>
+<entry id="8389122" method="true" symbol="onLayout"/>
+<entry field="true" id="8389063" symbol="identifier"/>
+<entry id="8389349" symbol="justification"/>
+<entry id="30" symbol="scr"/>
+<entry id="11" object="true" symbol="diveplanView"/>
+<entry field="true" id="25" symbol="menu_label_depth"/>
+<entry id="7" object="true" symbol="diveplanApp"/>
+<entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+<entry id="18" object="true" symbol="MainMenu"/>
+<entry id="8" object="true" symbol="diveplanDelegate"/>
+<entry id="8388644" module="true" symbol="System"/>
+<entry id="8389619" method="true" symbol="onSelect"/>
+<entry id="8388769" module="true" object="true" symbol="Rez"/>
+<entry id="8388640" module="true" symbol="Lang"/>
+<entry field="true" id="15" symbol="LauncherIcon"/>
+<entry id="8388610" symbol="statics"/>
+<entry id="8389123" method="true" symbol="onShow"/>
+<entry id="8389350" module="true" symbol="globals"/>
+<entry id="8388770" module="true" object="true" symbol="Strings"/>
+<entry id="8388702" method="true" symbol="initialize"/>
+<entry id="8389279" method="true" symbol="onStart"/>
+<entry id="33" symbol="view"/>
+<entry id="8389280" method="true" symbol="getInitialView"/>
+<entry id="8389281" method="true" symbol="onStop"/>
+<entry id="8389109" method="true" symbol="onMenuItem"/>
+<entry field="true" id="8389347" symbol="color"/>
+<entry field="true" id="24" symbol="menu_label_cylinder"/>
+<entry id="9" object="true" symbol="diveplanMenuDelegate"/>
+<entry id="13" module="true" symbol="Layouts"/>
+<entry id="8389125" method="true" symbol="onHide"/>
+<entry id="8388635" module="true" symbol="Application"/>
+<entry field="true" id="23" symbol="menu_label_2"/>
+<entry field="true" id="22" symbol="menu_label_1"/>
+</symbolTable>
+<localVars>
+<entry arg="true" endPc="268435814" name="item" stackId="1" startPc="268435717"/>
+<entry arg="true" endPc="268435951" name="item" stackId="1" startPc="268435860"/>
+<entry arg="true" endPc="268436105" name="dc" stackId="1" startPc="268436083"/>
+<entry arg="true" endPc="268436420" name="dc" stackId="1" startPc="268436106"/>
+<entry endPc="268436420" name="rez_cmp_local_text_1193959466" stackId="2" startPc="268436118"/>
+<entry endPc="268436420" name="rez_cmp_local_bitmap_id_monkey" stackId="3" startPc="268436118"/>
+</localVars>
+<deviceInfo deviceVersion="c3c85f7bae6fb4aafa9acce2937cf0e1d7b137f1" partNumber="006-B4005-00"/>
+<annotations>
+<annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_2"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_1"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_cylinder"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_calc_segment"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="prompt"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="tank_al80"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_depth"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_scr"/>
+<annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="id_monkey"/>
+</annotations>
+<dataEntryOffsetMappings>
+<dataEntry label="globals" offset="71" parentId="" symbolId="globals" type="module"/>
+<dataEntry label="globals/diveplanApp" offset="166" parentId="globals" symbolId="diveplanApp" type="class"/>
+<dataEntry label="globals/diveplanMenuDelegate" offset="237" parentId="globals" symbolId="diveplanMenuDelegate" type="class"/>
+<dataEntry label="globals/diveplanSegmentDelegate" offset="292" parentId="globals" symbolId="diveplanSegmentDelegate" type="class"/>
+<dataEntry label="globals/Rez" offset="355" parentId="globals" symbolId="Rez" type="module"/>
+<dataEntry label="globals/diveplanDelegate" offset="418" parentId="globals" symbolId="diveplanDelegate" type="class"/>
+<dataEntry label="globals/diveplanView" offset="473" parentId="globals" symbolId="diveplanView" type="class"/>
+<dataEntry label="globals/Rez/Drawables" offset="552" parentId="Rez" symbolId="Drawables" type="module"/>
+<dataEntry label="globals/Rez/Layouts" offset="599" parentId="Rez" symbolId="Layouts" type="module"/>
+<dataEntry label="globals/Rez/Menus" offset="638" parentId="Rez" symbolId="Menus" type="module"/>
+<dataEntry label="globals/Rez/Strings" offset="685" parentId="Rez" symbolId="Strings" type="module"/>
+<dataEntry label="globals/Rez/Menus/SegmentMenu" offset="788" parentId="Menus" symbolId="SegmentMenu" type="class"/>
+<dataEntry label="globals/Rez/Menus/MainMenu" offset="835" parentId="Menus" symbolId="MainMenu" type="class"/>
+</dataEntryOffsetMappings>
+<functions>
+<functionEntry accessMode="public" endPc="268435478" name="&lt;init&gt;" parent="diveplanApp" startPc="268435460">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435497" name="&lt;init&gt;" parent="diveplanMenuDelegate" startPc="268435479">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435523" name="getApp" startPc="268435498">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435542" name="&lt;init&gt;" parent="diveplanSegmentDelegate" startPc="268435524">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435566" name="&lt;init&gt;" parent="Rez" startPc="268435543">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435585" name="&lt;init&gt;" parent="diveplanDelegate" startPc="268435567">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435604" name="&lt;init&gt;" parent="diveplanView" startPc="268435586">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435607" name="onStart" parent="diveplanApp" startPc="268435605">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435692" name="getInitialView" parent="diveplanApp" startPc="268435608">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435713" name="initialize" parent="diveplanApp" startPc="268435693">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435716" name="onStop" parent="diveplanApp" startPc="268435714">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435814" name="onMenuItem" parent="diveplanMenuDelegate" startPc="268435717">
+<param id="item"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435835" name="initialize" parent="diveplanMenuDelegate" startPc="268435815">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435856" name="initialize" parent="diveplanSegmentDelegate" startPc="268435836">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435859" name="onMenu2Item" parent="diveplanSegmentDelegate" startPc="268435857">
+<param id="item"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435951" name="onSelect" parent="diveplanSegmentDelegate" startPc="268435860">
+<param id="item"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Menus">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436037" name="onMenu" parent="diveplanDelegate" startPc="268435952">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436058" name="initialize" parent="diveplanDelegate" startPc="268436038">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onShow" parent="diveplanView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436061" name="onLayout" parent="diveplanView" startPc="268436059">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436082" name="initialize" parent="diveplanView" startPc="268436062">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onHide" parent="diveplanView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436105" name="onUpdate" parent="diveplanView" startPc="268436083">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436420" name="MainLayout" parent="Layouts" startPc="268436106">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436439" name="&lt;init&gt;" parent="SegmentMenu" startPc="268436421">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436458" name="&lt;init&gt;" parent="MainMenu" startPc="268436440">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436718" name="initialize" parent="SegmentMenu" startPc="268436459">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436795" name="initialize" parent="MainMenu" startPc="268436719">
+<documentation/>
+</functionEntry>
+</functions>
+</debugInfo>

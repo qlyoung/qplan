@@ -1,0 +1,1837 @@
+[ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Lang,1,14,18]; ]
+import Toybox.Lang;
+[ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [WatchUi,2,13,20]; ]
+using Toybox.WatchUi;
+[ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [WatchUi,3,13,20]; @symbol_usingAlias = [Ui,3,24,26]; ]
+using Toybox.WatchUi as :Ui;
+[ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Graphics,4,13,21]; ]
+using Toybox.Graphics;
+[ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [Graphics,5,13,21]; @symbol_usingAlias = [Gfx,5,25,28]; ]
+using Toybox.Graphics as :Gfx;
+[ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 7; @symbol_moduledef = [Rez,7,7,10]; ]
+module Rez {
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 7; ]
+    <init> {
+    }
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 8; @symbol_moduledef = [Drawables,8,11,20]; ]
+    module Drawables {
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 8; ]
+        <init> {
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 9; @position = 27; initialized = true; @symbol_vardef = [id_monkey,9,27,36]; @symbol_type<0> = [ResourceId,9,40,50]; ]
+        var id_monkey as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 10; @position = 27; initialized = true; @symbol_vardef = [LauncherIcon,10,27,39]; @symbol_type<0> = [ResourceId,10,43,53]; ]
+        var LauncherIcon as ResourceId;
+    }
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 13; @symbol_moduledef = [Layouts,13,11,18]; ]
+    module Layouts {
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 13; ]
+        <init> {
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 14; @symbol_functiondef = [MainLayout,14,17,27]; @symbol_param<0> = [dc,14,28,30]; @symbol_param<0>_type<0> = [Graphics,14,34,42]; @symbol_param<0>_type<1> = [Dc,14,43,45]; @symbol_return<0> = [Array,14,50,55]; @symbol_return<1> = [WatchUi,14,56,63]; @symbol_return<2> = [Drawable,14,64,72]; ]
+        function MainLayout(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
+_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_14_74_21_8_start:
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 15 12 ]
+            [ "_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_14_74_21_8_start" "_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_14_74_21_8_stop" ]
+            %rez_cmp_local_text_1193959466.1 = local;
+            symbol [ rez_cmp_local_text_1193959466 %rez_cmp_local_text_1193959466.1 15 16 45 ];
+            symbol [ WatchUi %tmp.3 15 52 59 ];
+            %tmp.3 = getm $.Toybox.WatchUi;
+            symbol [ Text %tmp.4 15 60 64 ];
+            %tmp.4 = getv function ? %tmp.3 :Text;
+            %tmp.5 = newd 6;
+            %tmp.7 = const :color;
+            symbol [ color %tmp.7 15 67 72 const ];
+            symbol [ Graphics %tmp.8 15 74 82 ];
+            %tmp.8 = getm $.Toybox.Graphics;
+            symbol [ COLOR_WHITE %tmp.9 15 83 94 ];
+            %tmp.9 = getv %tmp.8 :COLOR_WHITE;
+            %tmp.10 = dup %tmp.5;
+            %tmp.11 = aputv %tmp.10 %tmp.7 %tmp.9;
+            %tmp.13 = const :locX;
+            symbol [ locX %tmp.13 15 97 101 const ];
+            %tmp.14 = 176;
+            %tmp.15 = 0.5;
+            %tmp.16 = mul %tmp.14 %tmp.15;
+            %tmp.17 = dup %tmp.11;
+            %tmp.18 = aputv %tmp.17 %tmp.13 %tmp.16;
+            %tmp.20 = const :locY;
+            symbol [ locY %tmp.20 15 117 121 const ];
+            %tmp.21 = 5;
+            %tmp.22 = dup %tmp.18;
+            %tmp.23 = aputv %tmp.22 %tmp.20 %tmp.21;
+            %tmp.25 = const :text;
+            symbol [ text %tmp.25 15 127 131 const ];
+            symbol [ $ %tmp.26 15 133 134 ];
+            %tmp.26 = getm $;
+            symbol [ Rez %tmp.27 15 135 138 ];
+            %tmp.27 = getv %tmp.26 :Rez;
+            symbol [ Strings %tmp.28 15 139 146 ];
+            %tmp.28 = getv %tmp.27 :Strings;
+            symbol [ prompt %tmp.29 15 147 153 ];
+            %tmp.29 = getv %tmp.28 :prompt;
+            %tmp.30 = dup %tmp.23;
+            %tmp.31 = aputv %tmp.30 %tmp.25 %tmp.29;
+            %tmp.33 = const :justification;
+            symbol [ justification %tmp.33 15 156 169 const ];
+            symbol [ Graphics %tmp.34 15 171 179 ];
+            %tmp.34 = getm $.Toybox.Graphics;
+            symbol [ TEXT_JUSTIFY_CENTER %tmp.35 15 180 199 ];
+            %tmp.35 = getv %tmp.34 :TEXT_JUSTIFY_CENTER;
+            %tmp.36 = dup %tmp.31;
+            %tmp.37 = aputv %tmp.36 %tmp.33 %tmp.35;
+            %tmp.39 = const :font;
+            symbol [ font %tmp.39 15 202 206 const ];
+            symbol [ Graphics %tmp.40 15 208 216 ];
+            %tmp.40 = getm $.Toybox.Graphics;
+            symbol [ FONT_MEDIUM %tmp.41 15 217 228 ];
+            %tmp.41 = getv %tmp.40 :FONT_MEDIUM;
+            %tmp.42 = dup %tmp.37;
+            %tmp.43 = aputv %tmp.42 %tmp.39 %tmp.41;
+            %tmp.1 = newc %tmp.4 (%tmp.43);
+            lputv %rez_cmp_local_text_1193959466.1 %tmp.1;
+            symbol [ rez_cmp_local_text_1193959466 %rez_cmp_local_text_1193959466.1 15 16 45 ];
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 17 12 ]
+            [ "_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_14_74_21_8_start" "_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_14_74_21_8_stop" ]
+            %rez_cmp_local_bitmap_id_monkey.2 = local;
+            symbol [ rez_cmp_local_bitmap_id_monkey %rez_cmp_local_bitmap_id_monkey.2 17 16 46 ];
+            symbol [ WatchUi %tmp.46 17 53 60 ];
+            %tmp.46 = getm $.Toybox.WatchUi;
+            symbol [ Bitmap %tmp.47 17 61 67 ];
+            %tmp.47 = getv function ? %tmp.46 :Bitmap;
+            %tmp.48 = newd 4;
+            %tmp.50 = const :identifier;
+            symbol [ identifier %tmp.50 17 70 80 const ];
+            %tmp.51 = "id_monkey";
+            %tmp.52 = dup %tmp.48;
+            %tmp.53 = aputv %tmp.52 %tmp.50 %tmp.51;
+            %tmp.55 = const :rezId;
+            symbol [ rezId %tmp.55 17 96 101 const ];
+            symbol [ $ %tmp.56 17 103 104 ];
+            %tmp.56 = getm $;
+            symbol [ Rez %tmp.57 17 105 108 ];
+            %tmp.57 = getv %tmp.56 :Rez;
+            symbol [ Drawables %tmp.58 17 109 118 ];
+            %tmp.58 = getv %tmp.57 :Drawables;
+            symbol [ id_monkey %tmp.59 17 119 128 ];
+            %tmp.59 = getv %tmp.58 :id_monkey;
+            %tmp.60 = dup %tmp.53;
+            %tmp.61 = aputv %tmp.60 %tmp.55 %tmp.59;
+            %tmp.63 = const :locX;
+            symbol [ locX %tmp.63 17 131 135 const ];
+            symbol [ WatchUi %tmp.64 17 137 144 ];
+            %tmp.64 = getm $.Toybox.WatchUi;
+            symbol [ LAYOUT_HALIGN_CENTER %tmp.65 17 145 165 ];
+            %tmp.65 = getv %tmp.64 :LAYOUT_HALIGN_CENTER;
+            %tmp.66 = dup %tmp.61;
+            %tmp.67 = aputv %tmp.66 %tmp.63 %tmp.65;
+            %tmp.69 = const :locY;
+            symbol [ locY %tmp.69 17 168 172 const ];
+            %tmp.70 = 30;
+            %tmp.71 = dup %tmp.67;
+            %tmp.72 = aputv %tmp.71 %tmp.69 %tmp.70;
+            %tmp.44 = newc %tmp.47 (%tmp.72);
+            lputv %rez_cmp_local_bitmap_id_monkey.2 %tmp.44;
+            symbol [ rez_cmp_local_bitmap_id_monkey %rez_cmp_local_bitmap_id_monkey.2 17 16 46 ];
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 18 12 ]
+            %tmp.73 = lgetv %rez_cmp_local_bitmap_id_monkey.2;
+            symbol [ rez_cmp_local_bitmap_id_monkey %tmp.73 18 12 42 ];
+            symbol [ setLocation %tmp.74 18 43 54 ];
+            %tmp.74 = getv function %tmp.73 :setLocation;
+            %tmp.75 = 176;
+            %tmp.76 = lgetv %rez_cmp_local_bitmap_id_monkey.2;
+            symbol [ rez_cmp_local_bitmap_id_monkey %tmp.76 18 63 93 ];
+            symbol [ width %tmp.77 18 94 99 ];
+            %tmp.77 = getv %tmp.76 :width;
+            %tmp.78 = sub %tmp.75 %tmp.77;
+            %tmp.79 = 0.5;
+            %tmp.80 = mul %tmp.78 %tmp.79;
+            %tmp.81 = lgetv %rez_cmp_local_bitmap_id_monkey.2;
+            symbol [ rez_cmp_local_bitmap_id_monkey %tmp.81 18 109 139 ];
+            symbol [ locY %tmp.82 18 140 144 ];
+            %tmp.82 = getv %tmp.81 :locY;
+            invoke %tmp.73 %tmp.74(%tmp.80, %tmp.82);
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 20 12 ]
+            %tmp.83 = newa 2 Array<WatchUi.Drawable>;
+            symbol [ Array %tmp.83 20 86 91 ];
+            symbol [ WatchUi %tmp.83 20 92 99 ];
+            symbol [ Drawable %tmp.83 20 100 108 ];
+            %tmp.84 = lgetv %rez_cmp_local_text_1193959466.1;
+            symbol [ rez_cmp_local_text_1193959466 %tmp.84 20 20 49 ];
+            %tmp.85 = dup %tmp.83;
+            %tmp.86 = aputv %tmp.85 0 %tmp.84;
+            %tmp.87 = lgetv %rez_cmp_local_bitmap_id_monkey.2;
+            symbol [ rez_cmp_local_bitmap_id_monkey %tmp.87 20 51 81 ];
+            %tmp.88 = dup %tmp.86;
+            %tmp.89 = aputv %tmp.88 1 %tmp.87;
+            ret %tmp.89;
+_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_14_74_21_8_stop:
+        }
+    }
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 24; @symbol_moduledef = [Menus,24,11,16]; ]
+    module Menus {
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 24; ]
+        <init> {
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 25; @symbol_classdef = [MainMenu,25,14,22]; @symbol_extends<0> = [WatchUi,25,31,38]; @symbol_extends<1> = [Menu,25,39,43]; ]
+        class MainMenu extends WatchUi.Menu {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 25; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 25; ]
+            static
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 26; @symbol_functiondef = [initialize,26,21,31]; ]
+            function initialize() as Void {
+_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_26_34_29_12_start:
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 27 16 ]
+                symbol [ Menu %tmp.2 27 16 20 ];
+                %tmp.2 = getv ? :Menu;
+                symbol [ initialize %tmp.3 27 21 31 ];
+                %tmp.3 = getv function %tmp.2 :initialize;
+                invoke %tmp.2 %tmp.3();
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 28 16 ]
+                %tmp.4 = self;
+                symbol [ addItem %tmp.5 28 16 23 ];
+                %tmp.5 = getv function %tmp.4 :addItem;
+                symbol [ WatchUi %tmp.6 28 25 32 ];
+                %tmp.6 = getm $.Toybox.WatchUi;
+                symbol [ loadResource %tmp.7 28 33 45 ];
+                %tmp.7 = getv function %tmp.6 :loadResource;
+                symbol [ $ %tmp.8 28 46 47 ];
+                %tmp.8 = getm $;
+                symbol [ Rez %tmp.9 28 48 51 ];
+                %tmp.9 = getv %tmp.8 :Rez;
+                symbol [ Strings %tmp.10 28 52 59 ];
+                %tmp.10 = getv %tmp.9 :Strings;
+                symbol [ menu_calc_segment %tmp.11 28 60 77 ];
+                %tmp.11 = getv %tmp.10 :menu_calc_segment;
+                %tmp.12 = invoke %tmp.6 %tmp.7(%tmp.11);
+                %tmp.13 = as %tmp.12 String;
+                symbol [ String %tmp.13 28 82 88 ];
+                %tmp.15 = const :calc_segment;
+                symbol [ calc_segment %tmp.15 28 92 104 const ];
+                invoke %tmp.4 %tmp.5(%tmp.13, %tmp.15);
+_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_26_34_29_12_stop:
+            }
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 32; @symbol_classdef = [SegmentMenu,32,14,25]; @symbol_extends<0> = [WatchUi,32,34,41]; @symbol_extends<1> = [Menu2,32,42,47]; ]
+        class SegmentMenu extends WatchUi.Menu2 {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 32; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 32; ]
+            static
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 33; @symbol_functiondef = [initialize,33,21,31]; ]
+            function initialize() as Void {
+_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_33_34_38_12_start:
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 34 16 ]
+                symbol [ Menu2 %tmp.2 34 16 21 ];
+                %tmp.2 = getv ? :Menu2;
+                symbol [ initialize %tmp.3 34 22 32 ];
+                %tmp.3 = getv function %tmp.2 :initialize;
+                %tmp.4 = null;
+                invoke %tmp.2 %tmp.3(%tmp.4);
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 35 16 ]
+                %tmp.5 = self;
+                symbol [ addItem %tmp.6 35 16 23 ];
+                %tmp.6 = getv function %tmp.5 :addItem;
+                symbol [ WatchUi %tmp.9 35 28 35 ];
+                %tmp.9 = getm $.Toybox.WatchUi;
+                symbol [ MenuItem %tmp.10 35 36 44 ];
+                %tmp.10 = getv function ? %tmp.9 :MenuItem;
+                symbol [ $ %tmp.11 35 45 46 ];
+                %tmp.11 = getm $;
+                symbol [ Rez %tmp.12 35 47 50 ];
+                %tmp.12 = getv %tmp.11 :Rez;
+                symbol [ Strings %tmp.13 35 51 58 ];
+                %tmp.13 = getv %tmp.12 :Strings;
+                symbol [ menu_label_cylinder %tmp.14 35 59 78 ];
+                %tmp.14 = getv %tmp.13 :menu_label_cylinder;
+                symbol [ $ %tmp.15 35 80 81 ];
+                %tmp.15 = getm $;
+                symbol [ Rez %tmp.16 35 82 85 ];
+                %tmp.16 = getv %tmp.15 :Rez;
+                symbol [ Strings %tmp.17 35 86 93 ];
+                %tmp.17 = getv %tmp.16 :Strings;
+                symbol [ tank_al80 %tmp.18 35 94 103 ];
+                %tmp.18 = getv %tmp.17 :tank_al80;
+                %tmp.20 = const :cylinder;
+                symbol [ cylinder %tmp.20 35 106 114 const ];
+                %tmp.21 = null;
+                %tmp.7 = newc %tmp.10 (%tmp.14, %tmp.18, %tmp.20, %tmp.21);
+                invoke %tmp.5 %tmp.6(%tmp.7);
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 36 16 ]
+                %tmp.22 = self;
+                symbol [ addItem %tmp.23 36 16 23 ];
+                %tmp.23 = getv function %tmp.22 :addItem;
+                symbol [ WatchUi %tmp.26 36 28 35 ];
+                %tmp.26 = getm $.Toybox.WatchUi;
+                symbol [ MenuItem %tmp.27 36 36 44 ];
+                %tmp.27 = getv function ? %tmp.26 :MenuItem;
+                symbol [ $ %tmp.28 36 45 46 ];
+                %tmp.28 = getm $;
+                symbol [ Rez %tmp.29 36 47 50 ];
+                %tmp.29 = getv %tmp.28 :Rez;
+                symbol [ Strings %tmp.30 36 51 58 ];
+                %tmp.30 = getv %tmp.29 :Strings;
+                symbol [ menu_label_depth %tmp.31 36 59 75 ];
+                %tmp.31 = getv %tmp.30 :menu_label_depth;
+                %tmp.32 = "100 ft";
+                %tmp.34 = const :depth;
+                symbol [ depth %tmp.34 36 88 93 const ];
+                %tmp.35 = null;
+                %tmp.24 = newc %tmp.27 (%tmp.31, %tmp.32, %tmp.34, %tmp.35);
+                invoke %tmp.22 %tmp.23(%tmp.24);
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 37 16 ]
+                %tmp.36 = self;
+                symbol [ addItem %tmp.37 37 16 23 ];
+                %tmp.37 = getv function %tmp.36 :addItem;
+                symbol [ WatchUi %tmp.40 37 28 35 ];
+                %tmp.40 = getm $.Toybox.WatchUi;
+                symbol [ MenuItem %tmp.41 37 36 44 ];
+                %tmp.41 = getv function ? %tmp.40 :MenuItem;
+                symbol [ $ %tmp.42 37 45 46 ];
+                %tmp.42 = getm $;
+                symbol [ Rez %tmp.43 37 47 50 ];
+                %tmp.43 = getv %tmp.42 :Rez;
+                symbol [ Strings %tmp.44 37 51 58 ];
+                %tmp.44 = getv %tmp.43 :Strings;
+                symbol [ menu_label_scr %tmp.45 37 59 73 ];
+                %tmp.45 = getv %tmp.44 :menu_label_scr;
+                %tmp.46 = ".70 cf/min";
+                %tmp.48 = const :scr;
+                symbol [ scr %tmp.48 37 90 93 const ];
+                %tmp.49 = null;
+                %tmp.38 = newc %tmp.41 (%tmp.45, %tmp.46, %tmp.48, %tmp.49);
+                invoke %tmp.36 %tmp.37(%tmp.38);
+_home_qlyoung_projects_dp2_diveplan_bin_gen_006_B4005_00_source_Rez_mcgen_33_34_38_12_stop:
+            }
+        }
+    }
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 42; @symbol_moduledef = [Strings,42,11,18]; ]
+    module Strings {
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 42; ]
+        <init> {
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 43; @position = 27; initialized = true; @symbol_vardef = [menu_label_scr,43,27,41]; @symbol_type<0> = [ResourceId,43,45,55]; ]
+        var menu_label_scr as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 44; @position = 27; initialized = true; @symbol_vardef = [menu_label_depth,44,27,43]; @symbol_type<0> = [ResourceId,44,47,57]; ]
+        var menu_label_depth as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 45; @position = 27; initialized = true; @symbol_vardef = [menu_label_1,45,27,39]; @symbol_type<0> = [ResourceId,45,43,53]; ]
+        var menu_label_1 as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 46; @position = 27; initialized = true; @symbol_vardef = [tank_al80,46,27,36]; @symbol_type<0> = [ResourceId,46,40,50]; ]
+        var tank_al80 as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 47; @position = 27; initialized = true; @symbol_vardef = [menu_label_2,47,27,39]; @symbol_type<0> = [ResourceId,47,43,53]; ]
+        var menu_label_2 as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 48; @position = 27; initialized = true; @symbol_vardef = [menu_calc_segment,48,27,44]; @symbol_type<0> = [ResourceId,48,48,58]; ]
+        var menu_calc_segment as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 49; @position = 27; initialized = true; @symbol_vardef = [prompt,49,27,33]; @symbol_type<0> = [ResourceId,49,37,47]; ]
+        var prompt as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 50; @position = 27; initialized = true; @symbol_vardef = [AppName,50,27,34]; @symbol_type<0> = [ResourceId,50,38,48]; ]
+        var AppName as ResourceId;
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 51; @position = 27; initialized = true; @symbol_vardef = [menu_label_cylinder,51,27,46]; @symbol_type<0> = [ResourceId,51,50,60]; ]
+        var menu_label_cylinder as ResourceId;
+    }
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 54; @symbol_moduledef = [Styles,54,11,17]; ]
+    module Styles {
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 54; ]
+        <init> {
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 55; @symbol_moduledef = [prompt_font_enhanced_readability__body_with_title,55,15,64]; ]
+        module prompt_font_enhanced_readability__body_with_title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 55; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 56; @position = 18; @symbol_constdef = [exclude,56,18,25]; @symbol_type<0> = [Boolean,56,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 59; @symbol_moduledef = [system_size__menu_header,59,15,39]; ]
+        module system_size__menu_header {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 59; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 60; @position = 18; @symbol_constdef = [width,60,18,23]; @symbol_type<0> = [Number,60,27,33]; ]
+            const width as Number = 175;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 61; @position = 18; @symbol_constdef = [height,61,18,24]; @symbol_type<0> = [Number,61,28,34]; ]
+            const height as Number = 62;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 64; @symbol_moduledef = [system_loc__hint_button_left_bottom,64,15,50]; ]
+        module system_loc__hint_button_left_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 64; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 65; @position = 18; @symbol_constdef = [exclude,65,18,25]; @symbol_type<0> = [Boolean,65,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 68; @symbol_moduledef = [prompt_font_enhanced_readability__body_no_title,68,15,62]; ]
+        module prompt_font_enhanced_readability__body_no_title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 68; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 69; @position = 18; @symbol_constdef = [exclude,69,18,25]; @symbol_type<0> = [Boolean,69,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 72; @symbol_moduledef = [prompt_loc__body_no_title,72,15,40]; ]
+        module prompt_loc__body_no_title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 72; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 73; @position = 18; @symbol_constdef = [x,73,18,19]; @symbol_type<0> = [Number,73,23,29]; ]
+            const x as Number = 5;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 74; @position = 18; @symbol_constdef = [y,74,18,19]; @symbol_type<0> = [Number,74,23,29]; ]
+            const y as Number = 77;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 77; @symbol_moduledef = [system_icon_dark__about,77,15,38]; ]
+        module system_icon_dark__about {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 77; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 78; @position = 18; @symbol_constdef = [filename,78,18,26]; @symbol_type<0> = [String,78,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__about.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 79; @position = 18; @symbol_constdef = [disableTransparency,79,18,37]; @symbol_type<0> = [Boolean,79,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 80; @position = 18; @symbol_constdef = [dithering,80,18,27]; @symbol_type<0> = [String,80,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 81; @position = 18; @symbol_constdef = [automaticPalette,81,18,34]; @symbol_type<0> = [Boolean,81,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 84; @symbol_moduledef = [system_icon_light__question,84,15,42]; ]
+        module system_icon_light__question {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 84; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 85; @position = 18; @symbol_constdef = [filename,85,18,26]; @symbol_type<0> = [String,85,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__question.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 86; @position = 18; @symbol_constdef = [disableTransparency,86,18,37]; @symbol_type<0> = [Boolean,86,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 87; @position = 18; @symbol_constdef = [dithering,87,18,27]; @symbol_type<0> = [String,87,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 88; @position = 18; @symbol_constdef = [automaticPalette,88,18,34]; @symbol_type<0> = [Boolean,88,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 91; @symbol_moduledef = [system_loc__hint_button_left_top,91,15,47]; ]
+        module system_loc__hint_button_left_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 91; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 92; @position = 18; @symbol_constdef = [exclude,92,18,25]; @symbol_type<0> = [Boolean,92,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 95; @symbol_moduledef = [prompt_font__title,95,15,33]; ]
+        module prompt_font__title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 95; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 96 18 ]
+                symbol [ Graphics %tmp.50 96 34 42 ];
+                %tmp.50 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_RIGHT %tmp.51 96 43 61 ];
+                %tmp.51 = getv %tmp.50 :TEXT_JUSTIFY_RIGHT;
+                symbol [ Graphics %tmp.52 96 62 70 ];
+                %tmp.52 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_VCENTER %tmp.53 96 71 91 ];
+                %tmp.53 = getv %tmp.52 :TEXT_JUSTIFY_VCENTER;
+                %tmp.54 = bitor %tmp.51 %tmp.53;
+                putv self :justification %tmp.54;
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 97 18 ]
+                symbol [ Graphics %tmp.55 97 25 33 ];
+                %tmp.55 = getm $.Toybox.Graphics;
+                symbol [ FONT_TINY %tmp.56 97 34 43 ];
+                %tmp.56 = getv %tmp.55 :FONT_TINY;
+                putv self :font %tmp.56;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 96; @position = 18; @symbol_constdef = [justification,96,18,31]; ]
+            const justification;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 97; @position = 18; @symbol_constdef = [font,97,18,22]; ]
+            const font;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 100; @symbol_moduledef = [system_icon_dark__discard,100,15,40]; ]
+        module system_icon_dark__discard {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 100; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 101; @position = 18; @symbol_constdef = [filename,101,18,26]; @symbol_type<0> = [String,101,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__discard.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 102; @position = 18; @symbol_constdef = [disableTransparency,102,18,37]; @symbol_type<0> = [Boolean,102,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 103; @position = 18; @symbol_constdef = [dithering,103,18,27]; @symbol_type<0> = [String,103,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 104; @position = 18; @symbol_constdef = [automaticPalette,104,18,34]; @symbol_type<0> = [Boolean,104,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 107; @symbol_moduledef = [system_size__menu_item,107,15,37]; ]
+        module system_size__menu_item {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 107; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 108; @position = 18; @symbol_constdef = [width,108,18,23]; @symbol_type<0> = [Number,108,27,33]; ]
+            const width as Number = 175;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 109; @position = 18; @symbol_constdef = [height,109,18,24]; @symbol_type<0> = [Number,109,28,34]; ]
+            const height as Number = 58;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 112; @symbol_moduledef = [system_color_dark__text,112,15,38]; ]
+        module system_color_dark__text {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 112; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 114 18 ]
+                symbol [ Graphics %tmp.57 114 31 39 ];
+                %tmp.57 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.58 114 40 57 ];
+                %tmp.58 = getv %tmp.57 :COLOR_TRANSPARENT;
+                putv self :background %tmp.58;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 113; @position = 18; @symbol_constdef = [color,113,18,23]; @symbol_type<0> = [Number,113,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 114; @position = 18; @symbol_constdef = [background,114,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 117; @symbol_moduledef = [system_icon_destructive__discard,117,15,47]; ]
+        module system_icon_destructive__discard {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 117; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 118; @position = 18; @symbol_constdef = [filename,118,18,26]; @symbol_type<0> = [String,118,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__discard.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 119; @position = 18; @symbol_constdef = [disableTransparency,119,18,37]; @symbol_type<0> = [Boolean,119,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 120; @position = 18; @symbol_constdef = [dithering,120,18,27]; @symbol_type<0> = [String,120,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 121; @position = 18; @symbol_constdef = [automaticPalette,121,18,34]; @symbol_type<0> = [Boolean,121,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 124; @symbol_moduledef = [system_icon_dark__hint_action_menu,124,15,49]; ]
+        module system_icon_dark__hint_action_menu {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 124; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 125; @position = 18; @symbol_constdef = [filename,125,18,26]; @symbol_type<0> = [String,125,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__hint_button_right_top.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 126; @position = 18; @symbol_constdef = [disableTransparency,126,18,37]; @symbol_type<0> = [Boolean,126,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 127; @position = 18; @symbol_constdef = [dithering,127,18,27]; @symbol_type<0> = [String,127,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 128; @position = 18; @symbol_constdef = [automaticPalette,128,18,34]; @symbol_type<0> = [Boolean,128,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 131; @symbol_moduledef = [prompt_size__title,131,15,33]; ]
+        module prompt_size__title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 131; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 132; @position = 18; @symbol_constdef = [width,132,18,23]; @symbol_type<0> = [Number,132,27,33]; ]
+            const width as Number = 67;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 133; @position = 18; @symbol_constdef = [height,133,18,24]; @symbol_type<0> = [Number,133,28,34]; ]
+            const height as Number = 60;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 136; @symbol_moduledef = [confirmation_font__body,136,15,38]; ]
+        module confirmation_font__body {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 136; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 137 18 ]
+                symbol [ Graphics %tmp.59 137 34 42 ];
+                %tmp.59 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_CENTER %tmp.60 137 43 62 ];
+                %tmp.60 = getv %tmp.59 :TEXT_JUSTIFY_CENTER;
+                putv self :justification %tmp.60;
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 138 18 ]
+                symbol [ Graphics %tmp.61 138 25 33 ];
+                %tmp.61 = getm $.Toybox.Graphics;
+                symbol [ FONT_XTINY %tmp.62 138 34 44 ];
+                %tmp.62 = getv %tmp.61 :FONT_XTINY;
+                putv self :font %tmp.62;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 137; @position = 18; @symbol_constdef = [justification,137,18,31]; ]
+            const justification;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 138; @position = 18; @symbol_constdef = [font,138,18,22]; ]
+            const font;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 141; @symbol_moduledef = [system_color_dark__background,141,15,44]; ]
+        module system_color_dark__background {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 141; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 142; @position = 18; @symbol_constdef = [color,142,18,23]; @symbol_type<0> = [Number,142,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 143; @position = 18; @symbol_constdef = [background,143,18,28]; @symbol_type<0> = [Number,143,32,38]; ]
+            const background as Number = 0x000000;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 146; @symbol_moduledef = [system_icon_destructive__hint_button_left_top,146,15,60]; ]
+        module system_icon_destructive__hint_button_left_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 146; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 147; @position = 18; @symbol_constdef = [exclude,147,18,25]; @symbol_type<0> = [Boolean,147,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 150; @symbol_moduledef = [system_size__launch_icon,150,15,39]; ]
+        module system_size__launch_icon {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 150; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 151; @position = 18; @symbol_constdef = [scaleX,151,18,24]; @symbol_type<0> = [Number,151,28,34]; ]
+            const scaleX as Number = 62;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 152; @position = 18; @symbol_constdef = [scaleY,152,18,24]; @symbol_type<0> = [Number,152,28,34]; ]
+            const scaleY as Number = 62;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 153; @position = 18; @symbol_constdef = [scaleRelativeTo,153,18,33]; @symbol_type<0> = [String,153,37,43]; ]
+            const scaleRelativeTo as String = "screen";
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 156; @symbol_moduledef = [confirmation_input__confirm,156,15,42]; ]
+        module confirmation_input__confirm {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 156; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 157 18 ]
+                symbol [ WatchUi %tmp.63 157 27 34 ];
+                %tmp.63 = getm $.Toybox.WatchUi;
+                symbol [ KEY_ENTER %tmp.64 157 35 44 ];
+                %tmp.64 = getv %tmp.63 :KEY_ENTER;
+                putv self :button %tmp.64;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 157; @position = 18; @symbol_constdef = [button,157,18,24]; ]
+            const button;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 160; @symbol_moduledef = [prompt_font__body_with_title,160,15,43]; ]
+        module prompt_font__body_with_title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 160; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 161 18 ]
+                symbol [ Graphics %tmp.65 161 34 42 ];
+                %tmp.65 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_CENTER %tmp.66 161 43 62 ];
+                %tmp.66 = getv %tmp.65 :TEXT_JUSTIFY_CENTER;
+                putv self :justification %tmp.66;
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 162 18 ]
+                symbol [ Graphics %tmp.67 162 25 33 ];
+                %tmp.67 = getm $.Toybox.Graphics;
+                symbol [ FONT_TINY %tmp.68 162 34 43 ];
+                %tmp.68 = getv %tmp.67 :FONT_TINY;
+                putv self :font %tmp.68;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 161; @position = 18; @symbol_constdef = [justification,161,18,31]; ]
+            const justification;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 162; @position = 18; @symbol_constdef = [font,162,18,22]; ]
+            const font;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 165; @symbol_moduledef = [confirmation_loc__body,165,15,37]; ]
+        module confirmation_loc__body {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 165; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 166; @position = 18; @symbol_constdef = [x,166,18,19]; @symbol_type<0> = [Number,166,23,29]; ]
+            const x as Number = 2;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 167; @position = 18; @symbol_constdef = [y,167,18,19]; @symbol_type<0> = [Number,167,23,29]; ]
+            const y as Number = 81;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 170; @symbol_moduledef = [system_icon_destructive__hint_button_left_bottom,170,15,63]; ]
+        module system_icon_destructive__hint_button_left_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 170; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 171; @position = 18; @symbol_constdef = [exclude,171,18,25]; @symbol_type<0> = [Boolean,171,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 174; @symbol_moduledef = [prompt_color_dark__background,174,15,44]; ]
+        module prompt_color_dark__background {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 174; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 175; @position = 18; @symbol_constdef = [background,175,18,28]; @symbol_type<0> = [Number,175,32,38]; ]
+            const background as Number = 0x000000;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 178; @symbol_moduledef = [system_icon_destructive__hint_action_menu,178,15,56]; ]
+        module system_icon_destructive__hint_action_menu {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 178; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 179; @position = 18; @symbol_constdef = [filename,179,18,26]; @symbol_type<0> = [String,179,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_destructive__hint_button_right_top.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 180; @position = 18; @symbol_constdef = [disableTransparency,180,18,37]; @symbol_type<0> = [Boolean,180,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 181; @position = 18; @symbol_constdef = [dithering,181,18,27]; @symbol_type<0> = [String,181,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 182; @position = 18; @symbol_constdef = [automaticPalette,182,18,34]; @symbol_type<0> = [Boolean,182,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 185; @symbol_moduledef = [system_loc__hint_action_menu,185,15,43]; ]
+        module system_loc__hint_action_menu {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 185; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 186; @position = 18; @symbol_constdef = [x,186,18,19]; @symbol_type<0> = [Number,186,23,29]; ]
+            const x as Number = 166;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 187; @position = 18; @symbol_constdef = [y,187,18,19]; @symbol_type<0> = [Number,187,23,29]; ]
+            const y as Number = 31;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 188; @position = 18; @symbol_constdef = [horizontalJustification,188,18,41]; @symbol_type<0> = [String,188,45,51]; ]
+            const horizontalJustification as String = "center";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 189; @position = 18; @symbol_constdef = [verticalJustification,189,18,39]; @symbol_type<0> = [String,189,43,49]; ]
+            const verticalJustification as String = "center";
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 192; @symbol_moduledef = [confirmation_icon__hint_confirm,192,15,46]; ]
+        module confirmation_icon__hint_confirm {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 192; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 193; @position = 18; @symbol_constdef = [filename,193,18,26]; @symbol_type<0> = [String,193,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_completion.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 194; @position = 18; @symbol_constdef = [disableTransparency,194,18,37]; @symbol_type<0> = [Boolean,194,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 195; @position = 18; @symbol_constdef = [dithering,195,18,27]; @symbol_type<0> = [String,195,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 196; @position = 18; @symbol_constdef = [automaticPalette,196,18,34]; @symbol_type<0> = [Boolean,196,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 199; @symbol_moduledef = [system_loc__hint_button_left_middle,199,15,50]; ]
+        module system_loc__hint_button_left_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 199; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 200; @position = 18; @symbol_constdef = [exclude,200,18,25]; @symbol_type<0> = [Boolean,200,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 203; @symbol_moduledef = [prompt_size__body_no_title,203,15,41]; ]
+        module prompt_size__body_no_title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 203; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 204; @position = 18; @symbol_constdef = [width,204,18,23]; @symbol_type<0> = [Number,204,27,33]; ]
+            const width as Number = 166;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 205; @position = 18; @symbol_constdef = [height,205,18,24]; @symbol_type<0> = [Number,205,28,34]; ]
+            const height as Number = 99;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 208; @symbol_moduledef = [system_icon_light__hint_button_left_top,208,15,54]; ]
+        module system_icon_light__hint_button_left_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 208; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 209; @position = 18; @symbol_constdef = [exclude,209,18,25]; @symbol_type<0> = [Boolean,209,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 212; @symbol_moduledef = [prompt_color_light__background,212,15,45]; ]
+        module prompt_color_light__background {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 212; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 213; @position = 18; @symbol_constdef = [background,213,18,28]; @symbol_type<0> = [Number,213,32,38]; ]
+            const background as Number = 0xFFFFFF;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 216; @symbol_moduledef = [confirmation_input__delete,216,15,41]; ]
+        module confirmation_input__delete {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 216; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 217 18 ]
+                symbol [ WatchUi %tmp.69 217 27 34 ];
+                %tmp.69 = getm $.Toybox.WatchUi;
+                symbol [ KEY_ENTER %tmp.70 217 35 44 ];
+                %tmp.70 = getv %tmp.69 :KEY_ENTER;
+                putv self :button %tmp.70;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 217; @position = 18; @symbol_constdef = [button,217,18,24]; ]
+            const button;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 220; @symbol_moduledef = [system_icon_dark__hint_button_left_top,220,15,53]; ]
+        module system_icon_dark__hint_button_left_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 220; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 221; @position = 18; @symbol_constdef = [exclude,221,18,25]; @symbol_type<0> = [Boolean,221,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 224; @symbol_moduledef = [system_input__action_menu,224,15,40]; ]
+        module system_input__action_menu {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 224; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 225 18 ]
+                symbol [ WatchUi %tmp.71 225 27 34 ];
+                %tmp.71 = getm $.Toybox.WatchUi;
+                symbol [ KEY_ENTER %tmp.72 225 35 44 ];
+                %tmp.72 = getv %tmp.71 :KEY_ENTER;
+                putv self :button %tmp.72;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 225; @position = 18; @symbol_constdef = [button,225,18,24]; ]
+            const button;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 228; @symbol_moduledef = [system_icon_light__save,228,15,38]; ]
+        module system_icon_light__save {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 228; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 229; @position = 18; @symbol_constdef = [filename,229,18,26]; @symbol_type<0> = [String,229,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__save.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 230; @position = 18; @symbol_constdef = [disableTransparency,230,18,37]; @symbol_type<0> = [Boolean,230,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 231; @position = 18; @symbol_constdef = [dithering,231,18,27]; @symbol_type<0> = [String,231,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 232; @position = 18; @symbol_constdef = [automaticPalette,232,18,34]; @symbol_type<0> = [Boolean,232,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 235; @symbol_moduledef = [prompt_color_light__body,235,15,39]; ]
+        module prompt_color_light__body {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 235; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 237 18 ]
+                symbol [ Graphics %tmp.73 237 31 39 ];
+                %tmp.73 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.74 237 40 57 ];
+                %tmp.74 = getv %tmp.73 :COLOR_TRANSPARENT;
+                putv self :background %tmp.74;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 236; @position = 18; @symbol_constdef = [color,236,18,23]; @symbol_type<0> = [Number,236,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 237; @position = 18; @symbol_constdef = [background,237,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 240; @symbol_moduledef = [system_loc__subwindow,240,15,36]; ]
+        module system_loc__subwindow {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 240; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 241; @position = 18; @symbol_constdef = [x,241,18,19]; @symbol_type<0> = [Number,241,23,29]; ]
+            const x as Number = 116;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 242; @position = 18; @symbol_constdef = [y,242,18,19]; @symbol_type<0> = [Number,242,23,29]; ]
+            const y as Number = 0;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 245; @symbol_moduledef = [system_icon_light__warning,245,15,41]; ]
+        module system_icon_light__warning {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 245; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 246; @position = 18; @symbol_constdef = [filename,246,18,26]; @symbol_type<0> = [String,246,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__warning.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 247; @position = 18; @symbol_constdef = [disableTransparency,247,18,37]; @symbol_type<0> = [Boolean,247,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 248; @position = 18; @symbol_constdef = [dithering,248,18,27]; @symbol_type<0> = [String,248,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 249; @position = 18; @symbol_constdef = [automaticPalette,249,18,34]; @symbol_type<0> = [Boolean,249,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 252; @symbol_moduledef = [confirmation_color_light__body,252,15,45]; ]
+        module confirmation_color_light__body {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 252; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 254 18 ]
+                symbol [ Graphics %tmp.75 254 31 39 ];
+                %tmp.75 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.76 254 40 57 ];
+                %tmp.76 = getv %tmp.75 :COLOR_TRANSPARENT;
+                putv self :background %tmp.76;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 253; @position = 18; @symbol_constdef = [color,253,18,23]; @symbol_type<0> = [Number,253,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 254; @position = 18; @symbol_constdef = [background,254,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 257; @symbol_moduledef = [confirmation_icon_light__hint_keep,257,15,49]; ]
+        module confirmation_icon_light__hint_keep {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 257; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 258; @position = 18; @symbol_constdef = [filename,258,18,26]; @symbol_type<0> = [String,258,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_keep.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 259; @position = 18; @symbol_constdef = [disableTransparency,259,18,37]; @symbol_type<0> = [Boolean,259,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 260; @position = 18; @symbol_constdef = [dithering,260,18,27]; @symbol_type<0> = [String,260,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 261; @position = 18; @symbol_constdef = [automaticPalette,261,18,34]; @symbol_type<0> = [Boolean,261,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 264; @symbol_moduledef = [activity_color_light__background,264,15,47]; ]
+        module activity_color_light__background {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 264; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 265; @position = 18; @symbol_constdef = [color,265,18,23]; @symbol_type<0> = [Number,265,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 266; @position = 18; @symbol_constdef = [background,266,18,28]; @symbol_type<0> = [Number,266,32,38]; ]
+            const background as Number = 0xFFFFFF;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 269; @symbol_moduledef = [system_icon_positive__hint_button_right_top,269,15,58]; ]
+        module system_icon_positive__hint_button_right_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 269; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 270; @position = 18; @symbol_constdef = [filename,270,18,26]; @symbol_type<0> = [String,270,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_positive__hint_button_right_top.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 271; @position = 18; @symbol_constdef = [disableTransparency,271,18,37]; @symbol_type<0> = [Boolean,271,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 272; @position = 18; @symbol_constdef = [dithering,272,18,27]; @symbol_type<0> = [String,272,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 273; @position = 18; @symbol_constdef = [automaticPalette,273,18,34]; @symbol_type<0> = [Boolean,273,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 276; @symbol_moduledef = [system_size__screen,276,15,34]; ]
+        module system_size__screen {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 276; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 277; @position = 18; @symbol_constdef = [width,277,18,23]; @symbol_type<0> = [Number,277,27,33]; ]
+            const width as Number = 176;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 278; @position = 18; @symbol_constdef = [height,278,18,24]; @symbol_type<0> = [Number,278,28,34]; ]
+            const height as Number = 176;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 281; @symbol_moduledef = [system_icon_destructive__hint_button_right_bottom,281,15,64]; ]
+        module system_icon_destructive__hint_button_right_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 281; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 282; @position = 18; @symbol_constdef = [exclude,282,18,25]; @symbol_type<0> = [Boolean,282,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 285; @symbol_moduledef = [system_color_light__background,285,15,45]; ]
+        module system_color_light__background {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 285; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 286; @position = 18; @symbol_constdef = [color,286,18,23]; @symbol_type<0> = [Number,286,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 287; @position = 18; @symbol_constdef = [background,287,18,28]; @symbol_type<0> = [Number,287,32,38]; ]
+            const background as Number = 0xFFFFFF;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 290; @symbol_moduledef = [system_icon_destructive__hint_button_right_top,290,15,61]; ]
+        module system_icon_destructive__hint_button_right_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 290; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 291; @position = 18; @symbol_constdef = [filename,291,18,26]; @symbol_type<0> = [String,291,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_destructive__hint_button_right_top.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 292; @position = 18; @symbol_constdef = [disableTransparency,292,18,37]; @symbol_type<0> = [Boolean,292,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 293; @position = 18; @symbol_constdef = [dithering,293,18,27]; @symbol_type<0> = [String,293,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 294; @position = 18; @symbol_constdef = [automaticPalette,294,18,34]; @symbol_type<0> = [Boolean,294,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 297; @symbol_moduledef = [confirmation_loc__hint_confirm,297,15,45]; ]
+        module confirmation_loc__hint_confirm {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 297; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 298; @position = 18; @symbol_constdef = [x,298,18,19]; @symbol_type<0> = [Number,298,23,29]; ]
+            const x as Number = 113;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 299; @position = 18; @symbol_constdef = [y,299,18,19]; @symbol_type<0> = [Number,299,23,29]; ]
+            const y as Number = 1;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 302; @symbol_moduledef = [activity_color_dark__text,302,15,40]; ]
+        module activity_color_dark__text {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 302; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 304 18 ]
+                symbol [ Graphics %tmp.77 304 31 39 ];
+                %tmp.77 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.78 304 40 57 ];
+                %tmp.78 = getv %tmp.77 :COLOR_TRANSPARENT;
+                putv self :background %tmp.78;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 303; @position = 18; @symbol_constdef = [color,303,18,23]; @symbol_type<0> = [Number,303,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 304; @position = 18; @symbol_constdef = [background,304,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 307; @symbol_moduledef = [confirmation_input__keep,307,15,39]; ]
+        module confirmation_input__keep {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 307; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 308 18 ]
+                symbol [ WatchUi %tmp.79 308 27 34 ];
+                %tmp.79 = getm $.Toybox.WatchUi;
+                symbol [ KEY_DOWN %tmp.80 308 35 43 ];
+                %tmp.80 = getv %tmp.79 :KEY_DOWN;
+                putv self :button %tmp.80;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 308; @position = 18; @symbol_constdef = [button,308,18,24]; ]
+            const button;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 311; @symbol_moduledef = [prompt_loc__body_with_title,311,15,42]; ]
+        module prompt_loc__body_with_title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 311; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 312; @position = 18; @symbol_constdef = [x,312,18,19]; @symbol_type<0> = [Number,312,23,29]; ]
+            const x as Number = 5;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 313; @position = 18; @symbol_constdef = [y,313,18,19]; @symbol_type<0> = [Number,313,23,29]; ]
+            const y as Number = 77;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 316; @symbol_moduledef = [system_icon_dark__search,316,15,39]; ]
+        module system_icon_dark__search {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 316; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 317; @position = 18; @symbol_constdef = [filename,317,18,26]; @symbol_type<0> = [String,317,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__search.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 318; @position = 18; @symbol_constdef = [disableTransparency,318,18,37]; @symbol_type<0> = [Boolean,318,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 319; @position = 18; @symbol_constdef = [dithering,319,18,27]; @symbol_type<0> = [String,319,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 320; @position = 18; @symbol_constdef = [automaticPalette,320,18,34]; @symbol_type<0> = [Boolean,320,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 323; @symbol_moduledef = [activity_color_light__text,323,15,41]; ]
+        module activity_color_light__text {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 323; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 325 18 ]
+                symbol [ Graphics %tmp.81 325 31 39 ];
+                %tmp.81 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.82 325 40 57 ];
+                %tmp.82 = getv %tmp.81 :COLOR_TRANSPARENT;
+                putv self :background %tmp.82;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 324; @position = 18; @symbol_constdef = [color,324,18,23]; @symbol_type<0> = [Number,324,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 325; @position = 18; @symbol_constdef = [background,325,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 328; @symbol_moduledef = [confirmation_icon__hint_keep,328,15,43]; ]
+        module confirmation_icon__hint_keep {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 328; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 329; @position = 18; @symbol_constdef = [filename,329,18,26]; @symbol_type<0> = [String,329,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_keep.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 330; @position = 18; @symbol_constdef = [disableTransparency,330,18,37]; @symbol_type<0> = [Boolean,330,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 331; @position = 18; @symbol_constdef = [dithering,331,18,27]; @symbol_type<0> = [String,331,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 332; @position = 18; @symbol_constdef = [automaticPalette,332,18,34]; @symbol_type<0> = [Boolean,332,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 335; @symbol_moduledef = [system_icon_dark__save,335,15,37]; ]
+        module system_icon_dark__save {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 335; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 336; @position = 18; @symbol_constdef = [filename,336,18,26]; @symbol_type<0> = [String,336,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__save.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 337; @position = 18; @symbol_constdef = [disableTransparency,337,18,37]; @symbol_type<0> = [Boolean,337,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 338; @position = 18; @symbol_constdef = [dithering,338,18,27]; @symbol_type<0> = [String,338,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 339; @position = 18; @symbol_constdef = [automaticPalette,339,18,34]; @symbol_type<0> = [Boolean,339,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 342; @symbol_moduledef = [system_icon_destructive__hint_button_left_middle,342,15,63]; ]
+        module system_icon_destructive__hint_button_left_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 342; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 343; @position = 18; @symbol_constdef = [exclude,343,18,25]; @symbol_type<0> = [Boolean,343,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 346; @symbol_moduledef = [system_icon_light__search,346,15,40]; ]
+        module system_icon_light__search {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 346; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 347; @position = 18; @symbol_constdef = [filename,347,18,26]; @symbol_type<0> = [String,347,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__search.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 348; @position = 18; @symbol_constdef = [disableTransparency,348,18,37]; @symbol_type<0> = [Boolean,348,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 349; @position = 18; @symbol_constdef = [dithering,349,18,27]; @symbol_type<0> = [String,349,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 350; @position = 18; @symbol_constdef = [automaticPalette,350,18,34]; @symbol_type<0> = [Boolean,350,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 353; @symbol_moduledef = [system_icon_dark__hint_button_left_bottom,353,15,56]; ]
+        module system_icon_dark__hint_button_left_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 353; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 354; @position = 18; @symbol_constdef = [exclude,354,18,25]; @symbol_type<0> = [Boolean,354,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 357; @symbol_moduledef = [system_icon_positive__hint_button_left_top,357,15,57]; ]
+        module system_icon_positive__hint_button_left_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 357; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 358; @position = 18; @symbol_constdef = [exclude,358,18,25]; @symbol_type<0> = [Boolean,358,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 361; @symbol_moduledef = [system_loc__hint_button_right_bottom,361,15,51]; ]
+        module system_loc__hint_button_right_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 361; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 362; @position = 18; @symbol_constdef = [exclude,362,18,25]; @symbol_type<0> = [Boolean,362,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 365; @symbol_moduledef = [confirmation_icon_dark__hint_reject,365,15,50]; ]
+        module confirmation_icon_dark__hint_reject {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 365; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 366; @position = 18; @symbol_constdef = [filename,366,18,26]; @symbol_type<0> = [String,366,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_reject.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 367; @position = 18; @symbol_constdef = [disableTransparency,367,18,37]; @symbol_type<0> = [Boolean,367,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 368; @position = 18; @symbol_constdef = [dithering,368,18,27]; @symbol_type<0> = [String,368,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 369; @position = 18; @symbol_constdef = [automaticPalette,369,18,34]; @symbol_type<0> = [Boolean,369,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 372; @symbol_moduledef = [confirmation_color_dark__body,372,15,44]; ]
+        module confirmation_color_dark__body {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 372; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 374 18 ]
+                symbol [ Graphics %tmp.83 374 31 39 ];
+                %tmp.83 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.84 374 40 57 ];
+                %tmp.84 = getv %tmp.83 :COLOR_TRANSPARENT;
+                putv self :background %tmp.84;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 373; @position = 18; @symbol_constdef = [color,373,18,23]; @symbol_type<0> = [Number,373,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 374; @position = 18; @symbol_constdef = [background,374,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 377; @symbol_moduledef = [confirmation_icon_light__hint_confirm,377,15,52]; ]
+        module confirmation_icon_light__hint_confirm {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 377; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 378; @position = 18; @symbol_constdef = [filename,378,18,26]; @symbol_type<0> = [String,378,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_completion.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 379; @position = 18; @symbol_constdef = [disableTransparency,379,18,37]; @symbol_type<0> = [Boolean,379,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 380; @position = 18; @symbol_constdef = [dithering,380,18,27]; @symbol_type<0> = [String,380,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 381; @position = 18; @symbol_constdef = [automaticPalette,381,18,34]; @symbol_type<0> = [Boolean,381,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 384; @symbol_moduledef = [prompt_color_dark__title,384,15,39]; ]
+        module prompt_color_dark__title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 384; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 386 18 ]
+                symbol [ Graphics %tmp.85 386 31 39 ];
+                %tmp.85 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.86 386 40 57 ];
+                %tmp.86 = getv %tmp.85 :COLOR_TRANSPARENT;
+                putv self :background %tmp.86;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 385; @position = 18; @symbol_constdef = [color,385,18,23]; @symbol_type<0> = [Number,385,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 386; @position = 18; @symbol_constdef = [background,386,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 389; @symbol_moduledef = [system_icon_destructive__cancel,389,15,46]; ]
+        module system_icon_destructive__cancel {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 389; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 390; @position = 18; @symbol_constdef = [filename,390,18,26]; @symbol_type<0> = [String,390,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__cancel.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 391; @position = 18; @symbol_constdef = [disableTransparency,391,18,37]; @symbol_type<0> = [Boolean,391,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 392; @position = 18; @symbol_constdef = [dithering,392,18,27]; @symbol_type<0> = [String,392,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 393; @position = 18; @symbol_constdef = [automaticPalette,393,18,34]; @symbol_type<0> = [Boolean,393,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 396; @symbol_moduledef = [system_icon_light__hint_button_right_bottom,396,15,58]; ]
+        module system_icon_light__hint_button_right_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 396; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 397; @position = 18; @symbol_constdef = [exclude,397,18,25]; @symbol_type<0> = [Boolean,397,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 400; @symbol_moduledef = [prompt_loc__title,400,15,32]; ]
+        module prompt_loc__title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 400; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 401; @position = 18; @symbol_constdef = [x,401,18,19]; @symbol_type<0> = [Number,401,23,29]; ]
+            const x as Number = 25;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 402; @position = 18; @symbol_constdef = [y,402,18,19]; @symbol_type<0> = [Number,402,23,29]; ]
+            const y as Number = 9;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 405; @symbol_moduledef = [confirmation_font_enhanced_readability__body,405,15,59]; ]
+        module confirmation_font_enhanced_readability__body {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 405; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 406; @position = 18; @symbol_constdef = [exclude,406,18,25]; @symbol_type<0> = [Boolean,406,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 409; @symbol_moduledef = [prompt_color_light__title,409,15,40]; ]
+        module prompt_color_light__title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 409; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 411 18 ]
+                symbol [ Graphics %tmp.87 411 31 39 ];
+                %tmp.87 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.88 411 40 57 ];
+                %tmp.88 = getv %tmp.87 :COLOR_TRANSPARENT;
+                putv self :background %tmp.88;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 410; @position = 18; @symbol_constdef = [color,410,18,23]; @symbol_type<0> = [Number,410,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 411; @position = 18; @symbol_constdef = [background,411,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 414; @symbol_moduledef = [system_icon_dark__hint_button_right_top,414,15,54]; ]
+        module system_icon_dark__hint_button_right_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 414; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 415; @position = 18; @symbol_constdef = [filename,415,18,26]; @symbol_type<0> = [String,415,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__hint_button_right_top.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 416; @position = 18; @symbol_constdef = [disableTransparency,416,18,37]; @symbol_type<0> = [Boolean,416,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 417; @position = 18; @symbol_constdef = [dithering,417,18,27]; @symbol_type<0> = [String,417,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 418; @position = 18; @symbol_constdef = [automaticPalette,418,18,34]; @symbol_type<0> = [Boolean,418,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 421; @symbol_moduledef = [system_icon_dark__hint_button_left_middle,421,15,56]; ]
+        module system_icon_dark__hint_button_left_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 421; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 422; @position = 18; @symbol_constdef = [exclude,422,18,25]; @symbol_type<0> = [Boolean,422,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 425; @symbol_moduledef = [confirmation_icon_dark__hint_keep,425,15,48]; ]
+        module confirmation_icon_dark__hint_keep {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 425; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 426; @position = 18; @symbol_constdef = [filename,426,18,26]; @symbol_type<0> = [String,426,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_keep.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 427; @position = 18; @symbol_constdef = [disableTransparency,427,18,37]; @symbol_type<0> = [Boolean,427,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 428; @position = 18; @symbol_constdef = [dithering,428,18,27]; @symbol_type<0> = [String,428,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 429; @position = 18; @symbol_constdef = [automaticPalette,429,18,34]; @symbol_type<0> = [Boolean,429,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 432; @symbol_moduledef = [system_icon_light__cancel,432,15,40]; ]
+        module system_icon_light__cancel {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 432; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 433; @position = 18; @symbol_constdef = [filename,433,18,26]; @symbol_type<0> = [String,433,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__cancel.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 434; @position = 18; @symbol_constdef = [disableTransparency,434,18,37]; @symbol_type<0> = [Boolean,434,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 435; @position = 18; @symbol_constdef = [dithering,435,18,27]; @symbol_type<0> = [String,435,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 436; @position = 18; @symbol_constdef = [automaticPalette,436,18,34]; @symbol_type<0> = [Boolean,436,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 439; @symbol_moduledef = [confirmation_icon_light__hint_reject,439,15,51]; ]
+        module confirmation_icon_light__hint_reject {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 439; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 440; @position = 18; @symbol_constdef = [filename,440,18,26]; @symbol_type<0> = [String,440,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_reject.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 441; @position = 18; @symbol_constdef = [disableTransparency,441,18,37]; @symbol_type<0> = [Boolean,441,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 442; @position = 18; @symbol_constdef = [dithering,442,18,27]; @symbol_type<0> = [String,442,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 443; @position = 18; @symbol_constdef = [automaticPalette,443,18,34]; @symbol_type<0> = [Boolean,443,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 446; @symbol_moduledef = [system_icon_light__about,446,15,39]; ]
+        module system_icon_light__about {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 446; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 447; @position = 18; @symbol_constdef = [filename,447,18,26]; @symbol_type<0> = [String,447,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__about.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 448; @position = 18; @symbol_constdef = [disableTransparency,448,18,37]; @symbol_type<0> = [Boolean,448,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 449; @position = 18; @symbol_constdef = [dithering,449,18,27]; @symbol_type<0> = [String,449,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 450; @position = 18; @symbol_constdef = [automaticPalette,450,18,34]; @symbol_type<0> = [Boolean,450,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 453; @symbol_moduledef = [system_size__toast_icon,453,15,38]; ]
+        module system_size__toast_icon {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 453; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 454; @position = 18; @symbol_constdef = [width,454,18,23]; @symbol_type<0> = [Number,454,27,33]; ]
+            const width as Number = 40;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 455; @position = 18; @symbol_constdef = [scaleRelativeTo,455,18,33]; @symbol_type<0> = [String,455,37,43]; ]
+            const scaleRelativeTo as String = "screen";
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 458; @symbol_moduledef = [system_icon_dark__hint_button_right_middle,458,15,57]; ]
+        module system_icon_dark__hint_button_right_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 458; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 459; @position = 18; @symbol_constdef = [exclude,459,18,25]; @symbol_type<0> = [Boolean,459,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 462; @symbol_moduledef = [confirmation_icon__hint_reject,462,15,45]; ]
+        module confirmation_icon__hint_reject {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 462; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 463; @position = 18; @symbol_constdef = [filename,463,18,26]; @symbol_type<0> = [String,463,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_reject.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 464; @position = 18; @symbol_constdef = [disableTransparency,464,18,37]; @symbol_type<0> = [Boolean,464,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 465; @position = 18; @symbol_constdef = [dithering,465,18,27]; @symbol_type<0> = [String,465,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 466; @position = 18; @symbol_constdef = [automaticPalette,466,18,34]; @symbol_type<0> = [Boolean,466,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 469; @symbol_moduledef = [system_icon_light__hint_action_menu,469,15,50]; ]
+        module system_icon_light__hint_action_menu {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 469; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 470; @position = 18; @symbol_constdef = [filename,470,18,26]; @symbol_type<0> = [String,470,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__hint_button_right_top.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 471; @position = 18; @symbol_constdef = [disableTransparency,471,18,37]; @symbol_type<0> = [Boolean,471,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 472; @position = 18; @symbol_constdef = [dithering,472,18,27]; @symbol_type<0> = [String,472,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 473; @position = 18; @symbol_constdef = [automaticPalette,473,18,34]; @symbol_type<0> = [Boolean,473,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 476; @symbol_moduledef = [system_icon_light__hint_button_right_middle,476,15,58]; ]
+        module system_icon_light__hint_button_right_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 476; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 477; @position = 18; @symbol_constdef = [exclude,477,18,25]; @symbol_type<0> = [Boolean,477,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 480; @symbol_moduledef = [system_icon_destructive__hint_button_right_middle,480,15,64]; ]
+        module system_icon_destructive__hint_button_right_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 480; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 481; @position = 18; @symbol_constdef = [exclude,481,18,25]; @symbol_type<0> = [Boolean,481,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 484; @symbol_moduledef = [confirmation_loc__hint_reject,484,15,44]; ]
+        module confirmation_loc__hint_reject {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 484; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 485; @position = 18; @symbol_constdef = [x,485,18,19]; @symbol_type<0> = [Number,485,23,29]; ]
+            const x as Number = 0;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 486; @position = 18; @symbol_constdef = [y,486,18,19]; @symbol_type<0> = [Number,486,23,29]; ]
+            const y as Number = 138;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 489; @symbol_moduledef = [confirmation_icon_dark__hint_delete,489,15,50]; ]
+        module confirmation_icon_dark__hint_delete {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 489; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 490; @position = 18; @symbol_constdef = [filename,490,18,26]; @symbol_type<0> = [String,490,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_delete.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 491; @position = 18; @symbol_constdef = [disableTransparency,491,18,37]; @symbol_type<0> = [Boolean,491,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 492; @position = 18; @symbol_constdef = [dithering,492,18,27]; @symbol_type<0> = [String,492,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 493; @position = 18; @symbol_constdef = [automaticPalette,493,18,34]; @symbol_type<0> = [Boolean,493,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 496; @symbol_moduledef = [activity_color_dark__background,496,15,46]; ]
+        module activity_color_dark__background {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 496; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 497; @position = 18; @symbol_constdef = [color,497,18,23]; @symbol_type<0> = [Number,497,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 498; @position = 18; @symbol_constdef = [background,498,18,28]; @symbol_type<0> = [Number,498,32,38]; ]
+            const background as Number = 0xFFFFFF;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 501; @symbol_moduledef = [system_icon_light__hint_button_left_bottom,501,15,57]; ]
+        module system_icon_light__hint_button_left_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 501; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 502; @position = 18; @symbol_constdef = [exclude,502,18,25]; @symbol_type<0> = [Boolean,502,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 505; @symbol_moduledef = [system_icon_positive__hint_button_left_middle,505,15,60]; ]
+        module system_icon_positive__hint_button_left_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 505; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 506; @position = 18; @symbol_constdef = [exclude,506,18,25]; @symbol_type<0> = [Boolean,506,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 509; @symbol_moduledef = [system_size__menu_icon,509,15,37]; ]
+        module system_size__menu_icon {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 509; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 510; @position = 18; @symbol_constdef = [scaleX,510,18,24]; @symbol_type<0> = [Number,510,28,34]; ]
+            const scaleX as Number = 38;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 511; @position = 18; @symbol_constdef = [scaleY,511,18,24]; @symbol_type<0> = [Number,511,28,34]; ]
+            const scaleY as Number = 38;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 512; @position = 18; @symbol_constdef = [scaleRelativeTo,512,18,33]; @symbol_type<0> = [String,512,37,43]; ]
+            const scaleRelativeTo as String = "screen";
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 515; @symbol_moduledef = [system_icon_destructive__warning,515,15,47]; ]
+        module system_icon_destructive__warning {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 515; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 516; @position = 18; @symbol_constdef = [filename,516,18,26]; @symbol_type<0> = [String,516,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__warning.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 517; @position = 18; @symbol_constdef = [disableTransparency,517,18,37]; @symbol_type<0> = [Boolean,517,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 518; @position = 18; @symbol_constdef = [dithering,518,18,27]; @symbol_type<0> = [String,518,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 519; @position = 18; @symbol_constdef = [automaticPalette,519,18,34]; @symbol_type<0> = [Boolean,519,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 522; @symbol_moduledef = [system_loc__hint_button_right_middle,522,15,51]; ]
+        module system_loc__hint_button_right_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 522; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 523; @position = 18; @symbol_constdef = [exclude,523,18,25]; @symbol_type<0> = [Boolean,523,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 526; @symbol_moduledef = [system_icon_dark__cancel,526,15,39]; ]
+        module system_icon_dark__cancel {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 526; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 527; @position = 18; @symbol_constdef = [filename,527,18,26]; @symbol_type<0> = [String,527,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__cancel.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 528; @position = 18; @symbol_constdef = [disableTransparency,528,18,37]; @symbol_type<0> = [Boolean,528,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 529; @position = 18; @symbol_constdef = [dithering,529,18,27]; @symbol_type<0> = [String,529,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 530; @position = 18; @symbol_constdef = [automaticPalette,530,18,34]; @symbol_type<0> = [Boolean,530,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 533; @symbol_moduledef = [prompt_size__body_with_title,533,15,43]; ]
+        module prompt_size__body_with_title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 533; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 534; @position = 18; @symbol_constdef = [width,534,18,23]; @symbol_type<0> = [Number,534,27,33]; ]
+            const width as Number = 166;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 535; @position = 18; @symbol_constdef = [height,535,18,24]; @symbol_type<0> = [Number,535,28,34]; ]
+            const height as Number = 99;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 538; @symbol_moduledef = [system_loc__hint_button_right_top,538,15,48]; ]
+        module system_loc__hint_button_right_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 538; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 539; @position = 18; @symbol_constdef = [x,539,18,19]; @symbol_type<0> = [Number,539,23,29]; ]
+            const x as Number = 166;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 540; @position = 18; @symbol_constdef = [y,540,18,19]; @symbol_type<0> = [Number,540,23,29]; ]
+            const y as Number = 31;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 541; @position = 18; @symbol_constdef = [horizontalJustification,541,18,41]; @symbol_type<0> = [String,541,45,51]; ]
+            const horizontalJustification as String = "center";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 542; @position = 18; @symbol_constdef = [verticalJustification,542,18,39]; @symbol_type<0> = [String,542,43,49]; ]
+            const verticalJustification as String = "center";
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 545; @symbol_moduledef = [system_color_light__text,545,15,39]; ]
+        module system_color_light__text {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 545; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 547 18 ]
+                symbol [ Graphics %tmp.89 547 31 39 ];
+                %tmp.89 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.90 547 40 57 ];
+                %tmp.90 = getv %tmp.89 :COLOR_TRANSPARENT;
+                putv self :background %tmp.90;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 546; @position = 18; @symbol_constdef = [color,546,18,23]; @symbol_type<0> = [Number,546,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 547; @position = 18; @symbol_constdef = [background,547,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 550; @symbol_moduledef = [system_icon_light__check,550,15,39]; ]
+        module system_icon_light__check {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 550; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 551; @position = 18; @symbol_constdef = [filename,551,18,26]; @symbol_type<0> = [String,551,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__check.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 552; @position = 18; @symbol_constdef = [disableTransparency,552,18,37]; @symbol_type<0> = [Boolean,552,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 553; @position = 18; @symbol_constdef = [dithering,553,18,27]; @symbol_type<0> = [String,553,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 554; @position = 18; @symbol_constdef = [automaticPalette,554,18,34]; @symbol_type<0> = [Boolean,554,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 557; @symbol_moduledef = [confirmation_input__reject,557,15,41]; ]
+        module confirmation_input__reject {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 557; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 558 18 ]
+                symbol [ WatchUi %tmp.91 558 27 34 ];
+                %tmp.91 = getm $.Toybox.WatchUi;
+                symbol [ KEY_DOWN %tmp.92 558 35 43 ];
+                %tmp.92 = getv %tmp.91 :KEY_DOWN;
+                putv self :button %tmp.92;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 558; @position = 18; @symbol_constdef = [button,558,18,24]; ]
+            const button;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 561; @symbol_moduledef = [system_icon_light__revert,561,15,40]; ]
+        module system_icon_light__revert {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 561; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 562; @position = 18; @symbol_constdef = [filename,562,18,26]; @symbol_type<0> = [String,562,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__revert.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 563; @position = 18; @symbol_constdef = [disableTransparency,563,18,37]; @symbol_type<0> = [Boolean,563,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 564; @position = 18; @symbol_constdef = [dithering,564,18,27]; @symbol_type<0> = [String,564,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 565; @position = 18; @symbol_constdef = [automaticPalette,565,18,34]; @symbol_type<0> = [Boolean,565,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 568; @symbol_moduledef = [system_size__subwindow,568,15,37]; ]
+        module system_size__subwindow {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 568; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 569; @position = 18; @symbol_constdef = [width,569,18,23]; @symbol_type<0> = [Number,569,27,33]; ]
+            const width as Number = 62;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 570; @position = 18; @symbol_constdef = [height,570,18,24]; @symbol_type<0> = [Number,570,28,34]; ]
+            const height as Number = 62;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 573; @symbol_moduledef = [system_icon_positive__hint_button_left_bottom,573,15,60]; ]
+        module system_icon_positive__hint_button_left_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 573; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 574; @position = 18; @symbol_constdef = [exclude,574,18,25]; @symbol_type<0> = [Boolean,574,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 577; @symbol_moduledef = [system_icon_dark__check,577,15,38]; ]
+        module system_icon_dark__check {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 577; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 578; @position = 18; @symbol_constdef = [filename,578,18,26]; @symbol_type<0> = [String,578,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__check.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 579; @position = 18; @symbol_constdef = [disableTransparency,579,18,37]; @symbol_type<0> = [Boolean,579,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 580; @position = 18; @symbol_constdef = [dithering,580,18,27]; @symbol_type<0> = [String,580,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 581; @position = 18; @symbol_constdef = [automaticPalette,581,18,34]; @symbol_type<0> = [Boolean,581,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 584; @symbol_moduledef = [confirmation_loc__hint_keep,584,15,42]; ]
+        module confirmation_loc__hint_keep {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 584; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 585; @position = 18; @symbol_constdef = [x,585,18,19]; @symbol_type<0> = [Number,585,23,29]; ]
+            const x as Number = 0;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 586; @position = 18; @symbol_constdef = [y,586,18,19]; @symbol_type<0> = [Number,586,23,29]; ]
+            const y as Number = 138;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 589; @symbol_moduledef = [confirmation_loc__hint_delete,589,15,44]; ]
+        module confirmation_loc__hint_delete {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 589; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 590; @position = 18; @symbol_constdef = [verticallJustification,590,18,40]; @symbol_type<0> = [String,590,44,50]; ]
+            const verticallJustification as String = "center";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 591; @position = 18; @symbol_constdef = [x,591,18,19]; @symbol_type<0> = [Number,591,23,29]; ]
+            const x as Number = 146;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 592; @position = 18; @symbol_constdef = [y,592,18,19]; @symbol_type<0> = [Number,592,23,29]; ]
+            const y as Number = 15;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 593; @position = 18; @symbol_constdef = [horizontalJustification,593,18,41]; @symbol_type<0> = [String,593,45,51]; ]
+            const horizontalJustification as String = "center";
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 596; @symbol_moduledef = [system_icon_positive__hint_action_menu,596,15,53]; ]
+        module system_icon_positive__hint_action_menu {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 596; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 597; @position = 18; @symbol_constdef = [filename,597,18,26]; @symbol_type<0> = [String,597,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_positive__hint_button_right_top.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 598; @position = 18; @symbol_constdef = [disableTransparency,598,18,37]; @symbol_type<0> = [Boolean,598,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 599; @position = 18; @symbol_constdef = [dithering,599,18,27]; @symbol_type<0> = [String,599,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 600; @position = 18; @symbol_constdef = [automaticPalette,600,18,34]; @symbol_type<0> = [Boolean,600,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 603; @symbol_moduledef = [system_icon_positive__hint_button_right_middle,603,15,61]; ]
+        module system_icon_positive__hint_button_right_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 603; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 604; @position = 18; @symbol_constdef = [exclude,604,18,25]; @symbol_type<0> = [Boolean,604,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 607; @symbol_moduledef = [system_icon_light__hint_button_left_middle,607,15,57]; ]
+        module system_icon_light__hint_button_left_middle {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 607; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 608; @position = 18; @symbol_constdef = [exclude,608,18,25]; @symbol_type<0> = [Boolean,608,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 611; @symbol_moduledef = [system_icon_dark__hint_button_right_bottom,611,15,57]; ]
+        module system_icon_dark__hint_button_right_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 611; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 612; @position = 18; @symbol_constdef = [exclude,612,18,25]; @symbol_type<0> = [Boolean,612,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 615; @symbol_moduledef = [system_icon_positive__hint_button_right_bottom,615,15,61]; ]
+        module system_icon_positive__hint_button_right_bottom {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 615; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 616; @position = 18; @symbol_constdef = [exclude,616,18,25]; @symbol_type<0> = [Boolean,616,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 619; @symbol_moduledef = [system_icon_dark__revert,619,15,39]; ]
+        module system_icon_dark__revert {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 619; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 620; @position = 18; @symbol_constdef = [filename,620,18,26]; @symbol_type<0> = [String,620,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__revert.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 621; @position = 18; @symbol_constdef = [disableTransparency,621,18,37]; @symbol_type<0> = [Boolean,621,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 622; @position = 18; @symbol_constdef = [dithering,622,18,27]; @symbol_type<0> = [String,622,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 623; @position = 18; @symbol_constdef = [automaticPalette,623,18,34]; @symbol_type<0> = [Boolean,623,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 626; @symbol_moduledef = [confirmation_icon_light__hint_delete,626,15,51]; ]
+        module confirmation_icon_light__hint_delete {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 626; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 627; @position = 18; @symbol_constdef = [filename,627,18,26]; @symbol_type<0> = [String,627,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_delete.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 628; @position = 18; @symbol_constdef = [disableTransparency,628,18,37]; @symbol_type<0> = [Boolean,628,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 629; @position = 18; @symbol_constdef = [dithering,629,18,27]; @symbol_type<0> = [String,629,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 630; @position = 18; @symbol_constdef = [automaticPalette,630,18,34]; @symbol_type<0> = [Boolean,630,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 633; @symbol_moduledef = [system_icon_dark__question,633,15,41]; ]
+        module system_icon_dark__question {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 633; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 634; @position = 18; @symbol_constdef = [filename,634,18,26]; @symbol_type<0> = [String,634,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__question.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 635; @position = 18; @symbol_constdef = [disableTransparency,635,18,37]; @symbol_type<0> = [Boolean,635,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 636; @position = 18; @symbol_constdef = [dithering,636,18,27]; @symbol_type<0> = [String,636,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 637; @position = 18; @symbol_constdef = [automaticPalette,637,18,34]; @symbol_type<0> = [Boolean,637,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 640; @symbol_moduledef = [system_icon_light__discard,640,15,41]; ]
+        module system_icon_light__discard {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 640; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 641; @position = 18; @symbol_constdef = [filename,641,18,26]; @symbol_type<0> = [String,641,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__discard.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 642; @position = 18; @symbol_constdef = [disableTransparency,642,18,37]; @symbol_type<0> = [Boolean,642,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 643; @position = 18; @symbol_constdef = [dithering,643,18,27]; @symbol_type<0> = [String,643,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 644; @position = 18; @symbol_constdef = [automaticPalette,644,18,34]; @symbol_type<0> = [Boolean,644,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 647; @symbol_moduledef = [device_info,647,15,26]; ]
+        module device_info {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 647; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 649 18 ]
+                symbol [ Toybox %tmp.94 649 32 38 ];
+                %tmp.94 = getv ? :Toybox;
+                symbol [ System %tmp.95 649 39 45 ];
+                %tmp.95 = getv %tmp.94 :System;
+                symbol [ SCREEN_SHAPE_SEMI_OCTAGON %tmp.96 649 46 71 ];
+                %tmp.96 = getv %tmp.95 :SCREEN_SHAPE_SEMI_OCTAGON;
+                putv self :screenShape %tmp.96;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 648; @position = 18; @symbol_constdef = [screenWidth,648,18,29]; @symbol_type<0> = [Number,648,33,39]; ]
+            const screenWidth as Number = 176;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 649; @position = 18; @symbol_constdef = [screenShape,649,18,29]; ]
+            const screenShape;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 650; @position = 18; @symbol_constdef = [hasNightMode,650,18,30]; @symbol_type<0> = [Boolean,650,34,41]; ]
+            const hasNightMode as Boolean = false;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 651; @position = 18; @symbol_constdef = [hasGpu,651,18,24]; @symbol_type<0> = [Boolean,651,28,35]; ]
+            const hasGpu as Boolean = false;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 652; @position = 18; @symbol_constdef = [screenHeight,652,18,30]; @symbol_type<0> = [Number,652,34,40]; ]
+            const screenHeight as Number = 176;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 653; @position = 18; @symbol_constdef = [hasTouchScreen,653,18,32]; @symbol_type<0> = [Boolean,653,36,43]; ]
+            const hasTouchScreen as Boolean = false;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 654; @position = 18; @symbol_constdef = [hasEnhancedReadabilityMode,654,18,44]; @symbol_type<0> = [Boolean,654,48,55]; ]
+            const hasEnhancedReadabilityMode as Boolean = false;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 657; @symbol_moduledef = [confirmation_icon_dark__hint_confirm,657,15,51]; ]
+        module confirmation_icon_dark__hint_confirm {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 657; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 658; @position = 18; @symbol_constdef = [filename,658,18,26]; @symbol_type<0> = [String,658,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_completion.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 659; @position = 18; @symbol_constdef = [disableTransparency,659,18,37]; @symbol_type<0> = [Boolean,659,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 660; @position = 18; @symbol_constdef = [dithering,660,18,27]; @symbol_type<0> = [String,660,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 661; @position = 18; @symbol_constdef = [automaticPalette,661,18,34]; @symbol_type<0> = [Boolean,661,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 664; @symbol_moduledef = [prompt_font__body_no_title,664,15,41]; ]
+        module prompt_font__body_no_title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 664; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 665 18 ]
+                symbol [ Graphics %tmp.97 665 34 42 ];
+                %tmp.97 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_CENTER %tmp.98 665 43 62 ];
+                %tmp.98 = getv %tmp.97 :TEXT_JUSTIFY_CENTER;
+                putv self :justification %tmp.98;
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 666 18 ]
+                symbol [ Graphics %tmp.99 666 25 33 ];
+                %tmp.99 = getm $.Toybox.Graphics;
+                symbol [ FONT_TINY %tmp.100 666 34 43 ];
+                %tmp.100 = getv %tmp.99 :FONT_TINY;
+                putv self :font %tmp.100;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 665; @position = 18; @symbol_constdef = [justification,665,18,31]; ]
+            const justification;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 666; @position = 18; @symbol_constdef = [font,666,18,22]; ]
+            const font;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 669; @symbol_moduledef = [prompt_size__title_icon,669,15,38]; ]
+        module prompt_size__title_icon {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 669; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 670; @position = 18; @symbol_constdef = [scaleX,670,18,24]; @symbol_type<0> = [Number,670,28,34]; ]
+            const scaleX as Number = 38;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 671; @position = 18; @symbol_constdef = [scaleY,671,18,24]; @symbol_type<0> = [Number,671,28,34]; ]
+            const scaleY as Number = 38;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 672; @position = 18; @symbol_constdef = [scaleRelativeTo,672,18,33]; @symbol_type<0> = [String,672,37,43]; ]
+            const scaleRelativeTo as String = "screen";
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 675; @symbol_moduledef = [system_icon_dark__warning,675,15,40]; ]
+        module system_icon_dark__warning {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 675; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 676; @position = 18; @symbol_constdef = [filename,676,18,26]; @symbol_type<0> = [String,676,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__warning.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 677; @position = 18; @symbol_constdef = [disableTransparency,677,18,37]; @symbol_type<0> = [Boolean,677,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 678; @position = 18; @symbol_constdef = [dithering,678,18,27]; @symbol_type<0> = [String,678,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 679; @position = 18; @symbol_constdef = [automaticPalette,679,18,34]; @symbol_type<0> = [Boolean,679,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 682; @symbol_moduledef = [prompt_loc__title_icon,682,15,37]; ]
+        module prompt_loc__title_icon {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 682; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 683; @position = 18; @symbol_constdef = [x,683,18,19]; @symbol_type<0> = [Number,683,23,29]; ]
+            const x as Number = 145;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 684; @position = 18; @symbol_constdef = [y,684,18,19]; @symbol_type<0> = [Number,684,23,29]; ]
+            const y as Number = 31;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 685; @position = 18; @symbol_constdef = [horizontalJustification,685,18,41]; @symbol_type<0> = [String,685,45,51]; ]
+            const horizontalJustification as String = "center";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 686; @position = 18; @symbol_constdef = [verticalJustification,686,18,39]; @symbol_type<0> = [String,686,43,49]; ]
+            const verticalJustification as String = "center";
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 689; @symbol_moduledef = [prompt_font_enhanced_readability__title,689,15,54]; ]
+        module prompt_font_enhanced_readability__title {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 689; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 690; @position = 18; @symbol_constdef = [exclude,690,18,25]; @symbol_type<0> = [Boolean,690,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 693; @symbol_moduledef = [prompt_color_dark__body,693,15,38]; ]
+        module prompt_color_dark__body {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 693; ]
+            <init> {
+[ "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen" 695 18 ]
+                symbol [ Graphics %tmp.101 695 31 39 ];
+                %tmp.101 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.102 695 40 57 ];
+                %tmp.102 = getv %tmp.101 :COLOR_TRANSPARENT;
+                putv self :background %tmp.102;
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 694; @position = 18; @symbol_constdef = [color,694,18,23]; @symbol_type<0> = [Number,694,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 695; @position = 18; @symbol_constdef = [background,695,18,28]; ]
+            const background;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 698; @symbol_moduledef = [confirmation_icon__hint_delete,698,15,45]; ]
+        module confirmation_icon__hint_delete {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 698; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 699; @position = 18; @symbol_constdef = [filename,699,18,26]; @symbol_type<0> = [String,699,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/confirmation_icon__hint_delete.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 700; @position = 18; @symbol_constdef = [disableTransparency,700,18,37]; @symbol_type<0> = [Boolean,700,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 701; @position = 18; @symbol_constdef = [dithering,701,18,27]; @symbol_type<0> = [String,701,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 702; @position = 18; @symbol_constdef = [automaticPalette,702,18,34]; @symbol_type<0> = [Boolean,702,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 705; @symbol_moduledef = [system_icon_light__hint_button_right_top,705,15,55]; ]
+        module system_icon_light__hint_button_right_top {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 705; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 706; @position = 18; @symbol_constdef = [filename,706,18,26]; @symbol_type<0> = [String,706,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_light__hint_button_right_top.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 707; @position = 18; @symbol_constdef = [disableTransparency,707,18,37]; @symbol_type<0> = [Boolean,707,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 708; @position = 18; @symbol_constdef = [dithering,708,18,27]; @symbol_type<0> = [String,708,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 709; @position = 18; @symbol_constdef = [automaticPalette,709,18,34]; @symbol_type<0> = [Boolean,709,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 712; @symbol_moduledef = [confirmation_size__body,712,15,38]; ]
+        module confirmation_size__body {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 712; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 713; @position = 18; @symbol_constdef = [width,713,18,23]; @symbol_type<0> = [Number,713,27,33]; ]
+            const width as Number = 173;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 714; @position = 18; @symbol_constdef = [height,714,18,24]; @symbol_type<0> = [Number,714,28,34]; ]
+            const height as Number = 63;
+        }
+        [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 717; @symbol_moduledef = [system_icon_positive__check,717,15,42]; ]
+        module system_icon_positive__check {
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 717; ]
+            <init> {
+            }
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 718; @position = 18; @symbol_constdef = [filename,718,18,26]; @symbol_type<0> = [String,718,30,36]; ]
+            const filename as String = "/home/qlyoung/.Garmin/ConnectIQ/Devices/descentg1/system_icon_dark__check.svg";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 719; @position = 18; @symbol_constdef = [disableTransparency,719,18,37]; @symbol_type<0> = [Boolean,719,41,48]; ]
+            const disableTransparency as Boolean = true;
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 720; @position = 18; @symbol_constdef = [dithering,720,18,27]; @symbol_type<0> = [String,720,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 721; @position = 18; @symbol_constdef = [automaticPalette,721,18,34]; @symbol_type<0> = [Boolean,721,38,45]; ]
+            const automaticPalette as Boolean = true;
+        }
+    }
+}
+[ @file = "/home/qlyoung/projects/dp2/diveplan/bin/gen/006-B4005-00/source/Rez.mcgen"; @line = 1; ]
+<init> {
+}
