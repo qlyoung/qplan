@@ -10,7 +10,8 @@ class diveplanMenuDelegate extends WatchUi.MenuInputDelegate {
 
     function onMenuItem(item as Symbol) as Void {
         if (item == :calc_segment) {
-            WatchUi.pushView(new Rez.Menus.SegmentMenu(), new diveplanSegmentDelegate(), WatchUi.SLIDE_UP);
+            var segmentMenu = new Rez.Menus.SegmentMenu();
+            WatchUi.pushView(segmentMenu, new diveplanSegmentDelegate(segmentMenu), WatchUi.SLIDE_UP);
         }
     }
 }

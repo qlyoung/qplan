@@ -12,5 +12,6 @@
     <string id="menu_label_cylinder">Cylinder</string>
     <string id="menu_label_scr">SCR</string>
     <string id="menu_label_depth">Depth</string>
+    <string id="menu_label_view">View</string>
 
 </strings>

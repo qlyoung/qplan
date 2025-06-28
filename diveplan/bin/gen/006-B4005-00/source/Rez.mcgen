@@ -35,6 +35,7 @@ module Rez {
                 addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_cylinder, $.Rez.Strings.tank_al80, :cylinder, null));
                 addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_depth, "100 ft", :depth, null));
                 addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_scr, ".70 cf/min", :scr, null));
+                addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_view, "", :view, null));
             }
         }
     } // Menus
@@ -44,6 +45,7 @@ module Rez {
         (:initialized) var menu_label_depth as ResourceId;
         (:initialized) var menu_label_1 as ResourceId;
         (:initialized) var tank_al80 as ResourceId;
+        (:initialized) var menu_label_view as ResourceId;
         (:initialized) var menu_label_2 as ResourceId;
         (:initialized) var menu_calc_segment as ResourceId;
         (:initialized) var prompt as ResourceId;

@@ -13,84 +13,410 @@ class diveplanSegmentDelegate extends WatchUi.Menu2InputDelegate {
     static
     <init> {
     }
-    [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 7; @symbol_functiondef = [initialize,7,13,23]; ]
-    function initialize() as Void {
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_7_26_9_4_start:
-[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 8 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 8 8 26 ];
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 6; @position = 16; @symbol_vardef = [_settings,6,16,25]; @symbol_type<0> = [SegmentSettings,6,29,44]; ]
+    private
+    var _settings as SegmentSettings;
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 7; @position = 16; @symbol_vardef = [_menu,7,16,21]; @symbol_type<0> = [WatchUi,7,25,32]; @symbol_type<1> = [Menu2,7,33,38]; ]
+    private
+    var _menu as WatchUi.Menu2;
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 9; @symbol_functiondef = [initialize,9,13,23]; @symbol_param<0> = [menu,9,24,28]; @symbol_param<0>_type<0> = [WatchUi,9,32,39]; @symbol_param<0>_type<1> = [Menu2,9,40,45]; ]
+    function initialize(menu as WatchUi.Menu2) as Void {
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_9_47_14_4_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 10 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 10 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 8 27 37 ];
+        symbol [ initialize %tmp.3 10 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_7_26_9_4_stop:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 11 8 ]
+        symbol [ SegmentSettings %tmp.7 11 24 39 ];
+        %tmp.7 = getv ? :SegmentSettings;
+        %tmp.4 = newc %tmp.7 ();
+        symbol [ _settings ? 11 8 17 ];
+        putv self :_settings %tmp.4;
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 12 8 ]
+        %tmp.8 = lgetv %menu;
+        symbol [ menu %tmp.8 12 16 20 ];
+        symbol [ _menu ? 12 8 13 ];
+        putv self :_menu %tmp.8;
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 13 8 ]
+        %tmp.9 = self;
+        symbol [ updateMenuLabels %tmp.10 13 8 24 ];
+        %tmp.10 = getv function %tmp.9 :updateMenuLabels;
+        invoke %tmp.9 %tmp.10();
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_9_47_14_4_stop:
     }
-    [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 11; @symbol_functiondef = [onMenu2Item,11,13,24]; @symbol_param<0> = [item,11,25,29]; @symbol_param<0>_type<0> = [Symbol,11,33,39]; ]
-    function onMenu2Item(item as Symbol) as Void {
-    }
-    [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 15; @symbol_functiondef = [onSelect,15,13,21]; @symbol_param<0> = [item,15,22,26]; ]
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 16; @symbol_functiondef = [onSelect,16,13,21]; @symbol_param<0> = [item,16,22,26]; ]
     function onSelect(item) as Void {
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_15_36_26_4_start:
-[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 16 8 ]
-        symbol [ System %tmp.1 16 8 14 ];
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_16_36_35_4_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 17 8 ]
+        symbol [ System %tmp.1 17 8 14 ];
         %tmp.1 = getm $.Toybox.System;
-        symbol [ println %tmp.2 16 15 22 ];
+        symbol [ println %tmp.2 17 15 22 ];
         %tmp.2 = getv function %tmp.1 :println;
         %tmp.3 = "Got item:";
         %tmp.4 = lgetv %item;
-        symbol [ item %tmp.4 16 37 41 ];
-        symbol [ toString %tmp.5 16 42 50 ];
+        symbol [ item %tmp.4 17 37 41 ];
+        symbol [ toString %tmp.5 17 42 50 ];
         %tmp.5 = getv function %tmp.4 :toString;
         %tmp.6 = invoke %tmp.4 %tmp.5();
         %tmp.7 = add %tmp.3 %tmp.6;
         invoke %tmp.1 %tmp.2(%tmp.7);
-[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 17 8 ]
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_17_8_25_8_if_stmt:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 18 8 ]
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_8_34_8_if_stmt:
         %tmp.8 = lgetv %item;
-        symbol [ item %tmp.8 17 12 16 ];
-        %tmp.10 = const :scr;
-        symbol [ scr %tmp.10 17 21 24 const ];
-        %tmp.11 = eq %tmp.8 %tmp.10;
-        bf %tmp.11 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_17_8_25_8_if_false;
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_17_8_25_8_if_true:
-        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_17_8_25_8_if_end;
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_17_8_25_8_if_false:
-[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 19 15 ]
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_19_15_25_8_if_stmt:
-        %tmp.12 = lgetv %item;
-        symbol [ item %tmp.12 19 19 23 ];
-        %tmp.14 = const :depth;
-        symbol [ depth %tmp.14 19 28 33 const ];
-        %tmp.15 = eq %tmp.12 %tmp.14;
-        bf %tmp.15 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_19_15_25_8_if_false;
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_19_15_25_8_if_true:
-        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_19_15_25_8_if_end;
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_19_15_25_8_if_false:
-[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 21 15 ]
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_21_15_25_8_if_stmt:
-        %tmp.16 = lgetv %item;
-        symbol [ item %tmp.16 21 19 23 ];
-        %tmp.18 = const :cylinder;
-        symbol [ cylinder %tmp.18 21 28 36 const ];
-        %tmp.19 = eq %tmp.16 %tmp.18;
-        bf %tmp.19 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_21_15_25_8_if_false;
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_21_15_25_8_if_true:
-        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_21_15_25_8_if_end;
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_21_15_25_8_if_false:
+        symbol [ item %tmp.8 18 12 16 ];
+        symbol [ getId %tmp.9 18 17 22 ];
+        %tmp.9 = getv function %tmp.8 :getId;
+        %tmp.10 = invoke %tmp.8 %tmp.9();
+        %tmp.12 = const :scr;
+        symbol [ scr %tmp.12 18 29 32 const ];
+        %tmp.13 = eq %tmp.10 %tmp.12;
+        bf %tmp.13 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_8_34_8_if_false;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_8_34_8_if_true:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_34_23_8_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 19 12 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_34_23_8_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_34_23_8_stop" ]
+        %scrView.1 = local;
+        symbol [ scrView %scrView.1 19 16 23 ];
+        symbol [ SCRSelectionView %tmp.17 19 30 46 ];
+        %tmp.17 = getv ? :SCRSelectionView;
+        %tmp.14 = newc %tmp.17 ();
+        lputv %scrView.1 %tmp.14;
+        symbol [ scrView %scrView.1 19 16 23 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 20 12 ]
+        %tmp.18 = lgetv %scrView.1;
+        symbol [ scrView %tmp.18 20 12 19 ];
+        symbol [ setSCRValue %tmp.19 20 20 31 ];
+        %tmp.19 = getv function %tmp.18 :setSCRValue;
+        symbol [ _settings %tmp.21 20 32 41 ];
+        %tmp.21 = getv ? :_settings;
+        symbol [ getSCR %tmp.22 20 42 48 ];
+        %tmp.22 = getv function %tmp.21 :getSCR;
+        %tmp.23 = invoke %tmp.21 %tmp.22();
+        invoke %tmp.18 %tmp.19(%tmp.23);
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 21 12 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_34_23_8_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_34_23_8_stop" ]
+        %scrDelegate.2 = local;
+        symbol [ scrDelegate %scrDelegate.2 21 16 27 ];
+        symbol [ SCRSelectionDelegate %tmp.27 21 34 54 ];
+        %tmp.27 = getv ? :SCRSelectionDelegate;
+        %tmp.28 = lgetv %scrView.1;
+        symbol [ scrView %tmp.28 21 55 62 ];
+        symbol [ _settings %tmp.30 21 64 73 ];
+        %tmp.30 = getv ? :_settings;
+        %tmp.31 = self;
+        symbol [ self %tmp.31 21 75 79 ];
+        %tmp.24 = newc %tmp.27 (%tmp.28, %tmp.30, %tmp.31);
+        lputv %scrDelegate.2 %tmp.24;
+        symbol [ scrDelegate %scrDelegate.2 21 16 27 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 22 12 ]
+        symbol [ WatchUi %tmp.32 22 12 19 ];
+        %tmp.32 = getm $.Toybox.WatchUi;
+        symbol [ pushView %tmp.33 22 20 28 ];
+        %tmp.33 = getv function %tmp.32 :pushView;
+        %tmp.34 = lgetv %scrView.1;
+        symbol [ scrView %tmp.34 22 29 36 ];
+        %tmp.35 = lgetv %scrDelegate.2;
+        symbol [ scrDelegate %tmp.35 22 38 49 ];
+        symbol [ WatchUi %tmp.36 22 51 58 ];
+        %tmp.36 = getm $.Toybox.WatchUi;
+        symbol [ SLIDE_UP %tmp.37 22 59 67 ];
+        %tmp.37 = getv %tmp.36 :SLIDE_UP;
+        invoke %tmp.32 %tmp.33(%tmp.34, %tmp.35, %tmp.37);
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_34_23_8_stop:
+        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_8_34_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_8_34_8_if_false:
 [ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 23 15 ]
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_25_8_if_stmt:
-        %tmp.20 = lgetv %item;
-        symbol [ item %tmp.20 23 19 23 ];
-        %tmp.22 = const :view;
-        symbol [ view %tmp.22 23 28 32 const ];
-        %tmp.23 = eq %tmp.20 %tmp.22;
-        bf %tmp.23 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_25_8_if_end;
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_25_8_if_true:
-        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_25_8_if_end;
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_25_8_if_end:
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_21_15_25_8_if_end:
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_19_15_25_8_if_end:
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_17_8_25_8_if_end:
-_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_15_36_26_4_stop:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_34_8_if_stmt:
+        %tmp.38 = lgetv %item;
+        symbol [ item %tmp.38 23 19 23 ];
+        symbol [ getId %tmp.39 23 24 29 ];
+        %tmp.39 = getv function %tmp.38 :getId;
+        %tmp.40 = invoke %tmp.38 %tmp.39();
+        %tmp.42 = const :depth;
+        symbol [ depth %tmp.42 23 36 41 const ];
+        %tmp.43 = eq %tmp.40 %tmp.42;
+        bf %tmp.43 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_34_8_if_false;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_34_8_if_true:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_43_28_8_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 24 12 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_43_28_8_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_43_28_8_stop" ]
+        %depthView.3 = local;
+        symbol [ depthView %depthView.3 24 16 25 ];
+        symbol [ DepthSelectionView %tmp.47 24 32 50 ];
+        %tmp.47 = getv ? :DepthSelectionView;
+        %tmp.44 = newc %tmp.47 ();
+        lputv %depthView.3 %tmp.44;
+        symbol [ depthView %depthView.3 24 16 25 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 25 12 ]
+        %tmp.48 = lgetv %depthView.3;
+        symbol [ depthView %tmp.48 25 12 21 ];
+        symbol [ setDepthValue %tmp.49 25 22 35 ];
+        %tmp.49 = getv function %tmp.48 :setDepthValue;
+        symbol [ _settings %tmp.51 25 36 45 ];
+        %tmp.51 = getv ? :_settings;
+        symbol [ getDepth %tmp.52 25 46 54 ];
+        %tmp.52 = getv function %tmp.51 :getDepth;
+        %tmp.53 = invoke %tmp.51 %tmp.52();
+        invoke %tmp.48 %tmp.49(%tmp.53);
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 26 12 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_43_28_8_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_43_28_8_stop" ]
+        %depthDelegate.4 = local;
+        symbol [ depthDelegate %depthDelegate.4 26 16 29 ];
+        symbol [ DepthSelectionDelegate %tmp.57 26 36 58 ];
+        %tmp.57 = getv ? :DepthSelectionDelegate;
+        %tmp.58 = lgetv %depthView.3;
+        symbol [ depthView %tmp.58 26 59 68 ];
+        symbol [ _settings %tmp.60 26 70 79 ];
+        %tmp.60 = getv ? :_settings;
+        %tmp.61 = self;
+        symbol [ self %tmp.61 26 81 85 ];
+        %tmp.54 = newc %tmp.57 (%tmp.58, %tmp.60, %tmp.61);
+        lputv %depthDelegate.4 %tmp.54;
+        symbol [ depthDelegate %depthDelegate.4 26 16 29 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 27 12 ]
+        symbol [ WatchUi %tmp.62 27 12 19 ];
+        %tmp.62 = getm $.Toybox.WatchUi;
+        symbol [ pushView %tmp.63 27 20 28 ];
+        %tmp.63 = getv function %tmp.62 :pushView;
+        %tmp.64 = lgetv %depthView.3;
+        symbol [ depthView %tmp.64 27 29 38 ];
+        %tmp.65 = lgetv %depthDelegate.4;
+        symbol [ depthDelegate %tmp.65 27 40 53 ];
+        symbol [ WatchUi %tmp.66 27 55 62 ];
+        %tmp.66 = getm $.Toybox.WatchUi;
+        symbol [ SLIDE_UP %tmp.67 27 63 71 ];
+        %tmp.67 = getv %tmp.66 :SLIDE_UP;
+        invoke %tmp.62 %tmp.63(%tmp.64, %tmp.65, %tmp.67);
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_43_28_8_stop:
+        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_34_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_34_8_if_false:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 28 15 ]
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_28_15_34_8_if_stmt:
+        %tmp.68 = lgetv %item;
+        symbol [ item %tmp.68 28 19 23 ];
+        %tmp.70 = const :cylinder;
+        symbol [ cylinder %tmp.70 28 28 36 const ];
+        %tmp.71 = eq %tmp.68 %tmp.70;
+        bf %tmp.71 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_28_15_34_8_if_false;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_28_15_34_8_if_true:
+        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_28_15_34_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_28_15_34_8_if_false:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 30 15 ]
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_15_34_8_if_stmt:
+        %tmp.72 = lgetv %item;
+        symbol [ item %tmp.72 30 19 23 ];
+        symbol [ getId %tmp.73 30 24 29 ];
+        %tmp.73 = getv function %tmp.72 :getId;
+        %tmp.74 = invoke %tmp.72 %tmp.73();
+        %tmp.76 = const :view;
+        symbol [ view %tmp.76 30 36 40 const ];
+        %tmp.77 = eq %tmp.74 %tmp.76;
+        bf %tmp.77 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_15_34_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_15_34_8_if_true:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_42_34_8_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 31 12 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_42_34_8_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_42_34_8_stop" ]
+        %tableView.5 = local;
+        symbol [ tableView %tableView.5 31 16 25 ];
+        symbol [ SegmentTableView %tmp.81 31 32 48 ];
+        %tmp.81 = getv ? :SegmentTableView;
+        symbol [ _settings %tmp.83 31 49 58 ];
+        %tmp.83 = getv ? :_settings;
+        %tmp.78 = newc %tmp.81 (%tmp.83);
+        lputv %tableView.5 %tmp.78;
+        symbol [ tableView %tableView.5 31 16 25 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 32 12 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_42_34_8_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_42_34_8_stop" ]
+        %tableDelegate.6 = local;
+        symbol [ tableDelegate %tableDelegate.6 32 16 29 ];
+        symbol [ SegmentTableDelegate %tmp.87 32 36 56 ];
+        %tmp.87 = getv ? :SegmentTableDelegate;
+        %tmp.88 = lgetv %tableView.5;
+        symbol [ tableView %tmp.88 32 57 66 ];
+        %tmp.84 = newc %tmp.87 (%tmp.88);
+        lputv %tableDelegate.6 %tmp.84;
+        symbol [ tableDelegate %tableDelegate.6 32 16 29 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 33 12 ]
+        symbol [ WatchUi %tmp.89 33 12 19 ];
+        %tmp.89 = getm $.Toybox.WatchUi;
+        symbol [ pushView %tmp.90 33 20 28 ];
+        %tmp.90 = getv function %tmp.89 :pushView;
+        %tmp.91 = lgetv %tableView.5;
+        symbol [ tableView %tmp.91 33 29 38 ];
+        %tmp.92 = lgetv %tableDelegate.6;
+        symbol [ tableDelegate %tmp.92 33 40 53 ];
+        symbol [ WatchUi %tmp.93 33 55 62 ];
+        %tmp.93 = getm $.Toybox.WatchUi;
+        symbol [ SLIDE_UP %tmp.94 33 63 71 ];
+        %tmp.94 = getv %tmp.93 :SLIDE_UP;
+        invoke %tmp.89 %tmp.90(%tmp.91, %tmp.92, %tmp.94);
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_42_34_8_stop:
+        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_15_34_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_30_15_34_8_if_end:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_28_15_34_8_if_end:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_23_15_34_8_if_end:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_18_8_34_8_if_end:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_16_36_35_4_stop:
+    }
+    [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 37; @symbol_functiondef = [updateMenuLabels,37,13,29]; ]
+    function updateMenuLabels() as Void {
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_37_40_54_4_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 38 8 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_37_40_54_4_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_37_40_54_4_stop" ]
+        %scrItem.1 = local;
+        symbol [ scrItem %scrItem.1 38 12 19 ];
+        symbol [ _menu %tmp.2 38 22 27 ];
+        %tmp.2 = getv ? :_menu;
+        symbol [ getItem %tmp.3 38 28 35 ];
+        %tmp.3 = getv function %tmp.2 :getItem;
+        symbol [ _menu %tmp.5 38 36 41 ];
+        %tmp.5 = getv ? :_menu;
+        symbol [ findItemById %tmp.6 38 42 54 ];
+        %tmp.6 = getv function %tmp.5 :findItemById;
+        %tmp.8 = const :scr;
+        symbol [ scr %tmp.8 38 56 59 const ];
+        %tmp.9 = invoke %tmp.5 %tmp.6(%tmp.8);
+        %tmp.10 = invoke %tmp.2 %tmp.3(%tmp.9);
+        lputv %scrItem.1 %tmp.10;
+        symbol [ scrItem %scrItem.1 38 12 19 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 39 8 ]
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_8_42_8_if_stmt:
+        %tmp.11 = lgetv %scrItem.1;
+        symbol [ scrItem %tmp.11 39 12 19 ];
+        %tmp.12 = null;
+        %tmp.13 = ne %tmp.11 %tmp.12;
+        bf %tmp.13 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_8_42_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_8_42_8_if_true:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_29_42_8_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 40 12 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_29_42_8_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_29_42_8_stop" ]
+        %scrText.2 = local;
+        symbol [ scrText %scrText.2 40 16 23 ];
+        symbol [ _settings %tmp.15 40 26 35 ];
+        %tmp.15 = getv ? :_settings;
+        symbol [ getSCR %tmp.16 40 36 42 ];
+        %tmp.16 = getv function %tmp.15 :getSCR;
+        %tmp.17 = invoke %tmp.15 %tmp.16();
+        symbol [ format %tmp.18 40 45 51 ];
+        %tmp.18 = getv function %tmp.17 :format;
+        %tmp.19 = "%.2f";
+        %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
+        %tmp.21 = " cf/min";
+        %tmp.22 = add %tmp.20 %tmp.21;
+        lputv %scrText.2 %tmp.22;
+        symbol [ scrText %scrText.2 40 16 23 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 41 12 ]
+        %tmp.23 = lgetv %scrItem.1;
+        symbol [ scrItem %tmp.23 41 12 19 ];
+        %tmp.24 = as %tmp.23 { (!Null) };
+        symbol [ setSubLabel %tmp.25 41 20 31 ];
+        %tmp.25 = getv function %tmp.24 :setSubLabel;
+        %tmp.26 = lgetv %scrText.2;
+        symbol [ scrText %tmp.26 41 32 39 ];
+        invoke %tmp.24 %tmp.25(%tmp.26);
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_29_42_8_stop:
+        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_8_42_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_39_8_42_8_if_end:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 44 8 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_37_40_54_4_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_37_40_54_4_stop" ]
+        %depthItem.3 = local;
+        symbol [ depthItem %depthItem.3 44 12 21 ];
+        symbol [ _menu %tmp.28 44 24 29 ];
+        %tmp.28 = getv ? :_menu;
+        symbol [ getItem %tmp.29 44 30 37 ];
+        %tmp.29 = getv function %tmp.28 :getItem;
+        symbol [ _menu %tmp.31 44 38 43 ];
+        %tmp.31 = getv ? :_menu;
+        symbol [ findItemById %tmp.32 44 44 56 ];
+        %tmp.32 = getv function %tmp.31 :findItemById;
+        %tmp.34 = const :depth;
+        symbol [ depth %tmp.34 44 58 63 const ];
+        %tmp.35 = invoke %tmp.31 %tmp.32(%tmp.34);
+        %tmp.36 = invoke %tmp.28 %tmp.29(%tmp.35);
+        lputv %depthItem.3 %tmp.36;
+        symbol [ depthItem %depthItem.3 44 12 21 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 45 8 ]
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_8_48_8_if_stmt:
+        %tmp.37 = lgetv %depthItem.3;
+        symbol [ depthItem %tmp.37 45 12 21 ];
+        %tmp.38 = null;
+        %tmp.39 = ne %tmp.37 %tmp.38;
+        bf %tmp.39 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_8_48_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_8_48_8_if_true:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_31_48_8_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 46 12 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_31_48_8_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_31_48_8_stop" ]
+        %depthText.4 = local;
+        symbol [ depthText %depthText.4 46 16 25 ];
+        symbol [ _settings %tmp.41 46 28 37 ];
+        %tmp.41 = getv ? :_settings;
+        symbol [ getDepth %tmp.42 46 38 46 ];
+        %tmp.42 = getv function %tmp.41 :getDepth;
+        %tmp.43 = invoke %tmp.41 %tmp.42();
+        symbol [ toString %tmp.44 46 49 57 ];
+        %tmp.44 = getv function %tmp.43 :toString;
+        %tmp.45 = invoke %tmp.43 %tmp.44();
+        %tmp.46 = " ft";
+        %tmp.47 = add %tmp.45 %tmp.46;
+        lputv %depthText.4 %tmp.47;
+        symbol [ depthText %depthText.4 46 16 25 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 47 12 ]
+        %tmp.48 = lgetv %depthItem.3;
+        symbol [ depthItem %tmp.48 47 12 21 ];
+        %tmp.49 = as %tmp.48 { (!Null) };
+        symbol [ setSubLabel %tmp.50 47 22 33 ];
+        %tmp.50 = getv function %tmp.49 :setSubLabel;
+        %tmp.51 = lgetv %depthText.4;
+        symbol [ depthText %tmp.51 47 34 43 ];
+        invoke %tmp.49 %tmp.50(%tmp.51);
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_31_48_8_stop:
+        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_8_48_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_45_8_48_8_if_end:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 50 8 ]
+        [ "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_37_40_54_4_start" "_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_37_40_54_4_stop" ]
+        %cylinderItem.5 = local;
+        symbol [ cylinderItem %cylinderItem.5 50 12 24 ];
+        symbol [ _menu %tmp.53 50 27 32 ];
+        %tmp.53 = getv ? :_menu;
+        symbol [ getItem %tmp.54 50 33 40 ];
+        %tmp.54 = getv function %tmp.53 :getItem;
+        symbol [ _menu %tmp.56 50 41 46 ];
+        %tmp.56 = getv ? :_menu;
+        symbol [ findItemById %tmp.57 50 47 59 ];
+        %tmp.57 = getv function %tmp.56 :findItemById;
+        %tmp.59 = const :cylinder;
+        symbol [ cylinder %tmp.59 50 61 69 const ];
+        %tmp.60 = invoke %tmp.56 %tmp.57(%tmp.59);
+        %tmp.61 = invoke %tmp.53 %tmp.54(%tmp.60);
+        lputv %cylinderItem.5 %tmp.61;
+        symbol [ cylinderItem %cylinderItem.5 50 12 24 ];
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 51 8 ]
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_51_8_53_8_if_stmt:
+        %tmp.62 = lgetv %cylinderItem.5;
+        symbol [ cylinderItem %tmp.62 51 12 24 ];
+        %tmp.63 = null;
+        %tmp.64 = ne %tmp.62 %tmp.63;
+        bf %tmp.64 @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_51_8_53_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_51_8_53_8_if_true:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_51_34_53_8_start:
+[ "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc" 52 12 ]
+        %tmp.65 = lgetv %cylinderItem.5;
+        symbol [ cylinderItem %tmp.65 52 12 24 ];
+        %tmp.66 = as %tmp.65 { (!Null) };
+        symbol [ setSubLabel %tmp.67 52 25 36 ];
+        %tmp.67 = getv function %tmp.66 :setSubLabel;
+        symbol [ _settings %tmp.69 52 37 46 ];
+        %tmp.69 = getv ? :_settings;
+        symbol [ getCylinder %tmp.70 52 47 58 ];
+        %tmp.70 = getv function %tmp.69 :getCylinder;
+        %tmp.71 = invoke %tmp.69 %tmp.70();
+        invoke %tmp.66 %tmp.67(%tmp.71);
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_51_34_53_8_stop:
+        goto @_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_51_8_53_8_if_end;
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_51_8_53_8_if_end:
+_home_qlyoung_projects_dp2_diveplan_source_diveplanSegmentDelegate_mc_37_40_54_4_stop:
     }
 }
 [ @file = "/home/qlyoung/projects/dp2/diveplan/source/diveplanSegmentDelegate.mc"; @line = 1; ]
