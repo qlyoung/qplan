@@ -4,6 +4,12 @@ class SegmentSettings {
     public var scrRate as Float = 0.70;
     public var depth as Number = 100;
     public var cylinder as String = "AL80";
+    public var selectedCylinder as Dictionary = {
+        "cylinder_type_name" => "AL80",
+        "service_pressure" => 3000,
+        "nominal_capacity" => 80,
+        "unit_type" => "standard"
+    };
 
     function initialize() {
     }
@@ -24,11 +30,15 @@ class SegmentSettings {
         return depth;
     }
 
-    function setCylinder(cyl as String) as Void {
-        cylinder = cyl;
+    function setCylinder(cyl as Dictionary) as Void {
+        selectedCylinder = cyl;
     }
 
-    function getCylinder() as String {
-        return cylinder;
+    function getCylinder() as Dictionary {
+        return selectedCylinder;
+    }
+
+    function getCylinderName() as String {
+        return selectedCylinder["cylinder_type_name"];
     }
 }

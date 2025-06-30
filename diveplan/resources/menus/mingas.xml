@@ -1,0 +1,6 @@
+<menu2 id="MinGasMenu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <menu-item id="bottom_depth" label="@Strings.menu_label_bottom_depth" subLabel="100 ft"/>
+    <menu-item id="next_gas_depth" label="@Strings.menu_label_next_gas_depth" subLabel="70 ft"/>
+    <menu-item id="problem_time" label="@Strings.menu_label_problem_time" subLabel="2 min"/>
+    <menu-item id="switch_time" label="@Strings.menu_label_switch_time" subLabel="1 min"/>
+</menu2>

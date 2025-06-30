@@ -10,18 +10,14 @@ class SegmentTableDelegate extends WatchUi.BehaviorDelegate {
         _view = view;
     }
 
-    function onKey(keyEvent as KeyEvent) as Boolean {
-        var key = keyEvent.getKey();
-        
-        if (key == WatchUi.KEY_UP) {
-            _view.scrollUp();
-            return true;
-        } else if (key == WatchUi.KEY_DOWN) {
-            _view.scrollDown();
-            return true;
-        }
-        
-        return false;
+    function onNextPage() as Boolean {                
+        _view.scrollDown();
+        return true;
+    }
+
+    function onPreviousPage() as Boolean {
+        _view.scrollUp();
+        return true;
     }
 
     function onSelect() as Boolean {

@@ -1,0 +1,128 @@
+[
+  {
+    "cylinder_type_name": "AL40",
+    "unit_type": "standard",
+    "service_pressure": 3000,
+    "nominal_capacity": 40
+  },
+  {
+    "cylinder_type_name": "LP50",
+    "unit_type": "standard",
+    "service_pressure": 2640,
+    "nominal_capacity": 50
+  },
+  {
+    "cylinder_type_name": "D50",
+    "unit_type": "standard",
+    "service_pressure": 2640,
+    "nominal_capacity": 100
+  },
+  {
+    "cylinder_type_name": "AL80",
+    "unit_type": "standard",
+    "service_pressure": 3000,
+    "nominal_capacity": 80
+  },
+  {
+    "cylinder_type_name": "D80",
+    "unit_type": "standard",
+    "service_pressure": 3442,
+    "nominal_capacity": 160
+  },
+  {
+    "cylinder_type_name": "HP100",
+    "unit_type": "standard",
+    "service_pressure": 3442,
+    "nominal_capacity": 100
+  },
+  {
+    "cylinder_type_name": "D100",
+    "unit_type": "standard",
+    "service_pressure": 3442,
+    "nominal_capacity": 200
+  },
+  {
+    "cylinder_type_name": "HP120",
+    "unit_type": "standard",
+    "service_pressure": 3442,
+    "nominal_capacity": 120
+  },
+  {
+    "cylinder_type_name": "D120",
+    "unit_type": "standard",
+    "service_pressure": 3442,
+    "nominal_capacity": 240
+  },
+  {
+    "cylinder_type_name": "HP130",
+    "unit_type": "standard",
+    "service_pressure": 3442,
+    "nominal_capacity": 130
+  },
+  {
+    "cylinder_type_name": "D130",
+    "unit_type": "standard",
+    "service_pressure": 3442,
+    "nominal_capacity": 260
+  },
+  {
+    "cylinder_type_name": "LP85",
+    "unit_type": "standard",
+    "service_pressure": 2640,
+    "nominal_capacity": 85
+  },
+  {
+    "cylinder_type_name": "D85",
+    "unit_type": "standard",
+    "service_pressure": 2640,
+    "nominal_capacity": 170
+  },
+  {
+    "cylinder_type_name": "LP108",
+    "unit_type": "standard",
+    "service_pressure": 2640,
+    "nominal_capacity": 108
+  },
+  {
+    "cylinder_type_name": "D108",
+    "unit_type": "standard",
+    "service_pressure": 2640,
+    "nominal_capacity": 216
+  },
+  {
+    "cylinder_type_name": "7L",
+    "unit_type": "metric",
+    "service_pressure": 232,
+    "water_capacity": 7
+  },
+  {
+    "cylinder_type_name": "D7",
+    "unit_type": "metric",
+    "service_pressure": 232,
+    "water_capacity": 14
+  },
+  {
+    "cylinder_type_name": "12L",
+    "unit_type": "metric",
+    "service_pressure": 232,
+    "water_capacity": 12
+  },
+  {
+    "cylinder_type_name": "D12",
+    "unit_type": "metric",
+    "service_pressure": 232,
+    "water_capacity": 24
+  },
+  {
+    "cylinder_type_name": "15L",
+    "unit_type": "metric",
+    "service_pressure": 232,
+    "water_capacity": 15
+  },
+  {
+    "cylinder_type_name": "D15",
+    "unit_type": "metric",
+    "service_pressure": 232,
+    "water_capacity": 30
+  }
+]

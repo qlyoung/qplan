@@ -10,6 +10,10 @@ module Rez {
         (:initialized) var LauncherIcon as ResourceId;
     } // Drawables
 
+    module JsonData {
+        (:initialized) var ScubaTanks as ResourceId;
+    } // JsonData
+
     module Layouts {
         function MainLayout(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
             var rez_cmp_local_text_1193959466 = new WatchUi.Text({:color=>Graphics.COLOR_WHITE, :locX=>(176 * 0.5), :locY=>5, :text=>$.Rez.Strings.prompt, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_MEDIUM});
@@ -22,10 +26,11 @@ module Rez {
     } // Layouts
 
     module Menus {
-        class MainMenu extends WatchUi.Menu {
+        class MainMenu extends WatchUi.Menu2 {
             function initialize() {
-                Menu.initialize();
-                addItem((WatchUi.loadResource($.Rez.Strings.menu_calc_segment) as String), :calc_segment);
+                Menu2.initialize(null);
+                addItem(new WatchUi.MenuItem($.Rez.Strings.menu_calc_segment, null, :calc_segment, null));
+                addItem(new WatchUi.MenuItem($.Rez.Strings.menu_calc_mingas, null, :calc_mingas, null));
             }
         }
 
@@ -38,19 +43,34 @@ module Rez {
                 addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_view, "", :view, null));
             }
         }
+
+        class MinGasMenu extends WatchUi.Menu2 {
+            function initialize() {
+                Menu2.initialize(null);
+                addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_bottom_depth, "100 ft", :bottom_depth, null));
+                addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_next_gas_depth, "70 ft", :next_gas_depth, null));
+                addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_problem_time, "2 min", :problem_time, null));
+                addItem(new WatchUi.MenuItem($.Rez.Strings.menu_label_switch_time, "1 min", :switch_time, null));
+            }
+        }
     } // Menus
 
     module Strings {
+        (:initialized) var menu_label_view as ResourceId;
+        (:initialized) var menu_calc_segment as ResourceId;
+        (:initialized) var menu_label_switch_time as ResourceId;
+        (:initialized) var menu_label_bottom_depth as ResourceId;
+        (:initialized) var AppName as ResourceId;
+        (:initialized) var menu_label_cylinder as ResourceId;
         (:initialized) var menu_label_scr as ResourceId;
+        (:initialized) var menu_label_problem_time as ResourceId;
         (:initialized) var menu_label_depth as ResourceId;
         (:initialized) var menu_label_1 as ResourceId;
         (:initialized) var tank_al80 as ResourceId;
-        (:initialized) var menu_label_view as ResourceId;
         (:initialized) var menu_label_2 as ResourceId;
-        (:initialized) var menu_calc_segment as ResourceId;
+        (:initialized) var menu_calc_mingas as ResourceId;
         (:initialized) var prompt as ResourceId;
-        (:initialized) var AppName as ResourceId;
-        (:initialized) var menu_label_cylinder as ResourceId;
+        (:initialized) var menu_label_next_gas_depth as ResourceId;
     } // Strings
 
     module Styles {

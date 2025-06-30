@@ -2,16 +2,19 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-class diveplanMenuDelegate extends WatchUi.MenuInputDelegate {
+class diveplanMenuDelegate extends WatchUi.Menu2InputDelegate {
 
     function initialize() {
-        MenuInputDelegate.initialize();
+        Menu2InputDelegate.initialize();
     }
 
-    function onMenuItem(item as Symbol) as Void {
-        if (item == :calc_segment) {
+    function onSelect(item) as Void {
+        if (item.getId() == :calc_segment) {
             var segmentMenu = new Rez.Menus.SegmentMenu();
             WatchUi.pushView(segmentMenu, new diveplanSegmentDelegate(segmentMenu), WatchUi.SLIDE_UP);
+        } else if (item.getId() == :calc_mingas) {
+            var minGasMenu = new Rez.Menus.MinGasMenu();
+            WatchUi.pushView(minGasMenu, new diveplanMinGasDelegate(minGasMenu), WatchUi.SLIDE_UP);
         }
     }
 }

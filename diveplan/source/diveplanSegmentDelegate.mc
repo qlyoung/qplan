@@ -25,8 +25,10 @@ class diveplanSegmentDelegate extends WatchUi.Menu2InputDelegate {
             depthView.setDepthValue(_settings.getDepth());
             var depthDelegate = new DepthSelectionDelegate(depthView, _settings, self);
             WatchUi.pushView(depthView, depthDelegate, WatchUi.SLIDE_UP);
-        } else if (item == :cylinder) {
-            // allow cylinder selection
+        } else if (item.getId() == :cylinder) {
+            var cylinderMenu = createCylinderMenu();
+            var cylinderDelegate = new CylinderSelectionDelegate(_settings, self);
+            WatchUi.pushView(cylinderMenu, cylinderDelegate, WatchUi.SLIDE_UP);
         } else if (item.getId() == :view) {
             var tableView = new SegmentTableView(_settings);
             var tableDelegate = new SegmentTableDelegate(tableView);
@@ -49,7 +51,20 @@ class diveplanSegmentDelegate extends WatchUi.Menu2InputDelegate {
 
         var cylinderItem = _menu.getItem(_menu.findItemById(:cylinder));
         if (cylinderItem != null) {
-            cylinderItem.setSubLabel(_settings.getCylinder());
+            cylinderItem.setSubLabel(_settings.getCylinderName());
         }
+    }
+
+    function createCylinderMenu() as WatchUi.Menu2 {
+        var menu = new WatchUi.Menu2({:title => "Select Cylinder"});
+        var tankData = WatchUi.loadResource(Rez.JsonData.ScubaTanks) as Array;
+        
+        for (var i = 0; i < tankData.size(); i++) {
+            var tank = tankData[i];
+            var tankName = tank["cylinder_type_name"];
+            menu.addItem(new WatchUi.MenuItem(tankName, null, tankName, {}));
+        }
+        
+        return menu;
     }
 }
