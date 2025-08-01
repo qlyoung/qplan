@@ -1,5 +1,6 @@
 # Build files
 bin/
+*.prg
 
 # Temporary files
 *.tmp
@@ -9,7 +10,6 @@ bin/
 *.debug.xml
 
 # Generated files
-diveplan/bin/
 **/*.mcgen
 **/*.mir
 

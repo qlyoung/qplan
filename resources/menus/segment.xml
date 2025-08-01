@@ -1,0 +1,4 @@
+<menu2 id="SegmentMenu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <menu-item id="view" label="@Strings.menu_label_view" subLabel=""/>
+    <menu-item id="depth" label="@Strings.menu_label_depth" subLabel="100 ft"/>
+</menu2>
