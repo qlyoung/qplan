@@ -9,9 +9,7 @@ class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
 
     function onSelect(item) as Void {
         System.println("Got mingas item:" + item.toString());
-        if (item.getId() == :bottom_depth) {
-            // TODO: Create depth selection for bottom depth
-        } else if (item.getId() == :next_gas_depth) {
+        if (item.getId() == :next_gas_depth) {
             // TODO: Create depth selection for next gas depth
         } else if (item.getId() == :problem_time) {
             // TODO: Create time selection for problem solving time

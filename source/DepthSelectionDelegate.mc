@@ -2,17 +2,11 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-typedef HasDepth as interface {
-    var depth as Number;
-};
-
 class DepthSelectionDelegate extends WatchUi.BehaviorDelegate {
     private var _view as DepthSelectionView;
-    private var _target as HasDepth;
 
-    function initialize(view as DepthSelectionView, target as HasDepth) {
+    function initialize(view as DepthSelectionView) {
         BehaviorDelegate.initialize();
-        _target = target;
         _view = view;
     }
 
@@ -40,7 +34,6 @@ class DepthSelectionDelegate extends WatchUi.BehaviorDelegate {
 
     function onSelect() as Boolean {
         DiveSettings.Segments.MaxDepth = _view.depthValue;
-        _target.depth = _view.depthValue;
         WatchUi.popView(WatchUi.SLIDE_DOWN);
         return true;
     }

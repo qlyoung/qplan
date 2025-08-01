@@ -10,7 +10,7 @@ class SegmentTableDelegate extends WatchUi.BehaviorDelegate {
         _view = view;
     }
 
-    function onNextPage() as Boolean {                
+    function onNextPage() as Boolean {
         _view.scrollDown();
         return true;
     }
