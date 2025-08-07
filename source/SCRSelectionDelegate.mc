@@ -12,28 +12,29 @@ class SCRSelectionDelegate extends WatchUi.BehaviorDelegate {
 
     function onKey(keyEvent as KeyEvent) as Boolean {
         var key = keyEvent.getKey();
-        
+
         if (key == WatchUi.KEY_UP) {
-            _view.scrValue += 0.05;
-            if (_view.scrValue > 10.0) {
-                _view.scrValue = 10.0;
+            _view.displayedSCR += 0.05;
+            if (_view.displayedSCR > 10.0) {
+                _view.displayedSCR = 10.0;
             }
             WatchUi.requestUpdate();
             return true;
         } else if (key == WatchUi.KEY_DOWN) {
-            _view.scrValue -= 0.05;
-            if (_view.scrValue < 0.0) {
-                _view.scrValue = 0.0;
+            _view.displayedSCR -= 0.05;
+            if (_view.displayedSCR < 0.0) {
+                _view.displayedSCR = 0.0;
             }
             WatchUi.requestUpdate();
             return true;
         }
-        
+
         return false;
     }
 
     function onSelect() as Boolean {
-        DiveSettings.scrRate = _view.scrValue;
+        // Commit displayed SCR to actual SCR
+        DiveSettings.SCR = _view.displayedSCR;
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
         return true;
     }

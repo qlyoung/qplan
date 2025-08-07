@@ -14,7 +14,7 @@ class CylinderSelectionDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item) as Void {
         var tankData = WatchUi.loadResource(Rez.JsonData.ScubaTanks) as Array;
         var selectedTank = null;
-        
+
         // Find the tank that matches the selected menu item
         for (var i = 0; i < tankData.size(); i++) {
             var tank = tankData[i] as Dictionary;
@@ -23,11 +23,11 @@ class CylinderSelectionDelegate extends WatchUi.Menu2InputDelegate {
                 break;
             }
         }
-        
+
         if (selectedTank != null) {
-            DiveSettings.cylinder = selectedTank;
+            DiveSettings.Cylinder = selectedTank;
         }
-        
+
         WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
 }

@@ -18,7 +18,7 @@ class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
             var cylinderDelegate = new CylinderSelectionDelegate();
             WatchUi.pushView(cylinderMenu, cylinderDelegate, WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :depth) {
-            var depthView = new DepthSelectionView(DiveSettings.Segments.MaxDepth);
+            var depthView = new DepthSelectionView(DiveSettings.MaxDepth);
             var depthDelegate = new DepthSelectionDelegate(depthView);
             WatchUi.pushView(depthView, depthDelegate, WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :segments) {
@@ -26,7 +26,7 @@ class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
             var tableDelegate = new SegmentTableDelegate(tableView);
             WatchUi.pushView(tableView, tableDelegate, WatchUi.SLIDE_UP);
         } else if (item.getId() == :mingas) {
-            var minGasMenu = new Rez.Menus.MinGasMenu();
+            var minGasMenu = new MinGasMenu();
             WatchUi.pushView(minGasMenu, new MinGasMenuDelegate(), WatchUi.SLIDE_UP);
         }
     }
