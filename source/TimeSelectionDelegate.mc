@@ -2,11 +2,11 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-class SCRSelectionDelegate extends WatchUi.BehaviorDelegate {
-    private var _view as SCRSelectionView;
+class TimeSelectionDelegate extends WatchUi.BehaviorDelegate {
+    private var _view as TimeSelectionView;
     private var _set as Lang.Method;
 
-    function initialize(view as SCRSelectionView, set as Lang.Method) {
+    function initialize(view as TimeSelectionView, set as Lang.Method) {
         BehaviorDelegate.initialize();
         _view = view;
         _set = set;
@@ -16,16 +16,16 @@ class SCRSelectionDelegate extends WatchUi.BehaviorDelegate {
         var key = keyEvent.getKey();
 
         if (key == WatchUi.KEY_UP) {
-            _view.displayedSCR += 0.05;
-            if (_view.displayedSCR > 10.0) {
-                _view.displayedSCR = 10.0;
+            _view.timeValue += 15; // increment by 15 seconds
+            if (_view.timeValue > 5999) { // max 99:59
+                _view.timeValue = 5999;
             }
             WatchUi.requestUpdate();
             return true;
         } else if (key == WatchUi.KEY_DOWN) {
-            _view.displayedSCR -= 0.05;
-            if (_view.displayedSCR < 0.0) {
-                _view.displayedSCR = 0.0;
+            _view.timeValue -= 15; // decrement by 15 seconds
+            if (_view.timeValue < 0) {
+                _view.timeValue = 0;
             }
             WatchUi.requestUpdate();
             return true;
@@ -35,8 +35,7 @@ class SCRSelectionDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onSelect() as Boolean {
-        // Commit displayed SCR to actual SCR
-        _set.invoke(_view.displayedSCR);
+        _set.invoke(_view.timeValue);
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
         return true;
     }

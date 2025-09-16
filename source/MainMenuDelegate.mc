@@ -1,6 +1,7 @@
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
+using DiveSettings;
 
 class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
     function initialize() {
@@ -11,15 +12,17 @@ class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
         System.println("Got item:" + item.toString());
         if (item.getId() == :scr) {
             var scrView = new SCRSelectionView();
-            var scrDelegate = new SCRSelectionDelegate(scrView);
+            var setcb = new Lang.Method(DiveSettings, :SetSCR);
+            var scrDelegate = new SCRSelectionDelegate(scrView, setcb);
             WatchUi.pushView(scrView, scrDelegate, WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :cylinder) {
             var cylinderMenu = new CylinderSelectionMenu();
             var cylinderDelegate = new CylinderSelectionDelegate();
             WatchUi.pushView(cylinderMenu, cylinderDelegate, WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :depth) {
-            var depthView = new DepthSelectionView(DiveSettings.MaxDepth);
-            var depthDelegate = new DepthSelectionDelegate(depthView);
+            var depthView = new DepthSelectionView(DiveSettings.GetBottomDepth());
+            var setcb = new Lang.Method(DiveSettings, :SetBottomDepth);
+            var depthDelegate = new DepthSelectionDelegate(depthView, setcb, 5, 0, -1);
             WatchUi.pushView(depthView, depthDelegate, WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :segments) {
             var tableView = new SegmentTableView();

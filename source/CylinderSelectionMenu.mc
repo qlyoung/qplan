@@ -13,7 +13,8 @@ class CylinderSelectionMenu extends WatchUi.Menu2 {
         for (var i = 0; i < tankData.size(); i++) {
             var tank = tankData[i] as Dictionary;
             var tankName = tank["cylinder_type_name"];
-            addItem(new WatchUi.MenuItem(tankName, null, tankName, {}));
+            var service_pressure = tank["service_pressure"];
+            addItem(new WatchUi.MenuItem(tankName, service_pressure.toString(), tankName, {}));
         }
     }
 }

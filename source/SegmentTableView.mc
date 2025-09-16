@@ -45,13 +45,15 @@ class SegmentTableView extends WatchUi.View {
 
             var unit_depth = "m";
             var unit_pressure = "bar";
-            if (DiveSettings.Cylinder["unit_type"].equals("standard")) {
+            if (DiveSettings.GetCylinder()["unit_type"].equals("standard")) {
                 unit_depth = "ft";
                 unit_pressure = "psi";
             }
 
             var depthText = segment["depth"].toString() + unit_depth;
             var segmentText = segment["segment"].format("%d") + unit_pressure;
+
+            dc.drawText(5 * width / 6, height / 9, Graphics.FONT_SYSTEM_LARGE, DiveSettings.GetCylinder()["cylinder_type_name"], Graphics.TEXT_JUSTIFY_CENTER);
 
             dc.drawText(width / 4, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
             dc.drawText(3 * width / 4, yPos, Graphics.FONT_TINY, segmentText, Graphics.TEXT_JUSTIFY_CENTER);

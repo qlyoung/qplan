@@ -2,12 +2,12 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-class DepthSelectionView extends WatchUi.View {
-    public var depthValue as Number;
+class TimeSelectionView extends WatchUi.View {
+    public var timeValue as Number; // in seconds
 
-    function initialize(initialDepth as Number) {
+    function initialize(initialTimeSeconds as Number) {
         View.initialize();
-        depthValue = initialDepth;
+        timeValue = initialTimeSeconds;
     }
 
     function onLayout(dc as Dc) as Void {
@@ -27,10 +27,12 @@ class DepthSelectionView extends WatchUi.View {
         var height = dc.getHeight();
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(width / 2, height / 4, Graphics.FONT_MEDIUM, "Depth", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width / 2, height / 4, Graphics.FONT_MEDIUM, "Time", Graphics.TEXT_JUSTIFY_CENTER);
 
-        var depthText = depthValue.toString() + " ft";
-        dc.drawText(width / 2, height / 2, Graphics.FONT_LARGE, depthText, Graphics.TEXT_JUSTIFY_CENTER);
+        var minutes = timeValue / 60;
+        var seconds = timeValue % 60;
+        var timeText = Lang.format("$1$:$2$", [minutes.format("%02d"), seconds.format("%02d")]);
+        dc.drawText(width / 2, height / 2, Graphics.FONT_LARGE, timeText, Graphics.TEXT_JUSTIFY_CENTER);
 
         dc.drawText(width / 2, 3 * height / 4, Graphics.FONT_SMALL, "UP/DOWN to adjust", Graphics.TEXT_JUSTIFY_CENTER);
     }

@@ -7,7 +7,7 @@ class SCRSelectionView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
-        displayedSCR = DiveSettings.SCR;
+        displayedSCR = DiveSettings.GetSCR();
     }
 
     function onLayout(dc as Dc) as Void {

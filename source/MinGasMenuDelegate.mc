@@ -10,41 +10,33 @@ class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item) as Void {
         System.println("Got mingas item:" + item.toString());
         if (item.getId() == :calculate) {
-            WatchUi.pushView(new GUEMinGasView(), new GUEMinGasDelegate(), WatchUi.SLIDE_LEFT);
-        } else if (item.getId() == :problem_time) {
-            // TODO: Create time selection for problem solving time
-        } else if (item.getId() == :switch_time) {
-            // TODO: Create time selection for gas switch time
+            WatchUi.pushView(new CalcMinGasView(), new CalcMinGasDelegate(), WatchUi.SLIDE_LEFT);
+        } else if (item.getId() == :min_gas_bottom_depth) {
+            var ds = new DepthSelectionView(DiveSettings.MinGas.GetBottomDepth());
+            var setcb = new Lang.Method(DiveSettings.MinGas, :SetBottomDepth);
+            WatchUi.pushView(ds, new DepthSelectionDelegate(ds, setcb, 5, 0, -1), WatchUi.SLIDE_LEFT);
+        } else if (item.getId() == :min_gas_switch_depth) {
+            var ds = new DepthSelectionView(DiveSettings.MinGas.GetSwitchDepth());
+            var setcb = new Lang.Method(DiveSettings.MinGas, :SetSwitchDepth);
+            WatchUi.pushView(ds, new DepthSelectionDelegate(ds, setcb, 5, 0, -1), WatchUi.SLIDE_LEFT);
+        } else if (item.getId() == :min_gas_scr) {
+            var scrView = new SCRSelectionView();
+            var setcb = new Lang.Method(DiveSettings.MinGas, :SetSCR);
+            WatchUi.pushView(scrView, new SCRSelectionDelegate(scrView, setcb), WatchUi.SLIDE_LEFT);
+        } else if (item.getId() == :min_gas_problem_time) {
+            var timeView = new TimeSelectionView(DiveSettings.MinGas.GetProblemSolvingTime());
+            var setcb = new Lang.Method(DiveSettings.MinGas, :SetProblemSolvingTime);
+            WatchUi.pushView(timeView, new TimeSelectionDelegate(timeView, setcb), WatchUi.SLIDE_LEFT);
+        } else if (item.getId() == :min_gas_switch_time) {
+            var timeView = new TimeSelectionView(DiveSettings.MinGas.GetGasSwitchTime());
+            var setcb = new Lang.Method(DiveSettings.MinGas, :SetGasSwitchTime);
+            WatchUi.pushView(timeView, new TimeSelectionDelegate(timeView, setcb), WatchUi.SLIDE_LEFT);
+        } else if (item.getId() == :min_gas_ascent_rate) {
+            /*
+            var rateView = new AscentRateSelectionView(DiveSettings.MinGas.GetAscentRate());
+            var setcb = new Lang.Method(DiveSettings.MinGas, :SetAscentRate);
+            WatchUi.pushView(rateView, new AscentRateSelectionDelegate(rateView, setcb), WatchUi.SLIDE_LEFT);
+            */
         }
     }
-
-/*
-    function updateMenuLabels() as Void {
-        var bottomDepthItem = _menu.findItemById(:bottom_depth) as WatchUi.MenuItem;
-        if (bottomDepthItem != null) {
-            var depthText = _settings.getBottomDepth().toString() + " ft";
-            bottomDepthItem.setSubLabel(depthText);
-        }
-
-        var nextGasDepthItem = _menu.findItemById(:next_gas_depth) as WatchUi.MenuItem;
-        if (nextGasDepthItem != null) {
-            var depthText = _settings.getNextGasDepth().toString() + " ft";
-            nextGasDepthItem.setSubLabel(depthText);
-        }
-
-        var problemTimeItem = _menu.findItemById(:problem_time) as WatchUi.MenuItem;
-        if (problemTimeItem != null) {
-            var timeText = _settings.getProblemSolvingTime().toString() + " min";
-            problemTimeItem.setSubLabel(timeText);
-        }
-
-        var switchTimeItem = _menu.findItemById(:switch_time) as WatchUi.MenuItem;
-        if (switchTimeItem != null) {
-            var timeText = _settings.getGasSwitchTime().toString() + " min";
-            switchTimeItem.setSubLabel(timeText);
-        }
-
-        WatchUi.requestUpdate();
-    }
-    */
 }
