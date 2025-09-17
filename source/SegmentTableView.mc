@@ -36,7 +36,7 @@ class SegmentTableView extends WatchUi.View {
         var startY = 75;
         var maxVisibleLines = (height - startY - 10) / lineHeight;
 
-        var segments = DiveCalculations.CalculateSegments();
+        var segments = DiveCalculations.CalculateSegmentTable();
         _maxScrollOffset = segments.size() - 1;
 
         for (var i = _scrollOffset; i < segments.size() && i < _scrollOffset + maxVisibleLines; i++) {

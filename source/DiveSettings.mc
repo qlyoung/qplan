@@ -4,6 +4,8 @@ import Toybox.System;
 /*
  * Data model for the application. The structure corresponds directly
  * to screens in the app. No data is stored in views or delegates.
+ *
+ * Get/set is used since some values have sentinels.
  */
 module DiveSettings {
     var SCR as Float = 0.70;
@@ -43,7 +45,7 @@ module DiveSettings {
     module Segments {
         // Depth between segment values (ft)
         var Interval as Number = 10;
-        // Duration of a segment (m)
+        // Duration of a segment (min)
         var Duration as Number = 5;
 
         function GetInterval() as Number {
@@ -72,7 +74,7 @@ module DiveSettings {
         var SCRMultiplier as Number = 2;
         // Depth of next breathable gas source
         var SwitchDepth as Number = 20;
-        // Time spent on the bottom to attemt failure resolution (s)
+        // Time spent on the bottom to attemt failure resolution (m)
         var ProblemSolvingTime as Number = 60*2;
         // Time spent switching gas (s)
         var GasSwitchTime as Number = 60;
@@ -153,7 +155,7 @@ module DiveCalculations {
         // Average pressure between bottom and next switch depth
         var bottomDepth = DiveSettings.MinGas.GetBottomDepth();
         var avgDepth = (bottomDepth + DiveSettings.MinGas.GetSwitchDepth()) / 2.0;
-        var avgPressure = (avgDepth / 33.3) + 1;
+        var avgPressure = DiveCalculations.CalculateAmbientP(avgDepth);
         // Time to ascend (s)
         var ascentTime = (bottomDepth - DiveSettings.MinGas.GetSwitchDepth()) / DiveSettings.MinGas.GetAscentRate();
         ascentTime *= 60;
@@ -178,9 +180,14 @@ module DiveCalculations {
         };
     }
 
-    function CalculateSegments() as Array<Dictionary> {
-        var startDepth = DiveSettings.GetBottomDepth();
+    function CalculateAmbientP(depth) as Number {
+        return (depth/33.3) + 1;
+    }
 
+    /* Calculate how much pressure is used at a given depth in 1 min
+     * Note that this works to calculate SCR in pressure if you pass depth = 0
+     */
+    function CalculateSegment(depth) as Number {
         // compute how much pressure per minute we use at the surface
         var pressure_per_min;
 
@@ -193,18 +200,25 @@ module DiveCalculations {
             System.exit();
         }
 
+        return pressure_per_min * DiveCalculations.CalculateAmbientP(depth);
+    }
+
+    function CalculateSegmentTable() as Array<Dictionary> {
+        var startDepth = DiveSettings.GetBottomDepth();
         var segments = [];
 
         for (var depth = startDepth; depth >= 20; depth -= DiveSettings.Segments.GetInterval()) {
-            var ambient = (depth/33.3) + 1;
-            var segment = pressure_per_min * ambient * DiveSettings.Segments.GetDuration();
-
             segments.add({
                 "depth" => depth,
-                "segment" => segment
+                "segment" => DiveCalculations.CalculateSegment(depth) * DiveSettings.Segments.GetDuration(),
             });
         }
 
         return segments;
     }
+
+    function CalculatePO2(fo2 as Number, depth as Number) {
+        return fo2 * DiveCalculations.CalculateAmbientP(depth);
+    }
+
 }
