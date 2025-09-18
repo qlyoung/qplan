@@ -8,6 +8,7 @@
     <string id="menu_setup">Setup</string>
     <string id="menu_calc_segment">Segments</string>
     <string id="menu_calc_mingas">Minimum gas</string>
+    <string id="menu_calc_po2">PO2 Calculator</string>
 
     <string id="tank_al80">AL80</string>
 

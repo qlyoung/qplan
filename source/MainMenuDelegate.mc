@@ -31,6 +31,10 @@ class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
         } else if (item.getId() == :mingas) {
             var minGasMenu = new MinGasMenu();
             WatchUi.pushView(minGasMenu, new MinGasMenuDelegate(), WatchUi.SLIDE_UP);
+        } else if (item.getId() == :po2calc) {
+            var fo2View = new FO2SelectionView(0.21); // Default to air
+            var fo2Delegate = new FO2SelectionDelegate(fo2View, null, 0.01, 0.10, 1.00);
+            WatchUi.pushView(fo2View, fo2Delegate, WatchUi.SLIDE_LEFT);
         }
     }
 

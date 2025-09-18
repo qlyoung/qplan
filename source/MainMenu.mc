@@ -44,6 +44,13 @@ class MainMenu extends WatchUi.Menu2 {
             :mingas,
             {}
         ));
+
+        addItem(new WatchUi.MenuItem(
+            WatchUi.loadResource(Rez.Strings.menu_calc_po2),
+            null,
+            :po2calc,
+            {}
+        ));
     }
 
     function updateLabels() as Void {
