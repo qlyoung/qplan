@@ -1,6 +1,7 @@
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.Math;
+import Toybox.Application.Storage;
 
 /*
  * Data model for the application. The structure corresponds directly
@@ -152,6 +153,82 @@ module DiveSettings {
 
         function SetBottomDepth(bd as Number) {
             BottomDepth = bd;
+        }
+    }
+
+    function PersistToStorage() {
+        // Top level variables
+        Storage.setValue("scr", SCR);
+        Storage.setValue("bottom_depth", BottomDepth);
+        Storage.setValue("cylinder", Cylinder);
+
+        // Segments module variables
+        Storage.setValue("segments.interval", Segments.Interval);
+        Storage.setValue("segments.duration", Segments.Duration);
+
+        // MinGas module variables
+        Storage.setValue("min_gas.bottom_depth", MinGas.BottomDepth);
+        Storage.setValue("min_gas.contingency_scr", MinGas.ContingencySCR);
+        Storage.setValue("min_gas.contingency_scr_multiplier", MinGas.ContingencySCRMultiplier);
+        Storage.setValue("min_gas.switch_depth", MinGas.SwitchDepth);
+        Storage.setValue("min_gas.problem_solving_time", MinGas.ProblemSolvingTime);
+        Storage.setValue("min_gas.gas_switch_time", MinGas.GasSwitchTime);
+        Storage.setValue("min_gas.ascent_rate", MinGas.AscentRate);
+    }
+
+    function LoadFromStorage() {
+        // Top level variables
+        var scr = Storage.getValue("scr");
+        if (scr != null) {
+            SCR = scr;
+        }
+        var bottomDepth = Storage.getValue("bottom_depth");
+        if (bottomDepth != null) {
+            BottomDepth = bottomDepth;
+        }
+        var cylinder = Storage.getValue("cylinder");
+        if (cylinder != null) {
+            Cylinder = cylinder;
+        }
+
+        // Segments module variables
+        var segmentsInterval = Storage.getValue("segments.interval");
+        if (segmentsInterval != null) {
+            Segments.Interval = segmentsInterval;
+        }
+        var segmentsDuration = Storage.getValue("segments.duration");
+        if (segmentsDuration != null) {
+            Segments.Duration = segmentsDuration;
+        }
+
+        // MinGas module variables
+        var minGasBottomDepth = Storage.getValue("min_gas.bottom_depth");
+        if (minGasBottomDepth != null) {
+            MinGas.BottomDepth = minGasBottomDepth;
+        }
+        var minGasContingencySCR = Storage.getValue("min_gas.contingency_scr");
+        if (minGasContingencySCR != null) {
+            MinGas.ContingencySCR = minGasContingencySCR;
+        }
+        var minGasContingencySCRMultiplier = Storage.getValue("min_gas.contingency_scr_multiplier");
+        if (minGasContingencySCRMultiplier != null) {
+            MinGas.ContingencySCRMultiplier = minGasContingencySCRMultiplier;
+        }
+        var minGasSwitchDepth = Storage.getValue("min_gas.switch_depth");
+        if (minGasSwitchDepth != null) {
+            MinGas.SwitchDepth = minGasSwitchDepth;
+        }
+        var minGasProblemSolvingTime = Storage.getValue("min_gas.problem_solving_time");
+        if (minGasProblemSolvingTime != null) {
+            MinGas.ProblemSolvingTime = minGasProblemSolvingTime;
+        }
+        var minGasGasSwitchTime = Storage.getValue("min_gas.gas_switch_time");
+        if (minGasGasSwitchTime != null) {
+            MinGas.GasSwitchTime = minGasGasSwitchTime;
+        }
+        var minGasAscentRate = Storage.getValue("min_gas.ascent_rate");
+        if (minGasAscentRate != null) {
+            MinGas.AscentRate = minGasAscentRate;
         }
     }
 }
