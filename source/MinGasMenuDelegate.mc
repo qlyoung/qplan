@@ -32,11 +32,9 @@ class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
             var setcb = new Lang.Method(DiveSettings.MinGas, :SetGasSwitchTime);
             WatchUi.pushView(timeView, new TimeSelectionDelegate(timeView, setcb), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_ascent_rate) {
-            /*
-            var rateView = new AscentRateSelectionView(DiveSettings.MinGas.GetAscentRate());
+            var rateView = new NumberSelectionView(DiveSettings.MinGas.GetAscentRate() as Float, "%d", "ft/min", "Ascent rate");
             var setcb = new Lang.Method(DiveSettings.MinGas, :SetAscentRate);
-            WatchUi.pushView(rateView, new AscentRateSelectionDelegate(rateView, setcb), WatchUi.SLIDE_LEFT);
-            */
+            WatchUi.pushView(rateView, new NumberSelectionDelegate(rateView, setcb, 1.0, 1.0, 100.0), WatchUi.SLIDE_LEFT);
         }
     }
 }
