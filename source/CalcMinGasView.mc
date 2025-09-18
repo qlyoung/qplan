@@ -28,8 +28,6 @@ class CalcMinGasView extends WatchUi.View {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
 
         var minGasData = DiveCalculations.CalculateMinGas();
-        System.println("Min gas:");
-        System.println(minGasData);
 
         dc.drawText(width / 8 - 5, height / 8, Graphics.FONT_SYSTEM_LARGE, "Min Gas", Graphics.TEXT_JUSTIFY_LEFT);
 
