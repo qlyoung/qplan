@@ -12,17 +12,17 @@ class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
         if (item.getId() == :calculate) {
             WatchUi.pushView(new CalcMinGasView(), new CalcMinGasDelegate(), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_bottom_depth) {
-            var ds = new DepthSelectionView(DiveSettings.MinGas.GetBottomDepth());
+            var ds = new NumberSelectionView(DiveSettings.MinGas.GetBottomDepth() as Float, "%d", "ft", "Depth");
             var setcb = new Lang.Method(DiveSettings.MinGas, :SetBottomDepth);
-            WatchUi.pushView(ds, new DepthSelectionDelegate(ds, setcb, 5, 0, -1), WatchUi.SLIDE_LEFT);
+            WatchUi.pushView(ds, new NumberSelectionDelegate(ds, setcb, 5.0, 0.0, 1000.0), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_switch_depth) {
-            var ds = new DepthSelectionView(DiveSettings.MinGas.GetSwitchDepth());
+            var ds = new NumberSelectionView(DiveSettings.MinGas.GetSwitchDepth() as Float, "%d", "ft", "Switch depth");
             var setcb = new Lang.Method(DiveSettings.MinGas, :SetSwitchDepth);
-            WatchUi.pushView(ds, new DepthSelectionDelegate(ds, setcb, 5, 0, -1), WatchUi.SLIDE_LEFT);
+            WatchUi.pushView(ds, new NumberSelectionDelegate(ds, setcb, 5.0, 0.0, 1000.0), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_scr) {
-            var scrView = new SCRSelectionView();
+            var scrView = new NumberSelectionView(DiveSettings.MinGas.GetSCR(), "%.2f", "cf/min", "SCR");
             var setcb = new Lang.Method(DiveSettings.MinGas, :SetSCR);
-            WatchUi.pushView(scrView, new SCRSelectionDelegate(scrView, setcb), WatchUi.SLIDE_LEFT);
+            WatchUi.pushView(scrView, new NumberSelectionDelegate(scrView, setcb, .05, 0.0, 10.0), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_problem_time) {
             var timeView = new TimeSelectionView(DiveSettings.MinGas.GetProblemSolvingTime());
             var setcb = new Lang.Method(DiveSettings.MinGas, :SetProblemSolvingTime);

@@ -5,10 +5,11 @@ import Toybox.WatchUi;
 class PO2CalculationView extends WatchUi.View {
     private var _scrollOffset as Number = 0;
     private var _maxScrollOffset as Number = 0;
-    private var _fo2 as Float = 0.21; // Default air FO2
+    private var _fo2 as Float;
 
-    function initialize() {
+    function initialize(fo2 as Float) {
         View.initialize();
+        _fo2 = fo2;
     }
 
     function onLayout(dc as Dc) as Void {
