@@ -39,17 +39,23 @@ class CalcMinGasView extends WatchUi.View {
         var consumptionText = "C: " + minGasData["consumption"].format("%.1f") + " cf/min";
         dc.drawText(width / 8 - 10, height / 3 - 5, Graphics.FONT_XTINY, consumptionText, Graphics.TEXT_JUSTIFY_LEFT);
 
-        var depthRangeText = "(" + DiveSettings.MinGas.GetBottomDepth() + " -> " + DiveSettings.MinGas.GetSwitchDepth() + ")";
+        var depthRangeText = "(" + DiveSettings.MinGas.GetBottomDepth().format("%d") + " -> " + DiveSettings.MinGas.GetSwitchDepth().format("%d") + ")";
         var avgPressureText = "A: " + minGasData["avg_pressure"].format("%.1f") + " ATA " + depthRangeText;
         dc.drawText(width / 8 - 10, height / 3 + 20, Graphics.FONT_XTINY, avgPressureText, Graphics.TEXT_JUSTIFY_LEFT);
 
-        var timeRangeText = "(" + DiveSettings.MinGas.GetProblemSolvingTime() + "+" + minGasData["ascent_time"] + "+" + DiveSettings.MinGas.GetGasSwitchTime() + ")";
-        var timeText = "T: " + Math.ceil((minGasData["total_time"]/60)) + " min " + timeRangeText;
+        // All of these should already be multiples of 60, but round up just in case
+        var problemSolveMinutes = Math.ceil(DiveSettings.MinGas.GetProblemSolvingTime()/60.0) as Number;
+        var ascentTimeMinutes = Math.ceil(minGasData["ascent_time"]/60.0) as Number;
+        var switchTimeMinutes = Math.ceil(DiveSettings.MinGas.GetGasSwitchTime()/60.0) as Number;
+        var totalTimeMinutes = Math.ceil((minGasData["total_time"]/60.0)) as Number;
+
+        var timeRangeText = "(" + problemSolveMinutes.format("%d") + "+" + ascentTimeMinutes.format("%d") + "+" + switchTimeMinutes.format("%d") + ")";
+        var timeText = "T: " + totalTimeMinutes.format("%d") + " min " + timeRangeText;
         dc.drawText(width / 8 - 10, height / 3 + 45, Graphics.FONT_XTINY, timeText, Graphics.TEXT_JUSTIFY_LEFT);
 
         // Result
         var cfText = minGasData["min_gas_volume"].format("%.1f") + " cf";
-        var psiText = minGasData["min_gas_pressure"].format("%.0f") + " psi";
+        var psiText = minGasData["min_gas_pressure"].format("%d") + " psi";
         var minGasText = cfText + " / " + psiText;
 
         dc.drawText(width / 2, 2 * height / 3 + 15, Graphics.FONT_SMALL, minGasText, Graphics.TEXT_JUSTIFY_CENTER);

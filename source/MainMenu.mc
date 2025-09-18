@@ -23,7 +23,7 @@ class MainMenu extends WatchUi.Menu2 {
             {}
         ));
 
-        var depthText = DiveSettings.GetBottomDepth().toString() + " ft";
+        var depthText = DiveSettings.GetBottomDepth().format("%d") + " ft";
         addItem(new WatchUi.MenuItem(
             WatchUi.loadResource(Rez.Strings.menu_label_depth),
             depthText,
@@ -67,7 +67,7 @@ class MainMenu extends WatchUi.Menu2 {
 
         var depthItem = getItem(findItemById(:depth));
         if (depthItem != null) {
-            var depthText = DiveSettings.GetBottomDepth().toString() + " ft";
+            var depthText = DiveSettings.GetBottomDepth().format("%d") + " ft";
             depthItem.setSubLabel(depthText);
         }
     }

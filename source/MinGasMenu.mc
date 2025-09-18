@@ -59,32 +59,38 @@ class MinGasMenu extends WatchUi.Menu2 {
     function onShow() as Void {
         var bottomDepthItem = getItem(findItemById(:min_gas_bottom_depth));
         if (bottomDepthItem != null) {
-            bottomDepthItem.setSubLabel(DiveSettings.MinGas.GetBottomDepth().toString() + " ft");
+            var btmDepthText = DiveSettings.MinGas.GetBottomDepth().format("%d") + "ft";
+            bottomDepthItem.setSubLabel(btmDepthText);
         }
 
         var scrItem = getItem(findItemById(:min_gas_scr));
         if (scrItem != null) {
-            scrItem.setSubLabel(DiveSettings.MinGas.GetSCR().toString() + " cf/min");
+            var scrText = DiveSettings.MinGas.GetSCR().format("%.2f") + " cf/min";
+            scrItem.setSubLabel(scrText);
         }
 
         var switchDepthItem = getItem(findItemById(:min_gas_switch_depth));
         if (switchDepthItem != null) {
-            switchDepthItem.setSubLabel(DiveSettings.MinGas.GetSwitchDepth().toString() + " ft");
+            var switchDepthText = DiveSettings.MinGas.GetSwitchDepth().format("%d") + "ft";
+            switchDepthItem.setSubLabel(switchDepthText);
         }
 
         var problemTimeItem = getItem(findItemById(:min_gas_problem_time));
         if (problemTimeItem != null) {
-            problemTimeItem.setSubLabel(Math.ceil(DiveSettings.MinGas.GetProblemSolvingTime()/60.0) + " min");
+            var probTimeText = (DiveSettings.MinGas.GetProblemSolvingTime()/60.0).format("%.1f") + " min";
+            problemTimeItem.setSubLabel(probTimeText);
         }
 
         var switchTimeItem = getItem(findItemById(:min_gas_switch_time));
         if (switchTimeItem != null) {
-            switchTimeItem.setSubLabel(Math.ceil(DiveSettings.MinGas.GetGasSwitchTime()/60.0) + " min");
+            var switchTimeText = (DiveSettings.MinGas.GetGasSwitchTime()/60.0).format("%.1f") + " min";
+            switchTimeItem.setSubLabel(switchTimeText);
         }
 
         var ascentRateItem = getItem(findItemById(:min_gas_ascent_rate));
         if (ascentRateItem != null) {
-            ascentRateItem.setSubLabel(DiveSettings.MinGas.GetAscentRate().toString() + " ft/min");
+            var ascRateText = DiveSettings.MinGas.GetAscentRate().format("%d") + " ft/min";
+            ascentRateItem.setSubLabel(ascRateText);
         }
     }
 }

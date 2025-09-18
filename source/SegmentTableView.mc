@@ -50,7 +50,7 @@ class SegmentTableView extends WatchUi.View {
                 unit_pressure = "psi";
             }
 
-            var depthText = segment["depth"].toString() + unit_depth;
+            var depthText = segment["depth"].format("%d") + unit_depth;
             var segmentText = segment["segment"].format("%d") + unit_pressure;
 
             dc.drawText(5 * width / 6, height / 9, Graphics.FONT_SYSTEM_LARGE, DiveSettings.GetCylinder()["cylinder_type_name"], Graphics.TEXT_JUSTIFY_CENTER);
