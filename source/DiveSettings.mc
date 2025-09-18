@@ -1,5 +1,6 @@
 import Toybox.Lang;
 import Toybox.System;
+import Toybox.Math;
 
 /*
  * Data model for the application. The structure corresponds directly
@@ -8,8 +9,11 @@ import Toybox.System;
  * Get/set is used since some values have sentinels.
  */
 module DiveSettings {
+    // Diver SCR (cf/min)
     var SCR as Float = 0.70;
+    // Bottom depth (ft)
     var BottomDepth as Number = 100;
+    // Back gas cylinder
     var Cylinder as Dictionary = {
         "cylinder_type_name" => "AL80",
         "service_pressure" => 3000,
@@ -66,27 +70,32 @@ module DiveSettings {
     }
 
     module MinGas {
+        // Bottom depth (ft)
         // -1 = same as MaxDepth
         var BottomDepth as Number = -1;
-        // -1 = same as SCR
-        var SCR as Float = -1.0;
-        // Usually 2, but can be set to 1 for solo
-        var SCRMultiplier as Number = 2;
-        // Depth of next breathable gas source
+        // SCR of single diver in contingency scenario (cf/min)
+        // -1 = same as main SCR
+        var ContingencySCR as Float = -1.0;
+        // Factor by which SCR increases in contingency scenario (scalar)
+        // Examples:
+        // - 2 to account for two divers sharing gas;
+        // - 1 for solo diver
+        var ContingencySCRMultiplier as Float = 2.0;
+        // Depth of next breathable gas source (ft)
         var SwitchDepth as Number = 20;
-        // Time spent on the bottom to attemt failure resolution (m)
+        // Time spent on the bottom to attemt failure resolution (min)
         var ProblemSolvingTime as Number = 60*2;
         // Time spent switching gas (s)
         var GasSwitchTime as Number = 60;
-        // Ascent rate, depth/min
+        // Ascent rate (ft/min)
         var AscentRate as Number = 10;
 
-        function GetSCRMultiplier() as Number {
-            return SCRMultiplier;
+        function GetContingencySCRMultiplier() as Float {
+            return ContingencySCRMultiplier;
         }
 
-        function SetSCRMultiplier(multiplier as Number) {
-            SCRMultiplier = multiplier;
+        function SetContingencySCRMultiplier(multiplier as Float) {
+            ContingencySCRMultiplier = multiplier;
         }
 
         function GetSwitchDepth() as Number {
@@ -121,16 +130,16 @@ module DiveSettings {
             AscentRate = rate;
         }
 
-        function GetSCR() as Float {
-            if (DiveSettings.MinGas.SCR != -1) {
-                return SCR;
+        function GetContingencySCR() as Float {
+            if (DiveSettings.MinGas.ContingencySCR != -1) {
+                return ContingencySCR;
             } else {
                 return DiveSettings.GetSCR();
             }
         }
 
-        function SetSCR(scr as Float) {
-            SCR = scr;
+        function SetContingencySCR(scr as Float) {
+            ContingencySCR = scr;
         }
 
         function GetBottomDepth() as Number {
@@ -150,19 +159,18 @@ module DiveSettings {
 module DiveCalculations {
 
     function CalculateMinGas() as Dictionary {
-        // Consumption of 2x divers (cf/s)
-        var consumption = (DiveSettings.MinGas.GetSCR()/60.0) * DiveSettings.MinGas.GetSCRMultiplier();
+        // Total scenario consumption per second
+        var consumption_sec = (DiveSettings.MinGas.GetContingencySCR()/60.0) * DiveSettings.MinGas.GetContingencySCRMultiplier();
         // Average pressure between bottom and next switch depth
         var bottomDepth = DiveSettings.MinGas.GetBottomDepth();
         var avgDepth = (bottomDepth + DiveSettings.MinGas.GetSwitchDepth()) / 2.0;
         var avgPressure = DiveCalculations.CalculateAmbientP(avgDepth);
         // Time to ascend (s)
-        var ascentTime = (bottomDepth - DiveSettings.MinGas.GetSwitchDepth()) / DiveSettings.MinGas.GetAscentRate();
-        ascentTime *= 60;
+        var ascentTime = Math.ceil((bottomDepth - DiveSettings.MinGas.GetSwitchDepth()) / (DiveSettings.MinGas.GetAscentRate()/60.0));
         // Total time until scenario is resolved (s)
         var totalTime = DiveSettings.MinGas.GetProblemSolvingTime() + ascentTime + DiveSettings.MinGas.GetGasSwitchTime();
         // Minimum gas in volume
-        var minGasVolume = consumption * avgPressure * totalTime;
+        var minGasVolume = consumption_sec * avgPressure * totalTime;
         // Convert to pressure
         var cylinderCapacity = DiveSettings.GetCylinder()["nominal_capacity"] as Number;
         var servicePressure = DiveSettings.GetCylinder()["service_pressure"] as Number;
@@ -172,7 +180,7 @@ module DiveCalculations {
         return {
             "min_gas_volume" => minGasVolume,
             "min_gas_pressure" => minGasPressure,
-            "consumption" => consumption*60,
+            "consumption" => consumption_sec*60.0,
             "avg_pressure" => avgPressure,
             "avg_depth" => avgDepth,
             "ascent_time" => ascentTime,
@@ -180,7 +188,7 @@ module DiveCalculations {
         };
     }
 
-    function CalculateAmbientP(depth) as Number {
+    function CalculateAmbientP(depth) as Float {
         return (depth/33.3) + 1;
     }
 
@@ -217,7 +225,7 @@ module DiveCalculations {
         return segments;
     }
 
-    function CalculatePO2(fo2 as Number, depth as Number) {
+    function CalculatePO2(fo2 as Float, depth as Number) {
         return fo2 * DiveCalculations.CalculateAmbientP(depth);
     }
 

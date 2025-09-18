@@ -20,7 +20,7 @@ class MinGasMenu extends WatchUi.Menu2 {
 
         addItem(new WatchUi.MenuItem(
             "SCR",
-            DiveSettings.MinGas.GetSCR().toString() + " cf/min",
+            DiveSettings.MinGas.GetContingencySCR().toString() + " cf/min",
             :min_gas_scr,
             {}
         ));
@@ -65,7 +65,7 @@ class MinGasMenu extends WatchUi.Menu2 {
 
         var scrItem = getItem(findItemById(:min_gas_scr));
         if (scrItem != null) {
-            var scrText = DiveSettings.MinGas.GetSCR().format("%.2f") + " cf/min";
+            var scrText = DiveSettings.MinGas.GetContingencySCR().format("%.2f") + " cf/min";
             scrItem.setSubLabel(scrText);
         }
 

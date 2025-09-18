@@ -20,7 +20,7 @@ class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
             var setcb = new Lang.Method(DiveSettings.MinGas, :SetSwitchDepth);
             WatchUi.pushView(ds, new NumberSelectionDelegate(ds, setcb, 5.0, 0.0, 1000.0), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_scr) {
-            var scrView = new NumberSelectionView(DiveSettings.MinGas.GetSCR(), "%.2f", "cf/min", "SCR");
+            var scrView = new NumberSelectionView(DiveSettings.MinGas.GetContingencySCR(), "%.2f", "cf/min", "SCR");
             var setcb = new Lang.Method(DiveSettings.MinGas, :SetSCR);
             WatchUi.pushView(scrView, new NumberSelectionDelegate(scrView, setcb, .05, 0.0, 10.0), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_problem_time) {

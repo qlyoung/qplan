@@ -74,7 +74,7 @@ class PO2CalculationView extends WatchUi.View {
 
         // Generate data for depths from 0 to 200 ft in 10 ft increments
         for (var depth = 0; depth <= 200; depth += 10) {
-            var po2 = DiveCalculations.CalculatePO2(_fo2 as Number, depth as Number);
+            var po2 = DiveCalculations.CalculatePO2(_fo2, depth);
             data.add({
                 "depth" => depth,
                 "po2" => po2
