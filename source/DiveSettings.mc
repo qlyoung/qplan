@@ -166,9 +166,12 @@ module DiveCalculations {
         var avgDepth = (bottomDepth + DiveSettings.MinGas.GetSwitchDepth()) / 2.0;
         var avgPressure = DiveCalculations.CalculateAmbientP(avgDepth);
         // Time to ascend (s)
-        var ascentTime = Math.ceil((bottomDepth - DiveSettings.MinGas.GetSwitchDepth()) / (DiveSettings.MinGas.GetAscentRate()/60.0));
+        var ascRateSec = DiveSettings.MinGas.GetAscentRate()/60.0;
+        var ascentTime = Math.ceil((bottomDepth - DiveSettings.MinGas.GetSwitchDepth()) / ascRateSec);
         // Total time until scenario is resolved (s)
         var totalTime = DiveSettings.MinGas.GetProblemSolvingTime() + ascentTime + DiveSettings.MinGas.GetGasSwitchTime();
+        // Convention is to round total time up to the nearest minute for conservativism
+        totalTime = Math.ceil(totalTime / 60.0) * 60.0;
         // Minimum gas in volume
         var minGasVolume = consumption_sec * avgPressure * totalTime;
         // Convert to pressure
