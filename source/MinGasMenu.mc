@@ -12,44 +12,38 @@ class MinGasMenu extends WatchUi.Menu2 {
         addItem(new WatchUi.MenuItem("Calculate", null, :calculate, {}));
 
         addItem(new WatchUi.MenuItem(
-            "Bottom Depth",
-            DiveSettings.MinGas.GetBottomDepth().toString() + " ft",
+            "Bottom Depth", "",
             :min_gas_bottom_depth,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            "SCR",
-            DiveSettings.MinGas.GetContingencySCR().toString() + " cf/min",
+            "SCR", "",
             :min_gas_scr,
             {}
         ));
 
 
         addItem(new WatchUi.MenuItem(
-            "Switch Depth",
-            DiveSettings.MinGas.GetSwitchDepth().toString() + " ft",
+            "Switch Depth", "",
             :min_gas_switch_depth,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            "Problem Time",
-            DiveSettings.MinGas.GetProblemSolvingTime().toString() + " min",
+            "Problem Time", "",
             :min_gas_problem_time,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            "Switch Time",
-            DiveSettings.MinGas.GetGasSwitchTime().toString() + " min",
+            "Switch Time", "",
             :min_gas_switch_time,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            "Ascent Rate",
-            DiveSettings.MinGas.GetAscentRate().toString() + " ft/min",
+            "Ascent Rate", "",
             :min_gas_ascent_rate,
             {}
         ));
