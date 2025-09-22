@@ -34,10 +34,21 @@ class CalcMinGasView extends WatchUi.View {
         // cylinder
         dc.drawText(5 * width / 6, height / 9, Graphics.FONT_SYSTEM_LARGE, DiveSettings.GetCylinder()["cylinder_type_name"], Graphics.TEXT_JUSTIFY_CENTER);
 
-        var consumptionText = "C: " + minGasData["consumption"].format("%.1f") + " cf/min";
+        var mgc = minGasData["consumption"];
+        var consText;
+        if (Units.GetSystem() == Units.METRIC) {
+            mgc = Math.round(mgc);
+            consText = mgc.format("%d");
+        } else {
+            mgc = Math.round(mgc/.1) * .1;
+            consText = mgc.format("%.1f");
+        }
+        var consumptionText = "C: " + consText + " " + Units.SCR();
         dc.drawText(width / 8 - 10, height / 3 - 5, Graphics.FONT_XTINY, consumptionText, Graphics.TEXT_JUSTIFY_LEFT);
 
-        var depthRangeText = "(" + DiveSettings.MinGas.GetBottomDepth().format("%d") + " -> " + DiveSettings.MinGas.GetSwitchDepth().format("%d") + ")";
+        var bd = Math.round(DiveSettings.MinGas.GetBottomDepth());
+        var sd = Math.round(DiveSettings.MinGas.GetSwitchDepth());
+        var depthRangeText = "(" + bd.format("%d") + " -> " + sd.format("%d") + ")";
         var avgPressureText = "A: " + minGasData["avg_pressure"].format("%.1f") + " ATA " + depthRangeText;
         dc.drawText(width / 8 - 10, height / 3 + 20, Graphics.FONT_XTINY, avgPressureText, Graphics.TEXT_JUSTIFY_LEFT);
 
@@ -52,9 +63,11 @@ class CalcMinGasView extends WatchUi.View {
         dc.drawText(width / 8 - 10, height / 3 + 45, Graphics.FONT_XTINY, timeText, Graphics.TEXT_JUSTIFY_LEFT);
 
         // Result
-        var cfText = minGasData["min_gas_volume"].format("%.1f") + " cf";
-        var psiText = minGasData["min_gas_pressure"].format("%d") + " psi";
-        var minGasText = cfText + " / " + psiText;
+        var mgv = Math.round(minGasData["min_gas_volume"]);
+        var mgp = Math.round(minGasData["min_gas_pressure"]);
+        var vText = mgv.format("%d") + " " + Units.Volume();
+        var pText = mgp.format("%d") + " " + Units.Pressure();
+        var minGasText = vText + " / " + pText;
 
         dc.drawText(width / 2, 2 * height / 3 + 15, Graphics.FONT_SMALL, minGasText, Graphics.TEXT_JUSTIFY_CENTER);
     }

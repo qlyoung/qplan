@@ -10,19 +10,17 @@ class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
 
     function onSelect(item) as Void {
         if (item.getId() == :scr) {
-            var scrView = new NumberSelectionView(DiveSettings.GetSCR(), "%.2f", "cf/min", "Set SCR");
             var setcb = new Lang.Method(DiveSettings, :SetSCR);
-            var scrDelegate = new NumberSelectionDelegate(scrView, setcb, .05, 0.0, 10.0);
-            WatchUi.pushView(scrView, scrDelegate, WatchUi.SLIDE_LEFT);
+            var res = Screens.SCRSelection(DiveSettings.GetSCR(), setcb, "SCR");
+            WatchUi.pushView(res[0], res[1], WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :cylinder) {
             var cylinderMenu = new CylinderSelectionMenu();
             var cylinderDelegate = new CylinderSelectionDelegate();
             WatchUi.pushView(cylinderMenu, cylinderDelegate, WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :depth) {
-            var depthView = new NumberSelectionView(DiveSettings.GetBottomDepth() as Float, "%d", "ft", "Depth");
             var setcb = new Lang.Method(DiveSettings, :SetBottomDepth);
-            var depthDelegate = new NumberSelectionDelegate(depthView, setcb, 5.0, 0.0, 1000.0);
-            WatchUi.pushView(depthView, depthDelegate, WatchUi.SLIDE_LEFT);
+            var res = Screens.DepthSelection(DiveSettings.GetBottomDepth(), setcb, 0.0, DiveSettings.GetMaxDepth(), "Depth");
+            WatchUi.pushView(res[0], res[1], WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :segments) {
             var tableView = new SegmentTableView();
             var tableDelegate = new SegmentTableDelegate(tableView);

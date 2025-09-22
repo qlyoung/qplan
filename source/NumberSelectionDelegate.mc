@@ -4,15 +4,21 @@ import Toybox.WatchUi;
 
 class NumberSelectionDelegate extends WatchUi.BehaviorDelegate {
     private var _view as NumberSelectionView;
-    private var _set as Lang.Method;
+    private var _setcb as Lang.Method;
     private var _interval as Float;
     private var _max as Float;
     private var _min as Float;
 
-    function initialize(view as NumberSelectionView, set as Lang.Method, interval as Float, min as Float, max as Float) {
+    function initialize(
+        view as NumberSelectionView,
+        setcb as Method(value as Float),
+        interval as Float,
+        min as Float,
+        max as Float
+    ) {
         BehaviorDelegate.initialize();
         _view = view;
-        _set = set;
+        _setcb = setcb;
         _interval = interval;
         _min = min;
         _max = max;
@@ -48,7 +54,7 @@ class NumberSelectionDelegate extends WatchUi.BehaviorDelegate {
         // Must pop ourselves first; if callback pushes a view and
         // we pop after, we will pop them
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
-        _set.invoke(_view.GetValue());
+        _setcb.invoke(_view.GetValue());
         return true;
     }
 

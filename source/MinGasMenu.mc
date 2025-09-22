@@ -1,5 +1,6 @@
 import Toybox.WatchUi;
 import Toybox.Lang;
+import Toybox.Math;
 
 class MinGasMenu extends WatchUi.Menu2 {
 
@@ -51,21 +52,27 @@ class MinGasMenu extends WatchUi.Menu2 {
     }
 
     function onShow() as Void {
+        var unitSystem = Units.GetSystem();
+
         var bottomDepthItem = getItem(findItemById(:min_gas_bottom_depth));
         if (bottomDepthItem != null) {
-            var btmDepthText = DiveSettings.MinGas.GetBottomDepth().format("%d") + "ft";
+            var btmDepth = Math.round(DiveSettings.MinGas.GetBottomDepth());
+            var btmDepthText = btmDepth.format("%d") + " " + Units.Depth();
             bottomDepthItem.setSubLabel(btmDepthText);
         }
 
         var scrItem = getItem(findItemById(:min_gas_scr));
         if (scrItem != null) {
-            var scrText = DiveSettings.MinGas.GetContingencySCR().format("%.2f") + " cf/min";
+            var scr = DiveSettings.MinGas.GetContingencySCR();
+            var scrText = scr.format((unitSystem == Units.METRIC) ? "%d" : "%.2f");
+            scrText += " " + Units.SCR();
             scrItem.setSubLabel(scrText);
         }
 
         var switchDepthItem = getItem(findItemById(:min_gas_switch_depth));
         if (switchDepthItem != null) {
-            var switchDepthText = DiveSettings.MinGas.GetSwitchDepth().format("%d") + "ft";
+            var switchDepthText = DiveSettings.MinGas.GetSwitchDepth().format("%d");
+            switchDepthText += " " + Units.Depth();
             switchDepthItem.setSubLabel(switchDepthText);
         }
 
@@ -83,7 +90,8 @@ class MinGasMenu extends WatchUi.Menu2 {
 
         var ascentRateItem = getItem(findItemById(:min_gas_ascent_rate));
         if (ascentRateItem != null) {
-            var ascRateText = DiveSettings.MinGas.GetAscentRate().format("%d") + " ft/min";
+            var ascRateText = DiveSettings.MinGas.GetAscentRate().format("%d");
+            ascRateText += " " + Units.DepthChange();
             ascentRateItem.setSubLabel(ascRateText);
         }
     }

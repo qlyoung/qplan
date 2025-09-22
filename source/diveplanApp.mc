@@ -1,6 +1,9 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
+import Toybox.Application.Properties;
+
+import DiveSettings;
 
 class diveplanApp extends Application.AppBase {
 
@@ -10,6 +13,9 @@ class diveplanApp extends Application.AppBase {
 
     // onStart() is called on application start up
     function onStart(state as Dictionary?) as Void {
+        var units = Units.GetSystem();
+        if (units == Units.METRIC) { DiveSettings.SetMetricDefaults(); }
+        if (units == Units.IMPERIAL) { DiveSettings.SetImperialDefaults(); }
         DiveSettings.LoadFromStorage();
     }
 

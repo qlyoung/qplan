@@ -2,6 +2,7 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.Math;
 import Toybox.Application.Storage;
+import Units;
 
 /*
  * Data model for the application. The structure corresponds directly
@@ -10,10 +11,10 @@ import Toybox.Application.Storage;
  * Get/set is used since some values have sentinels.
  */
 module DiveSettings {
-    // Diver SCR (cf/min)
-    var SCR as Float = 0.70;
-    // Bottom depth (ft)
-    var BottomDepth as Number = 100;
+    // Diver SCR (l/min)
+    var SCR as Float = 0.0;
+    // Bottom depth (m)
+    var BottomDepth as Float = 0.0;
     // Back gas cylinder
     var Cylinder as Dictionary = {
         "cylinder_type_name" => "AL80",
@@ -23,20 +24,24 @@ module DiveSettings {
         "unit_type" => "standard"
     };
 
+    function GetMaxDepth() as Float {
+        return Units.MetersToSystem(300.0);
+    }
+
     function GetSCR() as Float {
-        return SCR;
+        return Units.LitersToSystem(SCR);
     }
 
     function SetSCR(scr as Float) {
-        SCR = scr;
+        SCR = Units.SystemToLiters(scr);
     }
 
-    function GetBottomDepth() as Number {
-        return BottomDepth;
+    function GetBottomDepth() as Float {
+        return Units.MetersToSystem(BottomDepth);
     }
 
-    function SetBottomDepth(depth as Number) {
-        BottomDepth = depth;
+    function SetBottomDepth(depth as Float) {
+        BottomDepth = Units.SystemToMeters(depth);
     }
 
     function GetCylinder() as Dictionary {
@@ -48,18 +53,8 @@ module DiveSettings {
     }
 
     module Segments {
-        // Depth between segment values (ft)
-        var Interval as Number = 10;
         // Duration of a segment (min)
         var Duration as Number = 5;
-
-        function GetInterval() as Number {
-            return Interval;
-        }
-
-        function SetInterval(interval as Number) {
-            Interval = interval;
-        }
 
         function GetDuration() as Number {
             return Duration;
@@ -71,10 +66,10 @@ module DiveSettings {
     }
 
     module MinGas {
-        // Bottom depth (ft)
+        // Bottom depth (m)
         // -1 = same as MaxDepth
-        var BottomDepth as Number = -1;
-        // SCR of single diver in contingency scenario (cf/min)
+        var BottomDepth as Float = -1.0;
+        // SCR of single diver in contingency scenario (l/min)
         // -1 = same as main SCR
         var ContingencySCR as Float = -1.0;
         // Factor by which SCR increases in contingency scenario (scalar)
@@ -82,14 +77,14 @@ module DiveSettings {
         // - 2 to account for two divers sharing gas;
         // - 1 for solo diver
         var ContingencySCRMultiplier as Float = 2.0;
-        // Depth of next breathable gas source (ft)
-        var SwitchDepth as Number = 20;
-        // Time spent on the bottom to attemt failure resolution (min)
+        // Depth of next breathable gas source (m)
+        var SwitchDepth as Float = 0.0;
+        // Time spent on the bottom to attemt failure resolution (s)
         var ProblemSolvingTime as Number = 60*2;
         // Time spent switching gas (s)
         var GasSwitchTime as Number = 60;
-        // Ascent rate (ft/min)
-        var AscentRate as Number = 10;
+        // Ascent rate (m/min)
+        var AscentRate as Float = 0.0;
 
         function GetContingencySCRMultiplier() as Float {
             return ContingencySCRMultiplier;
@@ -99,12 +94,12 @@ module DiveSettings {
             ContingencySCRMultiplier = multiplier;
         }
 
-        function GetSwitchDepth() as Number {
-            return SwitchDepth;
+        function GetSwitchDepth() as Float {
+            return Units.MetersToSystem(SwitchDepth);
         }
 
-        function SetSwitchDepth(depth as Number) {
-            SwitchDepth = depth;
+        function SetSwitchDepth(depth as Float) {
+            SwitchDepth = Units.SystemToMeters(depth);
         }
 
         function GetProblemSolvingTime() as Number {
@@ -123,36 +118,36 @@ module DiveSettings {
             GasSwitchTime = time;
         }
 
-        function GetAscentRate() as Number {
-            return AscentRate;
+        function GetAscentRate() as Float {
+            return Units.MetersToSystem(AscentRate);
         }
 
-        function SetAscentRate(rate as Number) {
-            AscentRate = rate;
+        function SetAscentRate(rate as Float) {
+            AscentRate = Units.SystemToMeters(rate);
         }
 
         function GetContingencySCR() as Float {
             if (DiveSettings.MinGas.ContingencySCR != -1) {
-                return ContingencySCR;
+                return Units.LitersToSystem(DiveSettings.MinGas.ContingencySCR);
             } else {
                 return DiveSettings.GetSCR();
             }
         }
 
         function SetContingencySCR(scr as Float) {
-            ContingencySCR = scr;
+            ContingencySCR = Units.SystemToLiters(scr);
         }
 
-        function GetBottomDepth() as Number {
+        function GetBottomDepth() as Float {
             if (DiveSettings.MinGas.BottomDepth != -1) {
-                return BottomDepth;
+                return Units.MetersToSystem(DiveSettings.MinGas.BottomDepth);
             } else {
                 return DiveSettings.GetBottomDepth();
             }
         }
 
-        function SetBottomDepth(bd as Number) {
-            BottomDepth = bd;
+        function SetBottomDepth(depth as Float) {
+            BottomDepth = Units.SystemToMeters(depth);
         }
     }
 
@@ -163,7 +158,6 @@ module DiveSettings {
         Storage.setValue("cylinder", Cylinder);
 
         // Segments module variables
-        Storage.setValue("segments.interval", Segments.Interval);
         Storage.setValue("segments.duration", Segments.Duration);
 
         // MinGas module variables
@@ -180,11 +174,11 @@ module DiveSettings {
         // Top level variables
         var scr = Storage.getValue("scr");
         if (scr != null) {
-            SCR = scr;
+            SCR = scr as Float;
         }
         var bottomDepth = Storage.getValue("bottom_depth");
         if (bottomDepth != null) {
-            BottomDepth = bottomDepth;
+            BottomDepth = bottomDepth as Float;
         }
         var cylinder = Storage.getValue("cylinder");
         if (cylinder != null) {
@@ -192,13 +186,9 @@ module DiveSettings {
         }
 
         // Segments module variables
-        var segmentsInterval = Storage.getValue("segments.interval");
-        if (segmentsInterval != null) {
-            Segments.Interval = segmentsInterval;
-        }
         var segmentsDuration = Storage.getValue("segments.duration");
         if (segmentsDuration != null) {
-            Segments.Duration = segmentsDuration;
+            Segments.Duration = segmentsDuration as Number;
         }
 
         // MinGas module variables
@@ -231,6 +221,30 @@ module DiveSettings {
             MinGas.AscentRate = minGasAscentRate;
         }
     }
+
+    // Set default values to those familiar to metric-native divers
+    function SetMetricDefaults() {
+        SCR = 20.0;
+        BottomDepth = 30.0;
+        Segments.Duration = 5;
+        MinGas.ContingencySCRMultiplier = 2.0;
+        MinGas.SwitchDepth = 6.0;
+        MinGas.ProblemSolvingTime = 60*2;
+        MinGas.GasSwitchTime = 60;
+        MinGas.AscentRate = 3.0;
+    }
+
+    // Set default values to those familiar to imperial-native divers
+    function SetImperialDefaults() {
+        SCR = Units.CubicFeetToLiters(0.7);
+        BottomDepth = Units.FeetToMeters(100.0);
+        Segments.Duration = 5;
+        MinGas.ContingencySCRMultiplier = 2.0;
+        MinGas.SwitchDepth = Units.FeetToMeters(20.0);
+        MinGas.ProblemSolvingTime = 60*2;
+        MinGas.GasSwitchTime = 60;
+        MinGas.AscentRate = Units.FeetToMeters(10.0);
+    }
 }
 
 module DiveCalculations {
@@ -252,9 +266,7 @@ module DiveCalculations {
         // Minimum gas in volume
         var minGasVolume = consumption_sec * avgPressure * totalTime;
         // Convert to pressure
-        var cylinderCapacity = DiveSettings.GetCylinder()["nominal_capacity"] as Number;
-        var servicePressure = DiveSettings.GetCylinder()["service_pressure"] as Number;
-        var minGasPressure = (minGasVolume / cylinderCapacity) * servicePressure;
+        var minGasPressure = VolumeToCylinderPressure(minGasVolume);
 
         // return only calculated values
         return {
@@ -268,39 +280,54 @@ module DiveCalculations {
         };
     }
 
+    function VolumeToCylinderPressure(volume as Float) as Float {
+        // compute how much pressure per minute we use at the surface
+        var cylinder = DiveSettings.GetCylinder();
+
+        // compute water capacity in liters
+        var wc = 0.0;
+        if (cylinder["unit_type"].equals("metric")) {
+            wc = cylinder["water_capacity"];
+        } else {
+            var spBar = Units.PsiToBar(cylinder["service_pressure"]) as Float;
+            var nominalCapLiter = Units.CubicFeetToLiters(cylinder["nominal_capacity"]) as Float;
+            wc = nominalCapLiter / spBar;
+        }
+
+        var vol_l = Units.SystemToLiters(volume);
+        return Units.BarToSystem(vol_l / wc);
+    }
+
+    // Calculate pressure in atmospheres
     function CalculateAmbientP(depth) as Float {
-        return (depth/33.3) + 1;
+        var d = Units.SystemToMeters(depth);
+        return d/10.0 + 1;
     }
 
     /* Calculate how much pressure is used at a given depth in 1 min
      * Note that this works to calculate SCR in pressure if you pass depth = 0
      */
-    function CalculateSegment(depth) as Number {
-        // compute how much pressure per minute we use at the surface
-        var pressure_per_min;
-
-        if (DiveSettings.GetCylinder()["unit_type"].equals("standard")) {
-            pressure_per_min = (DiveSettings.GetSCR() / DiveSettings.GetCylinder()["nominal_capacity"]) * DiveSettings.GetCylinder()["service_pressure"];
-        } else if (DiveSettings.GetCylinder()["unit_type"].equals("metric")) {
-            pressure_per_min = DiveSettings.GetSCR() / DiveSettings.GetCylinder()["water_capacity"];
-        } else {
-            System.println("Exiting due to unrecognized cylinder");
-            System.exit();
-        }
-
-        return pressure_per_min * DiveCalculations.CalculateAmbientP(depth);
+    function CalculateDepthConsumption(depth as Float) as Float {
+        return VolumeToCylinderPressure(DiveSettings.GetSCR()) * DiveCalculations.CalculateAmbientP(depth);
     }
 
     function CalculateSegmentTable() as Array<Dictionary> {
-        var startDepth = DiveSettings.GetBottomDepth();
+        var startDepth = Math.ceil(DiveSettings.GetBottomDepth());
         var segments = [];
 
-        for (var depth = startDepth; depth >= 20; depth -= DiveSettings.Segments.GetInterval()) {
+        var interval = Units.GetSystem() == Units.METRIC ? 1 : 10;
+
+        for (var depth = startDepth; depth > 0; depth -= interval) {
             segments.add({
                 "depth" => depth,
-                "segment" => DiveCalculations.CalculateSegment(depth) * DiveSettings.Segments.GetDuration(),
+                "segment" => DiveCalculations.CalculateDepthConsumption(depth) * DiveSettings.Segments.GetDuration(),
             });
         }
+
+        segments.add({
+            "depth" => 0,
+            "segment" => DiveCalculations.CalculateDepthConsumption(0.0) * DiveSettings.Segments.GetDuration(),
+        });
 
         return segments;
     }

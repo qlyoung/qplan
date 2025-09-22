@@ -1,4 +1,5 @@
 import Toybox.WatchUi;
+import Units;
 
 class MainMenu extends WatchUi.Menu2 {
 
@@ -15,18 +16,16 @@ class MainMenu extends WatchUi.Menu2 {
             {}
         ));
 
-        var scrText = DiveSettings.GetSCR().format("%.2f") + " cf/min";
         addItem(new WatchUi.MenuItem(
             WatchUi.loadResource(Rez.Strings.menu_label_scr),
-            scrText,
+            "",
             :scr,
             {}
         ));
 
-        var depthText = DiveSettings.GetBottomDepth().format("%d") + " ft";
         addItem(new WatchUi.MenuItem(
             WatchUi.loadResource(Rez.Strings.menu_label_depth),
-            depthText,
+            "",
             :depth,
             {}
         ));
@@ -61,13 +60,18 @@ class MainMenu extends WatchUi.Menu2 {
 
         var scrItem = getItem(findItemById(:scr));
         if (scrItem != null) {
-            var scrText = DiveSettings.GetSCR().format("%.2f") + " cf/min";
+            var units = Units.GetSystem();
+            var roundTo = (units == Units.METRIC) ? 1 : .01;
+            var scr = Math.round(DiveSettings.GetSCR() / roundTo) * roundTo;
+            var scrText = scr.format((units == Units.METRIC) ? "%d" : "%.2f");
+            scrText += " " + Units.SCR();
             scrItem.setSubLabel(scrText);
         }
 
         var depthItem = getItem(findItemById(:depth));
         if (depthItem != null) {
-            var depthText = DiveSettings.GetBottomDepth().format("%d") + " ft";
+            var depth = Math.round(DiveSettings.GetBottomDepth());
+            var depthText = depth.format("%d") + " " + Units.Depth();
             depthItem.setSubLabel(depthText);
         }
     }

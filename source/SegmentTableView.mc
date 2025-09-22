@@ -26,9 +26,6 @@ class SegmentTableView extends WatchUi.View {
         var width = dc.getWidth();
         var height = dc.getHeight();
 
-        //dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        //dc.drawText(width / 2, 10, Graphics.FONT_SMALL, "Segment Table", Graphics.TEXT_JUSTIFY_CENTER);
-
         var headerY = 45;
         dc.drawText(width / 4, headerY, Graphics.FONT_TINY, "Depth", Graphics.TEXT_JUSTIFY_CENTER);
 
@@ -43,15 +40,8 @@ class SegmentTableView extends WatchUi.View {
             var segment = segments[i];
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
 
-            var unit_depth = "m";
-            var unit_pressure = "bar";
-            if (DiveSettings.GetCylinder()["unit_type"].equals("standard")) {
-                unit_depth = "ft";
-                unit_pressure = "psi";
-            }
-
-            var depthText = segment["depth"].format("%d") + unit_depth;
-            var segmentText = segment["segment"].format("%d") + unit_pressure;
+            var depthText = segment["depth"].format("%d") + Units.Depth();
+            var segmentText = segment["segment"].format("%d") + Units.Pressure();
 
             dc.drawText(5 * width / 6, height / 9, Graphics.FONT_SYSTEM_LARGE, DiveSettings.GetCylinder()["cylinder_type_name"], Graphics.TEXT_JUSTIFY_CENTER);
 

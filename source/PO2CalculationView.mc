@@ -52,7 +52,7 @@ class PO2CalculationView extends WatchUi.View {
             var row = data[i];
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
 
-            var depthText = row["depth"].toString() + " ft";
+            var depthText = Math.round(row["depth"]).format("%d");
             var po2Text = row["po2"].format("%.2f");
 
             dc.drawText(width / 4, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
