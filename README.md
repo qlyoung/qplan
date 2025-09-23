@@ -11,6 +11,10 @@ DIR-oriented dive planning toolbox for Garmin smartwatches
 - Supports most common cylinders
 - Full support for metric & imperial
 
+## Status
+
+Pre-release software under active development
+
 ## Devices
 
 Supported:
