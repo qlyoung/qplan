@@ -14,22 +14,34 @@ class Cylinder {
     private var _nominalCapacity as Float;
     // The water capacity (l)
     private var _waterCapacity as Float;
+    // The dictionary this cylinder was loaded from, if any
+    private var _originalDict as Dictionary?;
 
-    private var _originalDict;
-
-    function initialize() {
+    function initialize(data as Dictionary?) {
         _typeName = "";
         _unitType = Units.METRIC;
         _servicePressure = 0.0;
         _nominalCapacity = 0.0;
         _waterCapacity = 0.0;
+        _originalDict = null;
+
+        if (data != null) {
+            fromDictionary(data);
+        }
     }
 
     function fromDictionary(cylinderData as Dictionary) as Void {
         _originalDict = cylinderData;
 
         _typeName = cylinderData["cylinder_type_name"];
-        _unitType = cylinderData["unit_type"].equals("metric") ? Units.METRIC : Units.IMPERIAL;
+
+        if (cylinderData["unit_type"].equals("metric")) {
+            _unitType = Units.METRIC;
+        } else if (cylinderData["unit_type"].equals("imperial")) {
+            _unitType = Units.IMPERIAL;
+        } else {
+            System.error("Unknown cylinder type");
+        }
 
         if (_unitType == Units.METRIC) {
             _servicePressure = cylinderData["service_pressure"] as Float;

@@ -11,7 +11,7 @@ class Dive {
     // Bottom depth (m)
     private var _bottomDepth as Float = 0.0;
     // Back gas cylinder
-    private var _cylinder as Cylinder = new Cylinder();
+    private var _cylinder as Cylinder = new Cylinder(null);
 
     // Bottom depth (m)
     // -1 = same as MaxDepth

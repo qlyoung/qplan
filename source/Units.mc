@@ -154,5 +154,9 @@ module Units {
         function Depth() as String {
             return SYMBOLS[GetSystem()][DEPTH];
         }
+
+        function getSymbol(units as UnitSystem, type as QuantityType) as String {
+            return Symbols.SYMBOLS[units][type];
+        }
     }
 }

@@ -10,11 +10,20 @@ class CylinderSelectionMenu extends WatchUi.Menu2 {
 
     function buildMenu() as Void {
         var tankData = WatchUi.loadResource(Rez.JsonData.ScubaTanks) as Array;
-        for (var i = 0; i < tankData.size(); i++) {
-            var tank = tankData[i] as Dictionary;
-            var tankName = tank["cylinder_type_name"];
-            var service_pressure = tank["service_pressure"];
-            addItem(new WatchUi.MenuItem(tankName, service_pressure.toString(), tankName, {}));
+        var filter = Units.GetSystem();
+        // order the cylinders of the system unit type first
+        for (var i = 0; i <= 1; i++) {
+            for (var j = 0; j < tankData.size(); j++) {
+                var tankDict = tankData[j] as Dictionary;
+                var tank = new Cylinder(tankDict);
+                var tankUnits = tank.getUnitType();
+                if (tankUnits != filter) {
+                    continue;
+                }
+                var spText = tankDict["service_pressure"] + " " + Units.Symbols.getSymbol(tank.getUnitType(), Units.PRESSURE);
+                addItem(new WatchUi.MenuItem(tank.getTypeName(), spText, tank.getTypeName(), {}));
+            }
+            filter = (filter + 1) % 2;
         }
     }
 }
