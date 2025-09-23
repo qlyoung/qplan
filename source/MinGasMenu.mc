@@ -1,6 +1,8 @@
 import Toybox.WatchUi;
 import Toybox.Lang;
 import Toybox.Math;
+import Globals;
+import Units;
 
 class MinGasMenu extends WatchUi.Menu2 {
 
@@ -56,42 +58,42 @@ class MinGasMenu extends WatchUi.Menu2 {
 
         var bottomDepthItem = getItem(findItemById(:min_gas_bottom_depth));
         if (bottomDepthItem != null) {
-            var btmDepth = Math.round(DiveSettings.MinGas.GetBottomDepth());
-            var btmDepthText = btmDepth.format("%d") + " " + Units.Depth();
+            var btmDepth = Math.round(Units.Convert.MetersToSystem(Globals.dive.getMinGasBottomDepth()));
+            var btmDepthText = btmDepth.format("%d") + " " + Units.Symbols.Depth();
             bottomDepthItem.setSubLabel(btmDepthText);
         }
 
         var scrItem = getItem(findItemById(:min_gas_scr));
         if (scrItem != null) {
-            var scr = DiveSettings.MinGas.GetContingencySCR();
+            var scr = Units.Convert.LitersToSystem(Globals.dive.getContingencySCR());
             var scrText = scr.format((unitSystem == Units.METRIC) ? "%d" : "%.2f");
-            scrText += " " + Units.SCR();
+            scrText += " " + Units.Symbols.SCR();
             scrItem.setSubLabel(scrText);
         }
 
         var switchDepthItem = getItem(findItemById(:min_gas_switch_depth));
         if (switchDepthItem != null) {
-            var switchDepthText = DiveSettings.MinGas.GetSwitchDepth().format("%d");
-            switchDepthText += " " + Units.Depth();
+            var switchDepthText = Units.Convert.MetersToSystem(Globals.dive.getSwitchDepth()).format("%d");
+            switchDepthText += " " + Units.Symbols.Depth();
             switchDepthItem.setSubLabel(switchDepthText);
         }
 
         var problemTimeItem = getItem(findItemById(:min_gas_problem_time));
         if (problemTimeItem != null) {
-            var probTimeText = (DiveSettings.MinGas.GetProblemSolvingTime()/60.0).format("%.1f") + " min";
+            var probTimeText = (Globals.dive.getProblemSolvingTime()/60.0).format("%.1f") + " min";
             problemTimeItem.setSubLabel(probTimeText);
         }
 
         var switchTimeItem = getItem(findItemById(:min_gas_switch_time));
         if (switchTimeItem != null) {
-            var switchTimeText = (DiveSettings.MinGas.GetGasSwitchTime()/60.0).format("%.1f") + " min";
+            var switchTimeText = (Globals.dive.getGasSwitchTime()/60.0).format("%.1f") + " min";
             switchTimeItem.setSubLabel(switchTimeText);
         }
 
         var ascentRateItem = getItem(findItemById(:min_gas_ascent_rate));
         if (ascentRateItem != null) {
-            var ascRateText = DiveSettings.MinGas.GetAscentRate().format("%d");
-            ascRateText += " " + Units.DepthChange();
+            var ascRateText = Units.Convert.MetersToSystem(Globals.dive.getAscentRate()).format("%d");
+            ascRateText += " " + Units.Symbols.DepthChange();
             ascentRateItem.setSubLabel(ascRateText);
         }
     }

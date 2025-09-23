@@ -1,43 +1,76 @@
 import Toybox.WatchUi;
 import Toybox.Math;
+import Toybox.Lang;
+
+import Trolling;
+import Constants;
 
 module Screens {
-    function DepthSelection(depth, setcb, min, max, title) as [View, BehaviorDelegate] {
+
+    function DepthSelection(setcb, depth, minDepth, maxDepth, title) as [View, BehaviorDelegate] {
         var units = Units.GetSystem();
-        var roundTo = (Units.GetSystem() == Units.METRIC) ? 1.0 : 5.0;
-        depth = Math.round(depth / roundTo) * roundTo; 
-        var fmt = "%d";
-        var sym = Units.Depth();
+
+        depth = Units.Convert.MetersToSystem(depth);
+        var min = Units.Convert.MetersToSystem(minDepth);
+        var max = Units.Convert.MetersToSystem(maxDepth);
         var inc = (units == Units.METRIC) ? 1.0 : 5.0;
-        var view = new NumberSelectionView(depth, fmt, sym, title);
-        var del = new NumberSelectionDelegate(view, setcb, inc, min, max);
-        return [view, del];
-    }
 
-    function SCRSelection(scr, setcb, title) as [View, BehaviorDelegate] {
-        var units = Units.GetSystem();
-        var roundTo = (units == Units.METRIC) ? 1.0 : .05;
-        scr = Math.round(scr / roundTo) * roundTo;
-        var fmt = (units == Units.METRIC) ? "%d" : "%.2f";
-        var sym = Units.SCR();
-        var inc = (units == Units.METRIC) ? 1 : .05;
-        var min = (units == Units.METRIC) ? 10.0 : 0.3;
-        var max = (units == Units.METRIC) ? 85.0 : 3.0;
-        var view = new NumberSelectionView(scr, fmt, sym, title);
-        var del = new NumberSelectionDelegate(view, setcb, inc, min, max);
-        return [view, del];
-    }
+        depth = Math.round(depth / inc) * inc;
+        min = Math.ceil(min / inc) * inc;
+        max = Math.floor(max / inc) * inc;
 
-    function AscentRateSelection(rate, setcb, title) as [View, BehaviorDelegate] {
-        var units = Units.GetSystem();
-        rate = Math.round(rate);
         var fmt = "%d";
-        var sym = Units.DepthChange();
+        var sym = Units.Symbols.Depth();
+        var convertSetCb = new ChainedMethod([
+            new Method(Units.Convert, :SystemToMeters),
+            setcb
+        ]);
+        var view = new NumberSelectionView(depth, fmt, sym, title);
+        var del = new NumberSelectionDelegate(view, convertSetCb, inc, min, max);
+        return [view, del];
+    }
+
+    function SCRSelection(setcb, scr, title) as [View, BehaviorDelegate] {
+        var units = Units.GetSystem();
+
+        scr = Units.Convert.LitersToSystem(scr);
+        var min = Units.Convert.LitersToSystem(Constants.MIN_SCR);
+        var max = Units.Convert.LitersToSystem(Constants.MAX_SCR);
+        var inc = (units == Units.METRIC) ? 1.0 : .05;
+
+        scr = Math.round(scr / inc) * inc;
+        min = Math.ceil(min / inc) * inc;
+        max = Math.floor(max / inc) * inc;
+
+        var fmt = (units == Units.METRIC) ? "%d" : "%.2f";
+        var sym = Units.Symbols.SCR();
+        var convertSetCb = new ChainedMethod([
+            new Method(Units.Convert, :SystemToLiters),
+            setcb
+        ]);
+        var view = new NumberSelectionView(scr, fmt, sym, title);
+        var del = new NumberSelectionDelegate(view, convertSetCb, inc, min, max);
+        return [view, del];
+    }
+
+    function AscentRateSelection(setcb, rate, title) as [View, BehaviorDelegate] {
+        rate = Units.Convert.MetersToSystem(rate);
         var inc = 1.0;
         var min = 1.0;
-        var max = (units == Units.METRIC) ? 30.0 : 100.0;
-        var view = new NumberSelectionView(rate, fmt, sym, "Ascent rate");
-        var del = new NumberSelectionDelegate(view, setcb, inc, min, max);
+        var max = Units.Convert.MetersToSystem(Constants.ASCENT_RATE_MAX);
+
+        rate = Math.round(rate / inc) * inc;
+        min = Math.ceil(min / inc) * inc;
+        max = Math.floor(max / inc) * inc;
+
+        var fmt = "%d";
+        var sym = Units.Symbols.DepthChange();
+        var convertSetCb = new ChainedMethod([
+            new Method(Units.Convert, :SystemToMeters),
+            setcb
+        ]);
+        var view = new NumberSelectionView(rate, fmt, sym, title);
+        var del = new NumberSelectionDelegate(view, convertSetCb, inc, min, max);
         return [view, del];
     }
 }

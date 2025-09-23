@@ -49,7 +49,7 @@ class PO2CalculationView extends WatchUi.View {
         _maxScrollOffset = (data.size() > maxVisibleLines) ? data.size() - maxVisibleLines : 0;
 
         for (var i = _scrollOffset; i < data.size() && i < _scrollOffset + maxVisibleLines; i++) {
-            var row = data[i];
+            var row = data[i] as Dictionary;
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
 
             var depthText = Math.round(row["depth"]).format("%d");

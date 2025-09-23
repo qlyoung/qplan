@@ -27,14 +27,26 @@ class CalcMinGasView extends WatchUi.View {
 
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
 
-        var minGasData = DiveCalculations.CalculateMinGas();
+        var minGasData = Globals.dive.calculateMinGas();
 
-        dc.drawText(width / 8 - 5, height / 8, Graphics.FONT_SYSTEM_LARGE, "Min Gas", Graphics.TEXT_JUSTIFY_LEFT);
+        // title
+        dc.drawText(
+            width / 8 - 5,
+            height / 8,
+            Graphics.FONT_SYSTEM_LARGE,
+            "Min Gas",
+            Graphics.TEXT_JUSTIFY_LEFT
+        );
 
         // cylinder
-        dc.drawText(5 * width / 6, height / 9, Graphics.FONT_SYSTEM_LARGE, DiveSettings.GetCylinder()["cylinder_type_name"], Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(
+            5 * width / 6, height / 9,
+            Graphics.FONT_SYSTEM_LARGE,
+            Globals.dive.getCylinder().getTypeName(),
+            Graphics.TEXT_JUSTIFY_CENTER
+        );
 
-        var mgc = minGasData["consumption"];
+        var mgc = Units.Convert.LitersToSystem(minGasData["consumption"]);
         var consText;
         if (Units.GetSystem() == Units.METRIC) {
             mgc = Math.round(mgc);
@@ -43,19 +55,19 @@ class CalcMinGasView extends WatchUi.View {
             mgc = Math.round(mgc/.1) * .1;
             consText = mgc.format("%.1f");
         }
-        var consumptionText = "C: " + consText + " " + Units.SCR();
+        var consumptionText = "C: " + consText + " " + Units.Symbols.SCR();
         dc.drawText(width / 8 - 10, height / 3 - 5, Graphics.FONT_XTINY, consumptionText, Graphics.TEXT_JUSTIFY_LEFT);
 
-        var bd = Math.round(DiveSettings.MinGas.GetBottomDepth());
-        var sd = Math.round(DiveSettings.MinGas.GetSwitchDepth());
+        var bd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getBottomDepth()));
+        var sd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getSwitchDepth()));
         var depthRangeText = "(" + bd.format("%d") + " -> " + sd.format("%d") + ")";
         var avgPressureText = "A: " + minGasData["avg_pressure"].format("%.1f") + " ATA " + depthRangeText;
         dc.drawText(width / 8 - 10, height / 3 + 20, Graphics.FONT_XTINY, avgPressureText, Graphics.TEXT_JUSTIFY_LEFT);
 
         // All of these should already be multiples of 60, but round up just in case
-        var problemSolveMinutes = Math.ceil(DiveSettings.MinGas.GetProblemSolvingTime()/60.0) as Number;
+        var problemSolveMinutes = Math.ceil(Globals.dive.getProblemSolvingTime()/60.0) as Number;
         var ascentTimeMinutes = Math.ceil(minGasData["ascent_time"]/60.0) as Number;
-        var switchTimeMinutes = Math.ceil(DiveSettings.MinGas.GetGasSwitchTime()/60.0) as Number;
+        var switchTimeMinutes = Math.ceil(Globals.dive.getGasSwitchTime()/60.0) as Number;
         var totalTimeMinutes = Math.ceil((minGasData["total_time"]/60.0)) as Number;
 
         var timeRangeText = "(" + problemSolveMinutes.format("%d") + "+" + ascentTimeMinutes.format("%d") + "+" + switchTimeMinutes.format("%d") + ")";
@@ -63,10 +75,10 @@ class CalcMinGasView extends WatchUi.View {
         dc.drawText(width / 8 - 10, height / 3 + 45, Graphics.FONT_XTINY, timeText, Graphics.TEXT_JUSTIFY_LEFT);
 
         // Result
-        var mgv = Math.round(minGasData["min_gas_volume"]);
-        var mgp = Math.round(minGasData["min_gas_pressure"]);
-        var vText = mgv.format("%d") + " " + Units.Volume();
-        var pText = mgp.format("%d") + " " + Units.Pressure();
+        var mgv = Math.round(Units.Convert.LitersToSystem(minGasData["min_gas_volume"]));
+        var mgp = Math.round(Units.Convert.BarToSystem(minGasData["min_gas_pressure"]));
+        var vText = mgv.format("%d") + " " + Units.Symbols.Volume();
+        var pText = mgp.format("%d") + " " + Units.Symbols.Pressure();
         var minGasText = vText + " / " + pText;
 
         dc.drawText(width / 2, 2 * height / 3 + 15, Graphics.FONT_SMALL, minGasText, Graphics.TEXT_JUSTIFY_CENTER);

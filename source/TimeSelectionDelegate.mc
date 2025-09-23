@@ -4,9 +4,9 @@ import Toybox.WatchUi;
 
 class TimeSelectionDelegate extends WatchUi.BehaviorDelegate {
     private var _view as TimeSelectionView;
-    private var _set as Lang.Method;
+    private var _set as Method(val as Number);
 
-    function initialize(view as TimeSelectionView, set as Lang.Method) {
+    function initialize(view as TimeSelectionView, set as Method(val as Number)) {
         BehaviorDelegate.initialize();
         _view = view;
         _set = set;
@@ -16,14 +16,15 @@ class TimeSelectionDelegate extends WatchUi.BehaviorDelegate {
         var key = keyEvent.getKey();
 
         if (key == WatchUi.KEY_UP) {
-            _view.timeValue += 15; // increment by 15 seconds
-            if (_view.timeValue > 5999) { // max 99:59
+            _view.timeValue += 15;
+            // max 99:59
+            if (_view.timeValue > 5999) {
                 _view.timeValue = 5999;
             }
             WatchUi.requestUpdate();
             return true;
         } else if (key == WatchUi.KEY_DOWN) {
-            _view.timeValue -= 15; // decrement by 15 seconds
+            _view.timeValue -= 15;
             if (_view.timeValue < 0) {
                 _view.timeValue = 0;
             }

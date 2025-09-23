@@ -11,7 +11,7 @@ class MainMenu extends WatchUi.Menu2 {
     function buildMenu() as Void {
         addItem(new WatchUi.MenuItem(
             WatchUi.loadResource(Rez.Strings.menu_label_cylinder),
-            DiveSettings.GetCylinder()["cylinder_type_name"],
+            "",
             :cylinder,
             {}
         ));
@@ -55,23 +55,23 @@ class MainMenu extends WatchUi.Menu2 {
     function updateLabels() as Void {
         var cylinderItem = getItem(findItemById(:cylinder));
         if (cylinderItem != null) {
-            cylinderItem.setSubLabel(DiveSettings.GetCylinder()["cylinder_type_name"]);
+            cylinderItem.setSubLabel(Globals.dive.getCylinder().getTypeName());
         }
 
         var scrItem = getItem(findItemById(:scr));
         if (scrItem != null) {
             var units = Units.GetSystem();
             var roundTo = (units == Units.METRIC) ? 1 : .01;
-            var scr = Math.round(DiveSettings.GetSCR() / roundTo) * roundTo;
+            var scr = Math.round(Units.Convert.LitersToSystem(Globals.dive.getSCR()) / roundTo) * roundTo;
             var scrText = scr.format((units == Units.METRIC) ? "%d" : "%.2f");
-            scrText += " " + Units.SCR();
+            scrText += " " + Units.Symbols.SCR();
             scrItem.setSubLabel(scrText);
         }
 
         var depthItem = getItem(findItemById(:depth));
         if (depthItem != null) {
-            var depth = Math.round(DiveSettings.GetBottomDepth());
-            var depthText = depth.format("%d") + " " + Units.Depth();
+            var depth = Math.round(Units.Convert.MetersToSystem(Globals.dive.getBottomDepth()));
+            var depthText = depth.format("%d") + " " + Units.Symbols.Depth();
             depthItem.setSubLabel(depthText);
         }
     }

@@ -3,7 +3,8 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 class TimeSelectionView extends WatchUi.View {
-    public var timeValue as Number; // in seconds
+    // seconds
+    public var timeValue as Number;
 
     function initialize(initialTimeSeconds as Number) {
         View.initialize();
