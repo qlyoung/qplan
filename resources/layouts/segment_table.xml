@@ -1,0 +1,13 @@
+<layout id="SegmentTableLayout" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <drawable id="Background" />
+
+    <!-- Cylinder type -->
+    <label id="cylinderTypeLabel" x="50%" y="3%" text="" font="Graphics.FONT_SYSTEM_LARGE" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+
+    <!-- SCR & segment length -->
+    <label id="scrLabel" x="50%" y="20%" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="timeLabel" x="50%" y="30%" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+
+    <!-- Table content text area -->
+    <label id="segmentTableText" y="45%" x="0" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+</layout>

@@ -1,3 +1,6 @@
 <drawables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <bitmap id="LauncherIcon" filename="launcher_icon.svg" dithering="none" />
+    <drawable-list id="Background" background="Gfx.COLOR_WHITE">
+        <shape type="rectangle" x="0" y="0" width="100%" height="100%" />
+    </drawable-list>
 </drawables>

@@ -1,0 +1,21 @@
+<layout id="MinGasLayout" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <drawable id="Background" />
+
+    <!-- Title -->
+    <label id="titleLabel" x="50%" y="10%" text="Min Gas" font="Graphics.FONT_SYSTEM_LARGE" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+
+    <!-- Cylinder type -->
+    <label id="cylinderTypeLabel" x="50%" y="20%" text="" font="Graphics.FONT_SYSTEM_SMALL" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+
+    <!-- Consumption -->
+    <label id="consumptionLabel" x="15%" y="35%" text="" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+
+    <!-- Average pressure -->
+    <label id="avgPressureLabel" x="15%" y="45%" text="" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+
+    <!-- Time -->
+    <label id="timeLabel" x="15%" y="55%" text="" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+
+    <!-- Result -->
+    <label id="resultLabel" x="50%" y="72%" text="" font="Graphics.FONT_SMALL" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+</layout>
