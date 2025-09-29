@@ -20,4 +20,8 @@ module Trolling {
            return result;
        }
    }
+
+   typedef Invokable as interface {
+       function invoke(arg);
+   };
 }

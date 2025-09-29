@@ -1,8 +1,10 @@
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
+
 import Globals;
 import Units;
+import Trolling;
 
 class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
     function initialize() {
@@ -37,11 +39,11 @@ class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
             );
             WatchUi.pushView(res[0], res[1], WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_problem_time) {
-            var setcb = new Method(Globals.dive, :setProblemSolvingTime);
+            var setcb = new Method(Globals.dive, :setProblemSolvingTime) as Invokable;
             var timeView = new TimeSelectionView(Globals.dive.getProblemSolvingTime());
             WatchUi.pushView(timeView, new TimeSelectionDelegate(timeView, setcb), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_switch_time) {
-            var setcb = new Method(Globals.dive, :setGasSwitchTime);
+            var setcb = new Method(Globals.dive, :setGasSwitchTime) as Invokable;
             var timeView = new TimeSelectionView(Globals.dive.getGasSwitchTime());
             WatchUi.pushView(timeView, new TimeSelectionDelegate(timeView, setcb), WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_ascent_rate) {

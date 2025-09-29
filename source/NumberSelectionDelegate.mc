@@ -6,14 +6,14 @@ import Trolling;
 
 class NumberSelectionDelegate extends WatchUi.BehaviorDelegate {
     private var _view as NumberSelectionView;
-    private var _setcb as Method(value as Float) or ChainedMethod;
+    private var _setcb as Invokable;
     private var _interval as Float;
     private var _max as Float;
     private var _min as Float;
 
     function initialize(
         view as NumberSelectionView,
-        setcb as Method(value as Float) or ChainedMethod,
+        setcb as Invokable,
         interval as Float,
         min as Float,
         max as Float

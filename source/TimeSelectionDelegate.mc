@@ -2,11 +2,13 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
+import Trolling;
+
 class TimeSelectionDelegate extends WatchUi.BehaviorDelegate {
     private var _view as TimeSelectionView;
-    private var _set as Method(val as Number);
+    private var _set as Invokable;
 
-    function initialize(view as TimeSelectionView, set as Method(val as Number)) {
+    function initialize(view as TimeSelectionView, set as Invokable) {
         BehaviorDelegate.initialize();
         _view = view;
         _set = set;
