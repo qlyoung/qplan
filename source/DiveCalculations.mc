@@ -32,8 +32,14 @@ module DiveCalculations {
         return segments;
     }
 
-    function CalculatePO2(fo2 as Float, depth as Number) {
+    function CalculatePO2(fo2 as Float, depth as Float) {
         return fo2 * DiveCalculations.CalculateAmbientP(depth);
+    }
+
+    function CalculateDepthForPO2(po2 as Float, fo2 as Float) as Float {
+        // PO2 = FO2 * (depth/10 + 1)
+        // depth = (PO2/FO2 - 1) * 10
+        return (po2 / fo2 - 1.0) * 10.0;
     }
 
 }

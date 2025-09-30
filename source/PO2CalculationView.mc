@@ -2,6 +2,8 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
+import Units;
+
 class PO2CalculationView extends WatchUi.View {
     private var _scrollOffset as Number = 0;
     private var _maxScrollOffset as Number = 0;
@@ -51,8 +53,8 @@ class PO2CalculationView extends WatchUi.View {
         for (var i = _scrollOffset; i < data.size() && i < _scrollOffset + maxVisibleLines; i++) {
             var row = data[i] as Dictionary;
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
-
-            var depthText = Math.round(row["depth"]).format("%d");
+            var depth = Math.round(Units.Convert.MetersToSystem(row["depth"])).format("%d");
+            var depthText = depth + " " + Units.Symbols.Depth();
             var po2Text = row["po2"].format("%.2f");
 
             dc.drawText(width / 4, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
@@ -72,8 +74,10 @@ class PO2CalculationView extends WatchUi.View {
     function generatePO2Data() as Array {
         var data = [] as Array;
 
-        // Generate data for depths from 0 to 200 ft in 10 ft increments
-        for (var depth = 0; depth <= 200; depth += 10) {
+        var start = 0.0;
+        var interval = (Units.GetSystem() == Units.METRIC) ? 5.0 : Units.Convert.FeetToMeters(10.0);
+        var end = Math.ceil(Constants.MAX_DEPTH / interval) * interval;
+        for (var depth = start; depth <= end; depth += interval) {
             var po2 = DiveCalculations.CalculatePO2(_fo2, depth);
             data.add({
                 "depth" => depth,
