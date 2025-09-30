@@ -71,7 +71,7 @@ class SegmentTableView extends WatchUi.View {
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
 
             var depthText = Math.round(Units.Convert.MetersToSystem(segment["depth"])).format("%d") + Units.Symbols.Depth();
-            var segmentText = Math.round(Units.Convert.BarToSystem(segment["segment"])).format("%d") + Units.Symbols.Pressure();
+            var segmentText = Math.ceil(Units.Convert.BarToSystem(segment["segment"])).format("%d") + Units.Symbols.Pressure();
 
             var thirty = width * .30;
             dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
