@@ -9,5 +9,5 @@
     <label id="timeLabel" x="8%" y="25%" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
 
     <!-- Table content text area -->
-    <label id="segmentTableText" y="75" x="0" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+    <label id="segmentTableText" y="42%" x="0" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
 </layout>
