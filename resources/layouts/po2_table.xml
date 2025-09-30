@@ -1,0 +1,17 @@
+<layout id="PO2TableLayout" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <drawable id="Background" />
+
+    <!-- FO2 display -->
+    <label id="fo2Label" x="50%" y="5%" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+
+    <!-- Maximum operating depth -->
+    <label id="modLabel" x="47.5%" y="15%" text="1.4@" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="modValue" x="52.5%" y="15%" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+
+    <!-- Contingency operating depth -->
+    <label id="codLabel" x="47.5%" y="25%" text="1.6@" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="codValue" x="52.5%" y="25%" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+
+    <!-- Table content text area -->
+    <label id="po2TableText" y="35%" x="0" font="Graphics.FONT_XTINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+</layout>

@@ -15,7 +15,7 @@ class PO2CalculationView extends WatchUi.View {
     }
 
     function onLayout(dc as Dc) as Void {
-        setLayout(Rez.Layouts.MainLayout(dc));
+        setLayout(Rez.Layouts.PO2TableLayout(dc));
     }
 
     function onShow() as Void {
@@ -23,31 +23,34 @@ class PO2CalculationView extends WatchUi.View {
 
     function onUpdate(dc as Dc) as Void {
         View.onUpdate(dc);
-
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
-        dc.clear();
 
-        var width = dc.getWidth();
-        var height = dc.getHeight();
+        var fo2Label = View.findDrawableById("fo2Label") as Text;
+        var fo2Text = _fo2.format("%.2f");
+        fo2Label.setText(fo2Text);
 
-        // Title
-        dc.drawText(width / 2, 10, Graphics.FONT_SMALL, "PO2 Calculator", Graphics.TEXT_JUSTIFY_CENTER);
+        var modLabel = View.findDrawableById("modValue") as Text;
+        var modDepth = DiveCalculations.CalculateDepthForPO2(1.4, _fo2);
+        var modText = Math.round(Units.Convert.MetersToSystem(modDepth)).format("%d") + Units.Symbols.Depth();
+        modLabel.setText(modText);
 
-        // FO2 input display
-        var fo2Text = "FO2: " + _fo2.format("%.2f");
-        dc.drawText(width / 2, 30, Graphics.FONT_TINY, fo2Text, Graphics.TEXT_JUSTIFY_CENTER);
-
-        // Table headers
-        var headerY = 50;
-        dc.drawText(width / 4, headerY, Graphics.FONT_TINY, "Depth", Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(3 * width / 4, headerY, Graphics.FONT_TINY, "PO2", Graphics.TEXT_JUSTIFY_CENTER);
-
-        var lineHeight = 18;
-        var startY = 70;
-        var maxVisibleLines = (height - startY - 10) / lineHeight;
+        var codLabel = View.findDrawableById("codValue") as Text;
+        var codDepth = DiveCalculations.CalculateDepthForPO2(1.6, _fo2);
+        var codText = Math.round(Units.Convert.MetersToSystem(codDepth)).format("%d") + Units.Symbols.Depth();
+        codLabel.setText(codText);
 
         // Generate depth/PO2 data
         var data = generatePO2Data();
+
+        // Get label and calculate how many lines it can fit based on position and display height
+        var width = dc.getWidth();
+        var height = dc.getHeight();
+        var po2TableText = View.findDrawableById("po2TableText") as Text;
+        var startY = po2TableText.locY;
+        var availableHeight = height - startY;
+        var lineHeight = Graphics.getFontHeight(Graphics.FONT_TINY);
+        var maxVisibleLines = Math.floor(availableHeight / lineHeight);
+
         _maxScrollOffset = (data.size() > maxVisibleLines) ? data.size() - maxVisibleLines : 0;
 
         for (var i = _scrollOffset; i < data.size() && i < _scrollOffset + maxVisibleLines; i++) {
@@ -57,14 +60,9 @@ class PO2CalculationView extends WatchUi.View {
             var depthText = depth + " " + Units.Symbols.Depth();
             var po2Text = row["po2"].format("%.2f");
 
-            dc.drawText(width / 4, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
-            dc.drawText(3 * width / 4, yPos, Graphics.FONT_TINY, po2Text, Graphics.TEXT_JUSTIFY_CENTER);
-        }
-
-        // Scroll indicator
-        if (data.size() > maxVisibleLines) {
-            var scrollIndicator = (_scrollOffset + 1).toString() + "/" + (data.size() - maxVisibleLines + 1).toString();
-            dc.drawText(width - 10, height - 15, Graphics.FONT_TINY, scrollIndicator, Graphics.TEXT_JUSTIFY_RIGHT);
+            var thirty = width * .30;
+            dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(width - thirty, yPos, Graphics.FONT_TINY, po2Text, Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
 
@@ -104,7 +102,7 @@ class PO2CalculationView extends WatchUi.View {
 
     function setFO2(fo2 as Float) as Void {
         _fo2 = fo2;
-        _scrollOffset = 0; // Reset scroll when FO2 changes
+        _scrollOffset = 0;
         WatchUi.requestUpdate();
     }
 
