@@ -1,5 +1,5 @@
 <layout id="MinGasLayout" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
-    <drawable id="Background" />
+    <drawable id="Background_white" />
 
     <!-- Title -->
     <label id="titleLabel" x="50%" y="10%" text="Min Gas" font="Graphics.FONT_SYSTEM_LARGE" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />

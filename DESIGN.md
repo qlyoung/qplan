@@ -29,6 +29,11 @@ access.
 When displaying computed results, try to ensure that the user sees the major
 factors it was computed from.
 
+- Consistent color scheme
+
+Use a black background with white text for input screens.
+Use a white background with black text for output screens.
+
 ## Coding practices
 
 This program computes values that have safety implications. While this program
