@@ -6,7 +6,7 @@ import Toybox.System;
 
 import Globals;
 
-class diveplanApp extends Application.AppBase {
+class QplannerApp extends Application.AppBase {
 
     function initialize() {
         AppBase.initialize();
@@ -36,6 +36,6 @@ class diveplanApp extends Application.AppBase {
 
 }
 
-function getApp() as diveplanApp {
-    return Application.getApp() as diveplanApp;
+function getApp() as QplannerApp {
+    return Application.getApp() as QplannerApp;
 }

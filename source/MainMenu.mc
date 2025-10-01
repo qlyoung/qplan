@@ -4,7 +4,7 @@ import Units;
 class MainMenu extends WatchUi.Menu2 {
 
     function initialize() {
-        Menu2.initialize({:title => "Qplanner"});
+        Menu2.initialize({:title => Rez.Strings.AppName});
         buildMenu();
     }
 
