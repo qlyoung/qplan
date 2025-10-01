@@ -3,4 +3,7 @@
     <drawable-list id="Background_white" background="Gfx.COLOR_WHITE">
         <shape type="rectangle" x="0" y="0" width="100%" height="100%" />
     </drawable-list>
+    <drawable-list id="Background_black" background="Gfx.COLOR_BLACK">
+        <shape type="rectangle" x="0" y="0" width="100%" height="100%" />
+    </drawable-list>
 </drawables>
