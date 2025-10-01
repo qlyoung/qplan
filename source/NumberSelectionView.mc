@@ -3,10 +3,10 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 class NumberSelectionView extends WatchUi.View {
-    private var _value as Float;
-    private var _title as String;
-    private var _unit as String;
-    private var _fmt as String;
+    protected var _value as Float;
+    protected var _title as String;
+    protected var _unit as String;
+    protected var _fmt as String;
 
     function initialize(value as Float, fmt as String, unit as String, title as String) {
         View.initialize();
@@ -18,6 +18,10 @@ class NumberSelectionView extends WatchUi.View {
 
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.MainLayout(dc));
+    }
+
+    function renderValue() as String {
+        return _value.format(_fmt) + " " + _unit;
     }
 
     function onUpdate(dc as Dc) as Void {
@@ -32,7 +36,7 @@ class NumberSelectionView extends WatchUi.View {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(width / 2, height / 4, Graphics.FONT_MEDIUM, _title, Graphics.TEXT_JUSTIFY_CENTER);
 
-        var valueText = _value.format(_fmt) + " " + _unit;
+        var valueText = renderValue();
         dc.drawText(width / 2, height / 2, Graphics.FONT_LARGE, valueText, Graphics.TEXT_JUSTIFY_CENTER);
 
         dc.drawText(width / 2, 3 * height / 4, Graphics.FONT_SMALL, "UP/DOWN to adjust", Graphics.TEXT_JUSTIFY_CENTER);
