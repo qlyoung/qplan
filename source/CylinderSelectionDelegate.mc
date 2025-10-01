@@ -8,9 +8,6 @@ class CylinderSelectionDelegate extends WatchUi.Menu2InputDelegate {
         Menu2InputDelegate.initialize();
     }
 
-    function onUpdate() {
-    }
-
     function onSelect(item) as Void {
         var tankData = WatchUi.loadResource(Rez.JsonData.ScubaTanks) as Array;
         var selectedTank = null;

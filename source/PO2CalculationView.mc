@@ -16,9 +16,6 @@ class PO2CalculationView extends ScrollableView {
         setLayout(Rez.Layouts.PO2TableLayout(dc));
     }
 
-    function onShow() as Void {
-    }
-
     function onUpdate(dc as Dc) as Void {
         View.onUpdate(dc);
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
@@ -62,9 +59,6 @@ class PO2CalculationView extends ScrollableView {
             dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
             dc.drawText(width - thirty, yPos, Graphics.FONT_TINY, po2Text, Graphics.TEXT_JUSTIFY_CENTER);
         }
-    }
-
-    function onHide() as Void {
     }
 
     function generatePO2Data() as Array {

@@ -12,10 +12,6 @@ class CalcMinGasView extends WatchUi.View {
         setLayout(Rez.Layouts.MinGasLayout(dc));
     }
 
-    function onShow() as Void {
-        View.onShow();
-    }
-
     function onUpdate(dc as Dc) as Void {
         View.onUpdate(dc);
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
@@ -62,9 +58,5 @@ class CalcMinGasView extends WatchUi.View {
         var minGasText = vText + " / " + pText;
         var resultLabel = View.findDrawableById("resultLabel") as Text;
         resultLabel.setText(minGasText);
-    }
-
-    function onHide() as Void {
-        View.onHide();
     }
 }
