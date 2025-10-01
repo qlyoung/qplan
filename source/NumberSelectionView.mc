@@ -25,13 +25,13 @@ class NumberSelectionView extends WatchUi.View {
     }
 
     function onUpdate(dc as Dc) as Void {
-        View.onUpdate(dc);
-
         var titleLabel = View.findDrawableById("titleLabel") as Text;
         titleLabel.setText(_title);
 
         var valueLabel = View.findDrawableById("valueLabel") as Text;
         valueLabel.setText(renderValue());
+
+        View.onUpdate(dc);
     }
 
     function SetValue(value as Float) {

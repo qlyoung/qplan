@@ -13,7 +13,6 @@ class CalcMinGasView extends WatchUi.View {
     }
 
     function onUpdate(dc as Dc) as Void {
-        View.onUpdate(dc);
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
 
         var minGasData = Globals.dive.calculateMinGas();
@@ -58,5 +57,7 @@ class CalcMinGasView extends WatchUi.View {
         var minGasText = vText + " / " + pText;
         var resultLabel = View.findDrawableById("resultLabel") as Text;
         resultLabel.setText(minGasText);
+
+        View.onUpdate(dc);
     }
 }

@@ -14,10 +14,7 @@ class SegmentTableView extends ScrollableView {
         setLayout(Rez.Layouts.SegmentTableLayout(dc));
     }
 
-    function onUpdate(dc as Dc) as Void {
-        View.onUpdate(dc);
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
-
+    function updateLayout(dc as Dc) {
         var cylinderTypeLabel = View.findDrawableById("cylinderTypeLabel") as Text;
         cylinderTypeLabel.setText(Globals.dive.getCylinder().getTypeName());
 
@@ -30,8 +27,9 @@ class SegmentTableView extends ScrollableView {
 
         var segLabel = View.findDrawableById("timeLabel") as Text;
         segLabel.setText("@ " + Constants.SEGMENT_LENGTH.format("%d") + " min");
+    }
 
-        // Calculate segments
+    function drawSegmentTable(dc as Dc) {
         var interval = (Units.GetSystem() == Units.METRIC) ? 1.0 : Units.Convert.FeetToMeters(10.0);
         var startDepth = Globals.dive.getBottomDepth();
         if (Units.GetSystem() == Units.IMPERIAL) {
@@ -71,5 +69,19 @@ class SegmentTableView extends ScrollableView {
             dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
             dc.drawText(width - thirty, yPos, Graphics.FONT_TINY, segmentText, Graphics.TEXT_JUSTIFY_CENTER);
         }
+    }
+
+    function updateDynamic(dc as Dc) {
+        drawSegmentTable(dc);
+    }
+
+    function onUpdate(dc as Dc) as Void {
+        // Output display
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
+
+        updateLayout(dc);
+        View.onUpdate(dc);
+        // Must be done after View.onUpdate, or layout background will overwrite
+        updateDynamic(dc);
     }
 }

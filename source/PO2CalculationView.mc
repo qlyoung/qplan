@@ -16,10 +16,7 @@ class PO2CalculationView extends ScrollableView {
         setLayout(Rez.Layouts.PO2TableLayout(dc));
     }
 
-    function onUpdate(dc as Dc) as Void {
-        View.onUpdate(dc);
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
-
+    function updateLayout(dc as Dc) {
         var fo2Label = View.findDrawableById("fo2Label") as Text;
         var fo2Text = _fo2.format("%.2f");
         fo2Label.setText(fo2Text);
@@ -33,7 +30,9 @@ class PO2CalculationView extends ScrollableView {
         var codDepth = DiveCalculations.CalculateDepthForPO2(1.6, _fo2);
         var codText = Math.round(Units.Convert.MetersToSystem(codDepth)).format("%d") + Units.Symbols.Depth();
         codLabel.setText(codText);
+    }
 
+    function drawPO2Table(dc as Dc) {
         // Generate depth/PO2 data
         var data = generatePO2Data();
 
@@ -59,6 +58,20 @@ class PO2CalculationView extends ScrollableView {
             dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
             dc.drawText(width - thirty, yPos, Graphics.FONT_TINY, po2Text, Graphics.TEXT_JUSTIFY_CENTER);
         }
+    }
+
+    function updateDynamic(dc as Dc) {
+        drawPO2Table(dc);
+    }
+
+    function onUpdate(dc as Dc) as Void {
+        // Output display
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
+
+        updateLayout(dc);
+        View.onUpdate(dc);
+        // Must be done after View.onUpdate, or layout background will overwrite
+        updateDynamic(dc);
     }
 
     function generatePO2Data() as Array {
