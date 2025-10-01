@@ -5,19 +5,13 @@ import Toybox.Math;
 
 import Constants;
 
-class SegmentTableView extends WatchUi.View {
-    private var _scrollOffset as Number = 0;
-    private var _maxScrollOffset as Number = 0;
-
+class SegmentTableView extends ScrollableView {
     function initialize() {
-        View.initialize();
+        ScrollableView.initialize();
     }
 
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.SegmentTableLayout(dc));
-    }
-
-    function onShow() as Void {
     }
 
     function onUpdate(dc as Dc) as Void {
@@ -64,7 +58,7 @@ class SegmentTableView extends WatchUi.View {
         var lineHeight = Graphics.getFontHeight(Graphics.FONT_TINY);
         var maxVisibleLines = Math.floor(availableHeight / lineHeight);
 
-        _maxScrollOffset = segments.size() - 1;
+        setMaxScroll(segments.size() - 1);
 
         for (var i = _scrollOffset; i < segments.size() && i < _scrollOffset + maxVisibleLines; i++) {
             var segment = segments[i];
@@ -76,25 +70,6 @@ class SegmentTableView extends WatchUi.View {
             var thirty = width * .30;
             dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
             dc.drawText(width - thirty, yPos, Graphics.FONT_TINY, segmentText, Graphics.TEXT_JUSTIFY_CENTER);
-        }
-
-        if (segments.size() > maxVisibleLines) {
-            var scrollIndicator = (_scrollOffset + 1).toString() + "/" + (segments.size() - maxVisibleLines + 1).toString();
-            dc.drawText(width - 10, height - 15, Graphics.FONT_TINY, scrollIndicator, Graphics.TEXT_JUSTIFY_RIGHT);
-        }
-    }
-
-    function scrollUp() as Void {
-        if (_scrollOffset > 0) {
-            _scrollOffset -= 1;
-            WatchUi.requestUpdate();
-        }
-    }
-
-    function scrollDown() as Void {
-        if (_scrollOffset < _maxScrollOffset) {
-            _scrollOffset += 1;
-            WatchUi.requestUpdate();
         }
     }
 }

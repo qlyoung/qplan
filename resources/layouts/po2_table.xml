@@ -14,4 +14,8 @@
 
     <!-- Table content text area -->
     <label id="po2TableText" y="35%" x="0" font="Graphics.FONT_XTINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+
+    <!-- Scroll indicators -->
+    <label id="scrollIndicatorUp" x="5%" y="45%" text="@Strings.UpArrow" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="scrollIndicatorDown" x="5%" y="55%" text="@Strings.DownArrow" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
 </layout>

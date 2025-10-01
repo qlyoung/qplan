@@ -4,13 +4,11 @@ import Toybox.WatchUi;
 
 import Units;
 
-class PO2CalculationView extends WatchUi.View {
-    private var _scrollOffset as Number = 0;
-    private var _maxScrollOffset as Number = 0;
+class PO2CalculationView extends ScrollableView {
     private var _fo2 as Float;
 
     function initialize(fo2 as Float) {
-        View.initialize();
+        ScrollableView.initialize();
         _fo2 = fo2;
     }
 
@@ -51,7 +49,7 @@ class PO2CalculationView extends WatchUi.View {
         var lineHeight = Graphics.getFontHeight(Graphics.FONT_TINY);
         var maxVisibleLines = Math.floor(availableHeight / lineHeight);
 
-        _maxScrollOffset = (data.size() > maxVisibleLines) ? data.size() - maxVisibleLines : 0;
+        setMaxScroll(data.size() - 1);
 
         for (var i = _scrollOffset; i < data.size() && i < _scrollOffset + maxVisibleLines; i++) {
             var row = data[i] as Dictionary;
@@ -84,20 +82,6 @@ class PO2CalculationView extends WatchUi.View {
         }
 
         return data;
-    }
-
-    function scrollUp() as Void {
-        if (_scrollOffset > 0) {
-            _scrollOffset -= 1;
-            WatchUi.requestUpdate();
-        }
-    }
-
-    function scrollDown() as Void {
-        if (_scrollOffset < _maxScrollOffset) {
-            _scrollOffset += 1;
-            WatchUi.requestUpdate();
-        }
     }
 
     function setFO2(fo2 as Float) as Void {
