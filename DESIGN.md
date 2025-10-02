@@ -58,6 +58,11 @@ Examples:
   less than the exact value
 - Maximum depths should round towards 0, minimum depths toward infinity
 
+## Display verifiable values
+
+The results of calculations using displayed values should never be more than
+the displayed result.
+
 ### Unit conversions are for display only
 
 SI units are assumed throughout the codebase.

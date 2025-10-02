@@ -33,6 +33,10 @@ class CalcMinGasView extends WatchUi.View {
         var consumptionLabel = View.findDrawableById("consumptionLabel") as Text;
         consumptionLabel.setText(consumptionText);
 
+        // These are rounded instead of ceiling/floor; if we were to round a
+        // bottom depth of 29.5 meters to 30m, and the user verified the output
+        // using 30m they may get a larger min gas # than we show, which is
+        // confusing
         var bd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getBottomDepth()));
         var sd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getSwitchDepth()));
         var depthRangeText = "(" + bd.format("%d") + " -> " + sd.format("%d") + ")";
@@ -50,10 +54,22 @@ class CalcMinGasView extends WatchUi.View {
         var timeLabel = View.findDrawableById("timeLabel") as Text;
         timeLabel.setText(timeText);
 
-        var mgv = Math.round(Units.Convert.LitersToSystem(minGasData["min_gas_volume"]));
-        var mgp = Math.round(Units.Convert.BarToSystem(minGasData["min_gas_pressure"]));
-        var vText = mgv.format("%d") + " " + Units.Symbols.Volume();
-        var pText = mgp.format("%d") + " " + Units.Symbols.Pressure();
+        // Ceil liters to the nearest 1l and format as an integer
+        // Ceil cubic feet to the nearest .1cf and format with 1 decimal
+        var mgv = Units.Convert.LitersToSystem(minGasData["min_gas_volume"]);
+        var roundTo = Units.GetSystem() == Units.METRIC ? 1.0 : 0.1;
+        var fmt = Units.GetSystem() == Units.METRIC ? "%d" : "%.1f";
+        mgv = Math.ceil(mgv / roundTo) * roundTo;
+        var vText = mgv.format(fmt) + " " + Units.Symbols.Volume();
+
+        // Ceil bar to the nearest .1bar and format with 1 decimal
+        // Ceil PSI to the nearest 1psi and format as an integer
+        var mgp = Units.Convert.BarToSystem(minGasData["min_gas_pressure"]);
+        roundTo = Units.GetSystem() == Units.METRIC ? 0.1 : 1;
+        mgp = Math.ceil(mgp / roundTo) * roundTo;
+        fmt = Units.GetSystem() == Units.METRIC ? "%.1f" : "%d";
+        var pText = mgp.format(fmt) + " " + Units.Symbols.Pressure();
+
         var minGasText = vText + " / " + pText;
         var resultLabel = View.findDrawableById("resultLabel") as Text;
         resultLabel.setText(minGasText);
