@@ -44,13 +44,13 @@ class Cylinder {
         }
 
         if (_unitType == Units.METRIC) {
-            _servicePressure = cylinderData["service_pressure"] as Float;
-            _waterCapacity = cylinderData["water_capacity"] as Float;
+            _servicePressure = cylinderData["service_pressure"].toFloat();
+            _waterCapacity = cylinderData["water_capacity"].toFloat();
             _nominalCapacity = _servicePressure * _waterCapacity;
         } else {
-            var spPsi = cylinderData["service_pressure"] as Float;
+            var spPsi = cylinderData["service_pressure"].toFloat();
             _servicePressure = Units.Convert.PsiToBar(spPsi);
-            var nomCapCubicFeet = cylinderData["nominal_capacity"] as Float;
+            var nomCapCubicFeet = cylinderData["nominal_capacity"].toFloat();
             _nominalCapacity = Units.Convert.CubicFeetToLiters(nomCapCubicFeet);
             _waterCapacity = _nominalCapacity / _servicePressure;
         }

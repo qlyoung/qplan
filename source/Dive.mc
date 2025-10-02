@@ -210,15 +210,15 @@ class Dive {
     }
 
     function fromDictionary(data as Dictionary) {
-        _scr = data["scr"] as Float;
-        _bottomDepth = data["bottom_depth"] as Float;
+        _scr = data["scr"].toFloat();
+        _bottomDepth = data["bottom_depth"].toFloat();
         _cylinder.fromDictionary(data["cylinder"]);
-        _minGasBottomDepth = data["min_gas_bottom_depth"] as Float;
-        _contingencySCR = data["contingency_scr"] as Float;
-        _contingencySCRMultiplier = data["contingency_scr_multiplier"] as Float;
-        _switchDepth = data["switch_depth"] as Float;
-        _problemSolvingTime = data["problem_solving_time"] as Number;
-        _gasSwitchTime = data["gas_switch_time"] as Number;
-        _ascentRate = data["ascent_rate"] as Float;
+        _minGasBottomDepth = data["min_gas_bottom_depth"].toFloat();
+        _contingencySCR = data["contingency_scr"].toFloat();
+        _contingencySCRMultiplier = data["contingency_scr_multiplier"].toFloat();
+        _switchDepth = data["switch_depth"].toFloat();
+        _problemSolvingTime = data["problem_solving_time"].toNumber();
+        _gasSwitchTime = data["gas_switch_time"].toNumber();
+        _ascentRate = data["ascent_rate"].toFloat();
     }
 }

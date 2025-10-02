@@ -44,10 +44,10 @@ class CalcMinGasView extends WatchUi.View {
         var avgPressureLabel = View.findDrawableById("avgPressureLabel") as Text;
         avgPressureLabel.setText(avgPressureText);
 
-        var problemSolveMinutes = Math.ceil(Globals.dive.getProblemSolvingTime()/60.0) as Number;
-        var ascentTimeMinutes = Math.ceil(minGasData["ascent_time"]/60.0) as Number;
-        var switchTimeMinutes = Math.ceil(Globals.dive.getGasSwitchTime()/60.0) as Number;
-        var totalTimeMinutes = Math.ceil((minGasData["total_time"]/60.0)) as Number;
+        var problemSolveMinutes = Math.ceil(Globals.dive.getProblemSolvingTime()/60.0).toNumber();
+        var ascentTimeMinutes = Math.ceil(minGasData["ascent_time"]/60.0).toNumber();
+        var switchTimeMinutes = Math.ceil(Globals.dive.getGasSwitchTime()/60.0).toNumber();
+        var totalTimeMinutes = Math.ceil((minGasData["total_time"]/60.0)).toNumber();
 
         var timeRangeText = "(" + problemSolveMinutes.format("%d") + "+" + ascentTimeMinutes.format("%d") + "+" + switchTimeMinutes.format("%d") + ")";
         var timeText = "T: " + totalTimeMinutes.format("%d") + " min " + timeRangeText;
