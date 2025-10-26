@@ -9,8 +9,8 @@ class ScrollableView extends WatchUi.View {
     function initialize() {
         View.initialize();
     }
-    
-    function onShow() {
+
+    function onShow() as Void {
         updateScrollIndicators();
     }
 
@@ -43,7 +43,7 @@ class ScrollableView extends WatchUi.View {
         }
     }
 
-    function setMaxScroll(offset) {
+    function setMaxScroll(offset as Number) as Void {
         _maxScrollOffset = offset;
         updateScrollIndicators();
     }

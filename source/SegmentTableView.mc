@@ -14,7 +14,7 @@ class SegmentTableView extends ScrollableView {
         setLayout(Rez.Layouts.SegmentTableLayout(dc));
     }
 
-    function updateLayout(dc as Dc) {
+    function updateLayout(dc as Dc) as Void {
         var cylinderTypeLabel = View.findDrawableById("cylinderTypeLabel") as Text;
         cylinderTypeLabel.setText(Globals.dive.getCylinder().getTypeName());
 
@@ -29,15 +29,15 @@ class SegmentTableView extends ScrollableView {
         segLabel.setText("@ " + Constants.SEGMENT_LENGTH.format("%d") + " min");
     }
 
-    function drawSegmentTable(dc as Dc) {
+    function drawSegmentTable(dc as Dc) as Void {
         var interval = (Units.GetSystem() == Units.METRIC) ? 1.0 : Units.Convert.FeetToMeters(10.0);
         var startDepth = Globals.dive.getBottomDepth();
         if (Units.GetSystem() == Units.IMPERIAL) {
             startDepth = Units.Convert.FeetToMeters(
-                Math.ceil(Units.Convert.MetersToFeet(startDepth) / 10.0) * 10.0
+                (Math.ceil(Units.Convert.MetersToFeet(startDepth) / 10.0) * 10.0).toFloat()
             );
         } else {
-            startDepth = Math.ceil(startDepth);
+            startDepth = Math.ceil(startDepth).toFloat();
         }
 
         var segments = DiveCalculations.CalculateSegmentTable(
@@ -62,8 +62,16 @@ class SegmentTableView extends ScrollableView {
             var segment = segments[i];
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
 
-            var depthText = Math.round(Units.Convert.MetersToSystem(segment["depth"])).format("%d") + Units.Symbols.Depth();
-            var segmentText = Math.ceil(Units.Convert.BarToSystem(segment["segment"])).format("%d") + Units.Symbols.Pressure();
+            var depth = segment["depth"];
+            if (!(depth instanceof Float)) {
+                System.error("Type check failed for depth");
+            }
+            var depthText = Math.round(Units.Convert.MetersToSystem(depth)).format("%d") + Units.Symbols.Depth();
+            var segmentVal = segment["segment"];
+            if (!(segmentVal instanceof Float)) {
+                System.error("Type check failed for segment");
+            }
+            var segmentText = Math.ceil(Units.Convert.BarToSystem(segmentVal)).format("%d") + Units.Symbols.Pressure();
 
             var thirty = width * .30;
             dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
@@ -71,7 +79,7 @@ class SegmentTableView extends ScrollableView {
         }
     }
 
-    function updateDynamic(dc as Dc) {
+    function updateDynamic(dc as Dc) as Void {
         drawSegmentTable(dc);
     }
 

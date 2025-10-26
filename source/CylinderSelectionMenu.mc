@@ -20,8 +20,18 @@ class CylinderSelectionMenu extends WatchUi.Menu2 {
                 if (tankUnits != filter) {
                     continue;
                 }
-                var spText = tankDict["service_pressure"] + " " + Units.Symbols.getSymbol(tank.getUnitType(), Units.PRESSURE);
-                addItem(new WatchUi.MenuItem(tank.getTypeName(), spText, tank.getTypeName(), {}));
+
+                var tankNativeSP = tankDict["service_pressure"];
+                if (!(tankNativeSP instanceof Number)) {
+                    System.error("sevice_pressure failed type check");
+                }
+                var spText = tankNativeSP.format("%d") + " " + Units.Symbols.getSymbol(tank.getUnitType(), Units.PRESSURE);
+                addItem(new WatchUi.MenuItem(
+                    tank.getTypeName(),
+                    spText,
+                    tank.getTypeName(),
+                    {})
+                );
             }
             filter = (filter + 1) % 2;
         }

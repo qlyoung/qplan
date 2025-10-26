@@ -7,7 +7,7 @@ import Constants;
 
 module Screens {
 
-    function DepthSelection(setcb, depth, minDepth, maxDepth, title) as [View, BehaviorDelegate] {
+    function DepthSelection(setcb as Invokable, depth as Float, minDepth as Float, maxDepth as Float, title as String) as [View, BehaviorDelegate] {
         var units = Units.GetSystem();
 
         depth = Units.Convert.MetersToSystem(depth);
@@ -15,9 +15,9 @@ module Screens {
         var max = Units.Convert.MetersToSystem(maxDepth);
         var inc = (units == Units.METRIC) ? 1.0 : 5.0;
 
-        depth = Math.round(depth / inc) * inc;
-        min = Math.ceil(min / inc) * inc;
-        max = Math.floor(max / inc) * inc;
+        depth = (Math.round(depth / inc) * inc).toFloat();
+        min = (Math.ceil(min / inc) * inc).toFloat();
+        max = (Math.floor(max / inc) * inc).toFloat();
 
         var fmt = "%d";
         var sym = Units.Symbols.Depth();
@@ -30,7 +30,7 @@ module Screens {
         return [view, del];
     }
 
-    function SCRSelection(setcb, scr, title) as [View, BehaviorDelegate] {
+    function SCRSelection(setcb as Invokable or Method, scr as Float, title as String) as [View, BehaviorDelegate] {
         var units = Units.GetSystem();
 
         scr = Units.Convert.LitersToSystem(scr);
@@ -38,9 +38,9 @@ module Screens {
         var max = Units.Convert.LitersToSystem(Constants.MAX_SCR);
         var inc = (units == Units.METRIC) ? 1.0 : .05;
 
-        scr = Math.round(scr / inc) * inc;
-        min = Math.ceil(min / inc) * inc;
-        max = Math.floor(max / inc) * inc;
+        scr = (Math.round(scr / inc) * inc).toFloat();
+        min = (Math.ceil(min / inc) * inc).toFloat();
+        max = (Math.floor(max / inc) * inc).toFloat();
 
         var fmt = (units == Units.METRIC) ? "%d" : "%.2f";
         var sym = Units.Symbols.SCR();
@@ -53,15 +53,15 @@ module Screens {
         return [view, del];
     }
 
-    function AscentRateSelection(setcb, rate, title) as [View, BehaviorDelegate] {
+    function AscentRateSelection(setcb as Invokable, rate as Float, title as String) as [View, BehaviorDelegate] {
         rate = Units.Convert.MetersToSystem(rate);
         var inc = 1.0;
         var min = 1.0;
         var max = Units.Convert.MetersToSystem(Constants.ASCENT_RATE_MAX);
 
-        rate = Math.round(rate / inc) * inc;
-        min = Math.ceil(min / inc) * inc;
-        max = Math.floor(max / inc) * inc;
+        rate = (Math.round(rate / inc) * inc).toFloat();
+        min = (Math.ceil(min / inc) * inc).toFloat();
+        max = (Math.floor(max / inc) * inc).toFloat();
 
         var fmt = "%d";
         var sym = Units.Symbols.DepthChange();

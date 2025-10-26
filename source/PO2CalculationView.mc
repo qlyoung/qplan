@@ -16,7 +16,7 @@ class PO2CalculationView extends ScrollableView {
         setLayout(Rez.Layouts.PO2TableLayout(dc));
     }
 
-    function updateLayout(dc as Dc) {
+    function updateLayout(dc as Dc) as Void {
         var fo2Label = View.findDrawableById("fo2Label") as Text;
         var fo2Text = _fo2.format("%.2f");
         fo2Label.setText(fo2Text);
@@ -32,7 +32,7 @@ class PO2CalculationView extends ScrollableView {
         codLabel.setText(codText);
     }
 
-    function drawPO2Table(dc as Dc) {
+    function drawPO2Table(dc as Dc) as Void {
         // Generate depth/PO2 data
         var data = generatePO2Data();
 
@@ -48,11 +48,19 @@ class PO2CalculationView extends ScrollableView {
         setMaxScroll(data.size() - 1);
 
         for (var i = _scrollOffset; i < data.size() && i < _scrollOffset + maxVisibleLines; i++) {
-            var row = data[i] as Dictionary;
+            var row = data[i];
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
-            var depth = Math.round(Units.Convert.MetersToSystem(row["depth"])).format("%d");
-            var depthText = depth + " " + Units.Symbols.Depth();
-            var po2Text = row["po2"].format("%.2f");
+            var depth = row["depth"];
+            if (!(depth instanceof Float)) {
+                System.error("Type check failed on depth");
+            }
+            var depthText = Math.round(Units.Convert.MetersToSystem(depth)).format("%d");
+            depthText = depth + " " + Units.Symbols.Depth();
+            var po2 = row["po2"];
+            if (!(po2 instanceof Float)) {
+                System.error("Type check failed on po2");
+            }
+            var po2Text = po2.format("%.2f");
 
             var thirty = width * .30;
             dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
@@ -60,7 +68,7 @@ class PO2CalculationView extends ScrollableView {
         }
     }
 
-    function updateDynamic(dc as Dc) {
+    function updateDynamic(dc as Dc) as Void {
         drawPO2Table(dc);
     }
 
@@ -74,8 +82,8 @@ class PO2CalculationView extends ScrollableView {
         updateDynamic(dc);
     }
 
-    function generatePO2Data() as Array {
-        var data = [] as Array;
+    function generatePO2Data() as Array<Dictionary<String, Float>> {
+        var data = [] as Array<Dictionary<String, Float>>;
 
         var start = 0.0;
         var interval = (Units.GetSystem() == Units.METRIC) ? 5.0 : Units.Convert.FeetToMeters(10.0);

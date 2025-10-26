@@ -34,7 +34,7 @@ class NumberSelectionView extends WatchUi.View {
         View.onUpdate(dc);
     }
 
-    function SetValue(value as Float) {
+    function SetValue(value as Float) as Void {
         _value = value;
         WatchUi.requestUpdate();
     }

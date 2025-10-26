@@ -10,7 +10,7 @@ class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
         Menu2InputDelegate.initialize();
     }
 
-    function onSelect(item) as Void {
+    function onSelect(item as MenuItem) as Void {
         if (item.getId() == :cylinder) {
             // cylinder selection screen
             var cylinderMenu = new CylinderSelectionMenu();
@@ -50,7 +50,7 @@ class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
         }
     }
 
-    function ShowPO2Table(fo2 as Float) {
+    function ShowPO2Table(fo2 as Float) as Void {
         var po2View = new PO2CalculationView(fo2);
         var po2Delegate = new PO2CalculationDelegate(po2View);
         WatchUi.pushView(po2View, po2Delegate, WatchUi.SLIDE_LEFT);

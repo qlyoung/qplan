@@ -8,7 +8,7 @@ module Units {
         // metric system
         METRIC = 0,
         // imperial system
-        IMPERIAL,
+        IMPERIAL = 1,
     }
 
     enum QuantityType {
@@ -43,7 +43,7 @@ module Units {
             return meters * METERS_TO_FEET;
         }
 
-        function MetersToSystem(meters as Float) {
+        function MetersToSystem(meters as Float) as Float {
             if (GetSystem() == METRIC) {
                 return meters;
             } else {
@@ -51,7 +51,7 @@ module Units {
             }
         }
 
-        function SystemToMeters(value as Float) {
+        function SystemToMeters(value as Float) as Float {
             if (GetSystem() == METRIC) {
                 return value;
             } else {
@@ -67,7 +67,7 @@ module Units {
             return liters * LITERS_TO_CUBIC_FEET;
         }
 
-        function LitersToSystem(liters as Float) {
+        function LitersToSystem(liters as Float) as Float {
             if (GetSystem() == METRIC) {
                 return liters;
             } else {
@@ -75,7 +75,7 @@ module Units {
             }
         }
 
-        function SystemToLiters(value as Float) {
+        function SystemToLiters(value as Float) as Float {
             if (GetSystem() == METRIC) {
                 return value;
             } else {
@@ -118,45 +118,64 @@ module Units {
     }
 
     module Symbols {
-        const SYMBOLS as Dictionary<UnitSystem, Dictionary> = {
-            METRIC => {
-                VOLUME => "l",
-                PRESSURE => "bar",
-                SCR => "l/min",
-                DEPTH => "m",
-                DEPTH_CHANGE => "m/min",
+        // It is impossible to declare the type of SYMBOLS and also assign to
+        // it, because the compiler is incapable of inferring the type of the
+        // RHS any more specifically than "Dictionary". We must be careful to
+        // prefix Units. to all keys because e.g. SCR would refer to the SCR()
+        // function in this module and not QuantityType.SCR
+        const SYMBOLS as Dictionary = {
+            Units.METRIC => {
+                Units.VOLUME => "l",
+                Units.PRESSURE => "bar",
+                Units.SCR => "l/min",
+                Units.DEPTH => "m",
+                Units.DEPTH_CHANGE => "m/min",
             },
-            IMPERIAL => {
-                VOLUME => "cf",
-                PRESSURE => "psi",
-                SCR => "cf/min",
-                DEPTH => "ft",
-                DEPTH_CHANGE => "ft/min",
+            Units.IMPERIAL => {
+                Units.VOLUME => "cf",
+                Units.PRESSURE => "psi",
+                Units.SCR => "cf/min",
+                Units.DEPTH => "ft",
+                Units.DEPTH_CHANGE => "ft/min",
             }
         };
 
         function SCR() as String {
-            return SYMBOLS[GetSystem()][SCR];
+            return getSymbolInt(Units.SCR);
         }
 
         function Volume() as String {
-            return SYMBOLS[GetSystem()][VOLUME];
+            return getSymbolInt(Units.VOLUME);
         }
 
         function Pressure() as String {
-            return SYMBOLS[GetSystem()][PRESSURE];
+            return getSymbolInt(Units.PRESSURE);
         }
 
         function DepthChange() as String {
-            return SYMBOLS[GetSystem()][DEPTH_CHANGE];
+            return getSymbolInt(Units.DEPTH_CHANGE);
         }
 
         function Depth() as String {
-            return SYMBOLS[GetSystem()][DEPTH];
+            return getSymbolInt(Units.DEPTH);
         }
 
-        function getSymbol(units as UnitSystem, type as QuantityType) as String {
-            return Symbols.SYMBOLS[units][type];
+        function getSymbol(unitSystem as UnitSystem, type as QuantityType) as String {
+            var symsForSystem = Symbols.SYMBOLS[unitSystem];
+            if (!(symsForSystem instanceof Dictionary)) {
+                System.error("Impossible type check: Units.Symbols.getSymbol");
+            }
+
+            var symbol = symsForSystem[type];
+            if (!(symbol instanceof String)) {
+                System.error("Impossible type check: Units.Symbols.getSymbol");
+            }
+
+            return symbol;
+        }
+
+        function getSymbolInt(type as QuantityType) as String {
+            return getSymbol(Units.GetSystem(), type);
         }
     }
 }

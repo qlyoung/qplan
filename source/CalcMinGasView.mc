@@ -20,7 +20,12 @@ class CalcMinGasView extends WatchUi.View {
         var cylinderTypeLabel = View.findDrawableById("cylinderTypeLabel") as Text;
         cylinderTypeLabel.setText(Globals.dive.getCylinder().getTypeName());
 
-        var mgc = Units.Convert.LitersToSystem(minGasData["consumption"]);
+        var consumption = minGasData["consumption"];
+        if (!(consumption instanceof Float)) {
+            System.error("Type check failed for consumption");
+        }
+
+        var mgc = Units.Convert.LitersToSystem(consumption);
         var consText;
         if (Units.GetSystem() == Units.METRIC) {
             mgc = Math.round(mgc);
@@ -40,14 +45,27 @@ class CalcMinGasView extends WatchUi.View {
         var bd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getBottomDepth()));
         var sd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getSwitchDepth()));
         var depthRangeText = "(" + bd.format("%d") + " -> " + sd.format("%d") + ")";
-        var avgPressureText = "A: " + minGasData["avg_pressure"].format("%.1f") + " ATA " + depthRangeText;
+        var avgPressure = minGasData["avg_pressure"];
+        if (!(avgPressure instanceof Float)) {
+            System.error("Type check failed for avg_pressure");
+        }
+
+        var avgPressureText = "A: " + avgPressure.format("%.1f") + " ATA " + depthRangeText;
         var avgPressureLabel = View.findDrawableById("avgPressureLabel") as Text;
         avgPressureLabel.setText(avgPressureText);
 
         var problemSolveMinutes = Math.ceil(Globals.dive.getProblemSolvingTime()/60.0).toNumber();
-        var ascentTimeMinutes = Math.ceil(minGasData["ascent_time"]/60.0).toNumber();
+        var ascentTime = minGasData["ascent_time"];
+        if (!(ascentTime instanceof Number)) {
+            System.error("Type check failed for ascent_time");
+        }
+        var ascentTimeMinutes = Math.ceil(ascentTime/60.0).toNumber();
         var switchTimeMinutes = Math.ceil(Globals.dive.getGasSwitchTime()/60.0).toNumber();
-        var totalTimeMinutes = Math.ceil((minGasData["total_time"]/60.0)).toNumber();
+        var totalTime = minGasData["total_time"];
+        if (!(totalTime instanceof Number)) {
+            System.error("Type check failed for total_time");
+        }
+        var totalTimeMinutes = Math.ceil((totalTime/60.0)).toNumber();
 
         var timeRangeText = "(" + problemSolveMinutes.format("%d") + "+" + ascentTimeMinutes.format("%d") + "+" + switchTimeMinutes.format("%d") + ")";
         var timeText = "T: " + totalTimeMinutes.format("%d") + " min " + timeRangeText;
@@ -56,19 +74,28 @@ class CalcMinGasView extends WatchUi.View {
 
         // Ceil liters to the nearest 1l and format as an integer
         // Ceil cubic feet to the nearest .1cf and format with 1 decimal
-        var mgv = Units.Convert.LitersToSystem(minGasData["min_gas_volume"]);
+        var minGasVolume = minGasData["min_gas_volume"];
+        if (!(minGasVolume instanceof Float)) {
+            System.error("Type check failed for min_gas_pressure");
+        }
+        var mgv = Units.Convert.LitersToSystem(minGasVolume);
         var roundTo = Units.GetSystem() == Units.METRIC ? 1.0 : 0.1;
         var fmt = Units.GetSystem() == Units.METRIC ? "%d" : "%.1f";
         mgv = Math.ceil(mgv / roundTo) * roundTo;
+
         var vText = mgv.format(fmt) + " " + Units.Symbols.Volume();
 
         // Ceil bar to the nearest .1bar and format with 1 decimal
         // Ceil PSI to the nearest 1psi and format as an integer
-        var mgp = Units.Convert.BarToSystem(minGasData["min_gas_pressure"]);
+        var minGasPressure = minGasData["min_gas_pressure"];
+        if (!(minGasPressure instanceof Float)) {
+            System.error("Type check failed for min_gas_pressure");
+        }
+        minGasPressure = Units.Convert.BarToSystem(minGasPressure);
         roundTo = Units.GetSystem() == Units.METRIC ? 0.1 : 1;
-        mgp = Math.ceil(mgp / roundTo) * roundTo;
+        minGasPressure = Math.ceil(minGasPressure / roundTo) * roundTo;
         fmt = Units.GetSystem() == Units.METRIC ? "%.1f" : "%d";
-        var pText = mgp.format(fmt) + " " + Units.Symbols.Pressure();
+        var pText = minGasPressure.format(fmt) + " " + Units.Symbols.Pressure();
 
         var minGasText = vText + " / " + pText;
         var resultLabel = View.findDrawableById("resultLabel") as Text;

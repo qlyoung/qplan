@@ -2,6 +2,9 @@ import Toybox.Lang;
 
 import Units;
 
+/*
+ * Models a Cylinder.
+ */
 class Cylinder {
     // Cylinder common name; AL80, D12 etc
     private var _typeName as String;
@@ -33,30 +36,57 @@ class Cylinder {
     function fromDictionary(cylinderData as Dictionary) as Void {
         _originalDict = cylinderData;
 
-        _typeName = cylinderData["cylinder_type_name"];
+        var x = cylinderData["cylinder_type_name"];
+        if (x instanceof String) {
+            _typeName = x;
+        } else {
+            System.error("cylinder_type_name failed type check");
+        }
 
-        if (cylinderData["unit_type"].equals("metric")) {
+        x = cylinderData["unit_type"];
+        if (!(x instanceof String)) {
+            System.error("unit_type failed type check");
+        }
+
+        if (x.equals("metric")) {
             _unitType = Units.METRIC;
-        } else if (cylinderData["unit_type"].equals("imperial")) {
+        } else if (x.equals("imperial")) {
             _unitType = Units.IMPERIAL;
         } else {
             System.error("Unknown cylinder type");
         }
 
         if (_unitType == Units.METRIC) {
-            _servicePressure = cylinderData["service_pressure"].toFloat();
-            _waterCapacity = cylinderData["water_capacity"].toFloat();
+            x = cylinderData["service_pressure"];
+            if (!(x instanceof Number)) {
+                System.error("service_pressure failed type check");
+            }
+            _servicePressure = x.toFloat();
+
+            x = cylinderData["water_capacity"];
+            if (!(x instanceof Float or x instanceof Number)) {
+                System.error("water_capacity failed type check");
+            }
+            _waterCapacity = x.toFloat();
             _nominalCapacity = _servicePressure * _waterCapacity;
         } else {
-            var spPsi = cylinderData["service_pressure"].toFloat();
-            _servicePressure = Units.Convert.PsiToBar(spPsi);
-            var nomCapCubicFeet = cylinderData["nominal_capacity"].toFloat();
-            _nominalCapacity = Units.Convert.CubicFeetToLiters(nomCapCubicFeet);
+            x = cylinderData["service_pressure"];
+            if (!(x instanceof Number)) {
+                System.error("service_pressure failed type check");
+            }
+            _servicePressure = Units.Convert.PsiToBar(x.toFloat());
+
+            x = cylinderData["nominal_capacity"];
+            if (!(x instanceof Float or x instanceof Number)) {
+                System.error("nominal_capacity failed type check");
+            }
+
+            _nominalCapacity = Units.Convert.CubicFeetToLiters(x.toFloat());
             _waterCapacity = _nominalCapacity / _servicePressure;
         }
     }
 
-    function toDictionary() as Dictionary {
+    function getDictionary() as Dictionary? {
         return _originalDict;
     }
 

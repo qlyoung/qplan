@@ -20,13 +20,19 @@ class QplannerApp extends Application.AppBase {
             if (units == Units.METRIC) { Globals.dive.setMetricDefaults(); }
             if (units == Units.IMPERIAL) { Globals.dive.setImperialDefaults(); }
         } else {
-            Globals.dive.fromDictionary(diveDict);
+            if (diveDict instanceof Dictionary) {
+                // Q: Why is this parameter cast necessary?
+                // A: Moron C
+                Globals.dive.fromDictionary(diveDict as Dictionary);
+            } else {
+                System.error("Dive dictionary failed type check");
+            }
         }
     }
 
     // onStop() is called when your application is exiting
     function onStop(state as Dictionary?) as Void {
-        Storage.setValue("dive", Globals.dive.toDictionary());
+        Storage.setValue("dive", Globals.dive.toDictionary() as PropertyValueType);
     }
 
     // Return the initial view of your application here

@@ -1,4 +1,5 @@
 import Toybox.WatchUi;
+import Toybox.Lang;
 import Units;
 
 class MainMenu extends WatchUi.Menu2 {
@@ -10,42 +11,42 @@ class MainMenu extends WatchUi.Menu2 {
 
     function buildMenu() as Void {
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_label_cylinder),
+            WatchUi.loadResource(Rez.Strings.menu_label_cylinder) as String,
             "",
             :cylinder,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_label_scr),
+            WatchUi.loadResource(Rez.Strings.menu_label_scr) as String,
             "",
             :scr,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_label_depth),
+            WatchUi.loadResource(Rez.Strings.menu_label_depth) as String,
             "",
             :depth,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_calc_segment),
+            WatchUi.loadResource(Rez.Strings.menu_calc_segment) as String,
             null,
             :segments,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_calc_mingas),
+            WatchUi.loadResource(Rez.Strings.menu_calc_mingas) as String,
             null,
             :mingas,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_calc_po2),
+            WatchUi.loadResource(Rez.Strings.menu_calc_po2) as String,
             null,
             :po2calc,
             {}

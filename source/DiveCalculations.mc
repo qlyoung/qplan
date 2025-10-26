@@ -6,15 +6,15 @@ import Constants;
 module DiveCalculations {
 
     // Depth in meters seawater to ambient pressure
-    function CalculateAmbientP(depth) as Float {
+    function CalculateAmbientP(depth as Float) as Float {
         return Units.Convert.MswToBar(depth) + 1.0;
     }
 
-    function CalculateDepthConsumptionP(scr, depth, cylinder) as Float {
+    function CalculateDepthConsumptionP(scr as Float, depth as Float, cylinder as Cylinder) as Float {
         return cylinder.volumeToPressure(scr * CalculateAmbientP(depth));
     }
 
-    function CalculateSegmentTable(scr, cylinder, startDepth, interval) as Array<Dictionary> {
+    function CalculateSegmentTable(scr as Float, cylinder as Cylinder, startDepth as Float, interval as Float) as Array<Dictionary> {
         var segments = [];
 
         for (var depth = startDepth; depth > 0; depth -= interval) {
@@ -32,7 +32,7 @@ module DiveCalculations {
         return segments;
     }
 
-    function CalculatePO2(fo2 as Float, depth as Float) {
+    function CalculatePO2(fo2 as Float, depth as Float) as Float {
         return fo2 * DiveCalculations.CalculateAmbientP(depth);
     }
 

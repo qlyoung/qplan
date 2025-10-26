@@ -40,10 +40,18 @@ This program computes values that have safety implications. While this program
 absolutely *does not guarantee* "FITNESS FOR A PARTICULAR PURPOSE", the goal is
 to be as correct as possible. Safe coding principles are in full effect here.
 
+### Use strict types
+
+Be as specific with typing as possible.
+
+### Avoid type casting
+
+Casting has no effect other than to override the compile-time type checker. Do
+not cast unless absolutely necessary.
+
 ### Be as precise as possible
 
 - Do not round during calculations
-- Do not cast to lower precision types
 
 Note: `Float` is used throughout the codebase for floating point values. This
 needs to be evaluated.
