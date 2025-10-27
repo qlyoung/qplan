@@ -74,14 +74,14 @@ class Cylinder {
             if (!(x instanceof Number)) {
                 System.error("service_pressure failed type check");
             }
-            _servicePressure = Units.Convert.PsiToBar(x.toFloat());
+            _servicePressure = Units.Convert.PsiToBar(x);
 
             x = cylinderData["nominal_capacity"];
             if (!(x instanceof Float or x instanceof Number)) {
                 System.error("nominal_capacity failed type check");
             }
 
-            _nominalCapacity = Units.Convert.CubicFeetToLiters(x.toFloat());
+            _nominalCapacity = Units.Convert.CubicFeetToLiters(x);
             _waterCapacity = _nominalCapacity / _servicePressure;
         }
     }

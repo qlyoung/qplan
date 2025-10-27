@@ -35,84 +35,84 @@ module Units {
         const MSW_TO_BAR as Float = 0.1;
         const BAR_TO_MSW as Float = 10.0;
 
-        function FeetToMeters(feet as Float) as Float {
-            return feet * FEET_TO_METERS;
+        function FeetToMeters(feet as Numeric) as Float {
+            return (feet * FEET_TO_METERS).toFloat();
         }
 
-        function MetersToFeet(meters as Float) as Float {
-            return meters * METERS_TO_FEET;
+        function MetersToFeet(meters as Numeric) as Float {
+            return (meters * METERS_TO_FEET).toFloat();
         }
 
-        function MetersToSystem(meters as Float) as Float {
+        function MetersToSystem(meters as Numeric) as Float {
             if (GetSystem() == METRIC) {
-                return meters;
+                return meters.toFloat();
             } else {
                 return MetersToFeet(meters);
             }
         }
 
-        function SystemToMeters(value as Float) as Float {
+        function SystemToMeters(value as Numeric) as Float {
             if (GetSystem() == METRIC) {
-                return value;
+                return value.toFloat();
             } else {
                 return FeetToMeters(value);
             }
         }
 
-        function CubicFeetToLiters(cubicFeet as Float) as Float {
-            return cubicFeet * CUBIC_FEET_TO_LITERS;
+        function CubicFeetToLiters(cubicFeet as Numeric) as Float {
+            return (cubicFeet * CUBIC_FEET_TO_LITERS).toFloat();
         }
 
-        function LitersToCubicFeet(liters as Float) as Float {
-            return liters * LITERS_TO_CUBIC_FEET;
+        function LitersToCubicFeet(liters as Numeric) as Float {
+            return (liters * LITERS_TO_CUBIC_FEET).toFloat();
         }
 
-        function LitersToSystem(liters as Float) as Float {
+        function LitersToSystem(liters as Numeric) as Float {
             if (GetSystem() == METRIC) {
-                return liters;
+                return liters.toFloat();
             } else {
                 return LitersToCubicFeet(liters);
             }
         }
 
-        function SystemToLiters(value as Float) as Float {
+        function SystemToLiters(value as Numeric) as Float {
             if (GetSystem() == METRIC) {
-                return value;
+                return value.toFloat();
             } else {
                 return CubicFeetToLiters(value);
             }
         }
 
-        function BarToPsi(bar as Float) as Float {
-            return bar * BAR_TO_PSI;
+        function BarToPsi(bar as Numeric) as Float {
+            return (bar * BAR_TO_PSI).toFloat();
         }
 
-        function PsiToBar(psi as Float) as Float {
-            return psi * PSI_TO_BAR;
+        function PsiToBar(psi as Numeric) as Float {
+            return (psi * PSI_TO_BAR).toFloat();
         }
 
-        function BarToSystem(bar as Float) as Float {
+        function BarToSystem(bar as Numeric) as Float {
             if (GetSystem() == METRIC) {
-                return bar;
+                return bar.toFloat();
             } else {
                 return BarToPsi(bar);
             }
         }
 
-        function SystemToBar(value as Float) as Float {
+        function SystemToBar(value as Numeric) as Float {
             if (GetSystem() == METRIC) {
-                return value;
+                return value.toFloat();
             } else {
                 return PsiToBar(value);
             }
         }
 
-        function MswToBar(msw as Float) as Float {
-            return msw * MSW_TO_BAR;
+        function MswToBar(msw as Numeric) as Float {
+            return (msw * MSW_TO_BAR).toFloat();
         }
 
-        function BarToMsw(bar as Float) as Float {
-            return bar * BAR_TO_MSW;
+        function BarToMsw(bar as Numeric) as Float {
+            return (bar * BAR_TO_MSW).toFloat();
         }
 
     }
