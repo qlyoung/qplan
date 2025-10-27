@@ -15,12 +15,6 @@ class MinGasMenu extends WatchUi.Menu2 {
         addItem(new WatchUi.MenuItem("Calculate", null, :calculate, {}));
 
         addItem(new WatchUi.MenuItem(
-            "Bottom Depth", "",
-            :min_gas_bottom_depth,
-            {}
-        ));
-
-        addItem(new WatchUi.MenuItem(
             "SCR", "",
             :min_gas_scr,
             {}
@@ -55,13 +49,6 @@ class MinGasMenu extends WatchUi.Menu2 {
 
     function onShow() as Void {
         var unitSystem = Units.GetSystem();
-
-        var bottomDepthItem = getItem(findItemById(:min_gas_bottom_depth));
-        if (bottomDepthItem != null) {
-            var btmDepth = Math.round(Units.Convert.MetersToSystem(Globals.dive.getMinGasBottomDepth()));
-            var btmDepthText = btmDepth.format("%d") + " " + Units.Symbols.Depth();
-            bottomDepthItem.setSubLabel(btmDepthText);
-        }
 
         var scrItem = getItem(findItemById(:min_gas_scr));
         if (scrItem != null) {

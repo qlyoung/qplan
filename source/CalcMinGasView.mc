@@ -42,7 +42,7 @@ class CalcMinGasView extends WatchUi.View {
         // bottom depth of 29.5 meters to 30m, and the user verified the output
         // using 30m they may get a larger min gas # than we show, which is
         // confusing
-        var bd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getMinGasBottomDepth()));
+        var bd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getBottomDepth()));
         var sd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getSwitchDepth()));
         var depthRangeText = "(" + bd.format("%d") + " -> " + sd.format("%d") + ")";
         var avgPressure = minGasData["avg_pressure"];

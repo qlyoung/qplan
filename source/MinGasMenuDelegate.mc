@@ -14,14 +14,6 @@ class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item as MenuItem) as Void {
         if (item.getId() == :calculate) {
             WatchUi.pushView(new CalcMinGasView(), new CalcMinGasDelegate(), WatchUi.SLIDE_LEFT);
-        } else if (item.getId() == :min_gas_bottom_depth) {
-            var res = Screens.DepthSelection(
-                new Method(Globals.dive, :setMinGasBottomDepth),
-                Globals.dive.getMinGasBottomDepth(),
-                0.0,
-                Constants.MAX_DEPTH,
-                "Depth");
-            WatchUi.pushView(res[0], res[1], WatchUi.SLIDE_LEFT);
         } else if (item.getId() == :min_gas_switch_depth) {
             var res = Screens.DepthSelection(
                 new Method(Globals.dive, :setSwitchDepth),

@@ -13,9 +13,6 @@ class Dive {
     // Back gas cylinder
     private var _cylinder as Cylinder = new Cylinder(null);
 
-    // Bottom depth (m)
-    // -1 = same as MaxDepth
-    private var _minGasBottomDepth as Float = 0.0;
     // SCR of single diver in contingency scenario (l/min)
     // -1 = same as main SCR
     private var _contingencySCR as Float = 0.0;
@@ -40,7 +37,6 @@ class Dive {
     function setMetricDefaults() as Void {
         _scr = 20.0;
         _bottomDepth = 30.0;
-        _minGasBottomDepth = -1.0;
         _contingencySCR = -1.0;
         _contingencySCRMultiplier = 2.0;
         _switchDepth = 6.0;
@@ -64,7 +60,6 @@ class Dive {
     function setImperialDefaults() as Void {
         _scr = Units.Convert.CubicFeetToLiters(0.7);
         _bottomDepth = Units.Convert.FeetToMeters(100.0);
-        _minGasBottomDepth = -1.0;
         _contingencySCR = -1.0;
         _contingencySCRMultiplier = 2.0;
         _switchDepth = Units.Convert.FeetToMeters(20.0);
@@ -164,23 +159,12 @@ class Dive {
         _contingencySCR = scr;
     }
 
-    function getMinGasBottomDepth() as Float {
-        if (_minGasBottomDepth != -1) {
-            return _minGasBottomDepth;
-        } else {
-            return getBottomDepth();
-        }
-    }
-
-    function setMinGasBottomDepth(depth as Float) as Void {
-        _minGasBottomDepth = depth;
-    }
 
     function calculateMinGas() as Dictionary<String, Numeric> {
         // Total scenario consumption per second
         var consumption_sec = (getContingencySCR()/60.0) * getContingencySCRMultiplier();
         // Average pressure between bottom and next switch depth
-        var bottomDepth = getMinGasBottomDepth();
+        var bottomDepth = getBottomDepth();
         var avgDepth = (bottomDepth + _switchDepth) / 2.0;
         var avgPressure = DiveCalculations.CalculateAmbientP(avgDepth);
         // Time to ascend (s)
@@ -217,7 +201,6 @@ class Dive {
             "scr" => _scr,
             "bottom_depth" => _bottomDepth,
             "cylinder" => cylinderData,
-            "min_gas_bottom_depth" => _minGasBottomDepth,
             "contingency_scr" => _contingencySCR,
             "contingency_scr_multiplier" => _contingencySCRMultiplier,
             "switch_depth" => _switchDepth,
@@ -247,13 +230,6 @@ class Dive {
             _cylinder.fromDictionary(x);
         } else {
             System.error("cylinder failed type check");
-        }
-
-        x = data["min_gas_bottom_depth"];
-        if (x instanceof Float) {
-            _minGasBottomDepth = x;
-        } else {
-            System.error("min_gas_bottom_depth failed type check");
         }
 
         x = data["contingency_scr"];
