@@ -55,7 +55,7 @@ class PO2CalculationView extends ScrollableView {
                 System.error("Type check failed on depth");
             }
             var depthText = Math.round(Units.Convert.MetersToSystem(depth)).format("%d");
-            depthText = depth + " " + Units.Symbols.Depth();
+            depthText = depthText + " " + Units.Symbols.Depth();
             var po2 = row["po2"];
             if (!(po2 instanceof Float)) {
                 System.error("Type check failed on po2");
