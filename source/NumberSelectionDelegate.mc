@@ -2,8 +2,6 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-import Trolling;
-
 class NumberSelectionDelegate extends WatchUi.BehaviorDelegate {
     private var _view as NumberSelectionView;
     private var _setcb as Invokable;

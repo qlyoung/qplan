@@ -2,7 +2,6 @@ import Toybox.WatchUi;
 import Toybox.Math;
 import Toybox.Lang;
 
-import Trolling;
 import Constants;
 
 module Screens {

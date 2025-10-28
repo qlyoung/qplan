@@ -7,30 +7,55 @@ import Units;
  */
 class Dive {
     // Diver SCR (l/min)
-    private var _scr as Float = 0.0;
+    private var _scr as Float;
     // Bottom depth (m)
-    private var _bottomDepth as Float = 0.0;
+    private var _bottomDepth as Float;
     // Back gas cylinder
-    private var _cylinder as Cylinder = new Cylinder(null);
+    private var _cylinder as Cylinder;
 
     // SCR of single diver in contingency scenario (l/min)
     // -1 = same as main SCR
-    private var _contingencySCR as Float = 0.0;
+    private var _contingencySCR as Float;
     // Factor by which SCR increases in contingency scenario (scalar)
     // Examples:
     // - 2.0 to account for two divers sharing gas;
     // - 1.0 for solo diver
-    private var _contingencySCRMultiplier as Float = 0.0;
+    private var _contingencySCRMultiplier as Float;
     // Depth of next breathable gas source (m)
-    private var _switchDepth as Float = 0.0;
+    private var _switchDepth as Float;
     // Time spent on the bottom to attempt failure resolution (s)
-    private var _problemSolvingTime as Number = 0;
+    private var _problemSolvingTime as Number;
     // Time spent switching gas (s)
-    private var _gasSwitchTime as Number = 0;
+    private var _gasSwitchTime as Number;
     // Ascent rate (m/min)
-    private var _ascentRate as Float = 0.0;
+    private var _ascentRate as Float;
 
-    function initialize() {
+    function initialize(
+        scr as Float or Number,
+        bottomDepth as Float or Number,
+        cylinder as Cylinder,
+        contingencySCR as Float or Number,
+        contingencySCRMultiplier as Float or Number,
+        switchDepth as Float or Number,
+        problemSolvingTime as Number,
+        gasSwitchTime as Number,
+        ascentRate as Float or Number)
+    {
+        _scr = scr.toFloat();
+        _bottomDepth = bottomDepth.toFloat();
+        _cylinder = cylinder;
+        _contingencySCR = contingencySCR.toFloat();
+        _contingencySCRMultiplier = contingencySCRMultiplier.toFloat();
+        _switchDepth = switchDepth.toFloat();
+        _problemSolvingTime = problemSolvingTime;
+        _gasSwitchTime = gasSwitchTime;
+        _ascentRate = ascentRate.toFloat();
+    }
+
+    static function Default() as Dive {
+        var dive = new Dive(0.0, 0.0, Cylinder.Default(), 0.0, 0.0, 0.0, 0, 0, 0.0);
+        dive.setMetricDefaults();
+        return dive;
     }
 
     // Set default values to those familiar to metric-native divers
@@ -43,17 +68,6 @@ class Dive {
         _problemSolvingTime = 60*2;
         _gasSwitchTime = 60;
         _ascentRate = 3.0;
-        var tankData = WatchUi.loadResource(Rez.JsonData.ScubaTanks);
-        if (tankData instanceof Array) {
-            var fv = tankData[0];
-            if (fv instanceof Dictionary) {
-                _cylinder.fromDictionary(fv);
-            } else {
-                System.error("Failed type check");
-            }
-        } else {
-            System.error("Failed type check");
-        }
     }
 
     // Set default values to those familiar to imperial-native divers
@@ -66,17 +80,6 @@ class Dive {
         _problemSolvingTime = 60*2;
         _gasSwitchTime = 60;
         _ascentRate = Units.Convert.FeetToMeters(10.0);
-        var tankData = WatchUi.loadResource(Rez.JsonData.ScubaTanks);
-        if (tankData instanceof Array) {
-            var fv = tankData[0];
-            if (fv instanceof Dictionary) {
-                _cylinder.fromDictionary(fv);
-            } else {
-                System.error("Failed type check");
-            }
-        } else {
-            System.error("Failed type check");
-        }
     }
 
     function getSCR() as Float {
@@ -99,12 +102,8 @@ class Dive {
         return _cylinder;
     }
 
-    function setCylinder(cylinder as Cylinder or Dictionary) as Void {
-        if (cylinder instanceof Cylinder) {
-            _cylinder = cylinder;
-        } else {
-            _cylinder.fromDictionary(cylinder);
-        }
+    function setCylinder(cylinder as Cylinder) as Void {
+        _cylinder = cylinder;
     }
 
     function getContingencySCRMultiplier() as Float {
@@ -194,7 +193,7 @@ class Dive {
     function toDictionary() as Dictionary {
         var cylinderData = null;
         if (_cylinder != null) {
-            cylinderData = _cylinder.getDictionary();
+            cylinderData = _cylinder.toDictionary();
         }
 
         return {
@@ -210,68 +209,63 @@ class Dive {
         };
     }
 
-    function fromDictionary(data as Dictionary) as Void {
-        var x = data["scr"];
-        if (x instanceof Float) {
-            _scr = x;
-        } else {
+    static function fromDictionary(data as Dictionary) as Dive {
+        var scr = data["scr"];
+        if (!(scr instanceof Float or scr instanceof Number)) {
             System.error("SCR failed type check");
         }
 
-        x = data["bottom_depth"];
-        if (x instanceof Float) {
-            _bottomDepth = x;
-        } else {
+        var bottomDepth = data["bottom_depth"];
+        if (!(bottomDepth instanceof Float or bottomDepth instanceof Number)) {
             System.error("bottom_depth failed type check");
         }
 
-        x = data["cylinder"];
-        if (x instanceof Dictionary) {
-            _cylinder.fromDictionary(x);
+        var cylinderData = data["cylinder"];
+        var cylinder;
+        if (cylinderData instanceof Dictionary) {
+           cylinder = Cylinder.fromDictionary(cylinderData);
         } else {
             System.error("cylinder failed type check");
         }
 
-        x = data["contingency_scr"];
-        if (x instanceof Float) {
-            _contingencySCR = x;
-        } else {
+        var contingencySCR = data["contingency_scr"];
+        if (!(contingencySCR instanceof Float or contingencySCR instanceof Number)) {
             System.error("contingency_scr failed type check");
         }
 
-        x = data["contingency_scr_multiplier"];
-        if (x instanceof Float) {
-            _contingencySCRMultiplier = x;
-        } else {
+        var contingencySCRMultiplier = data["contingency_scr_multiplier"];
+        if (!(contingencySCRMultiplier instanceof Float or contingencySCRMultiplier instanceof Number)) {
             System.error("contingency_scr_multiplier failed type check");
         }
 
-        x = data["switch_depth"];
-        if (x instanceof Float) {
-            _switchDepth = x;
-        } else {
+        var switchDepth = data["switch_depth"];
+        if (!(switchDepth instanceof Float or switchDepth instanceof Number)) {
             System.error("switch_depth failed type check");
         }
 
-        x = data["problem_solving_time"];
-        if (x instanceof Number) {
-            _problemSolvingTime = x;
-        } else {
+        var problemSolvingTime = data["problem_solving_time"];
+        if (!(problemSolvingTime instanceof Number)) {
             System.error("problem_solving_time failed type check");
         }
 
-        x = data["gas_switch_time"];
-        if (x instanceof Number) {
-            _gasSwitchTime = x;
-        } else {
+        var gasSwitchTime = data["gas_switch_time"];
+        if (!(gasSwitchTime instanceof Number)) {
             System.error("gas_switch_time failed type check");
         }
 
-        x = data["ascent_rate"];
-        if (x instanceof Float) {
-            _ascentRate = x;
-        } else {
+        var ascentRate = data["ascent_rate"];
+        if (!(ascentRate instanceof Float or ascentRate instanceof Number)) {
             System.error("ascent_rate failed type check");
         }
+
+        return new Dive(scr, bottomDepth, cylinder, contingencySCR, contingencySCRMultiplier, switchDepth, problemSolvingTime, gasSwitchTime, ascentRate);
+    }
+
+    function equals(other as Object?) as Boolean {
+        if (!(other instanceof Dive)) {
+            return false;
+        }
+
+        return CompareDict(toDictionary(), other.toDictionary());
     }
 }

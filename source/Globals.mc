@@ -1,3 +1,3 @@
 module Globals {
-    var dive as Dive = new Dive();
+    var dive as Dive = Dive.Default();
 }

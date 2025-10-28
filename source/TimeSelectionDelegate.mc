@@ -1,7 +1,5 @@
 import Toybox.Lang;
 
-import Trolling;
-
 class TimeSelectionDelegate extends NumberSelectionDelegate {
 
     const MIN_TIME as Number = 0;

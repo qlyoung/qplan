@@ -15,7 +15,7 @@ class CylinderSelectionMenu extends WatchUi.Menu2 {
         for (var i = 0; i <= 1; i++) {
             for (var j = 0; j < tankData.size(); j++) {
                 var tankDict = tankData[j] as Dictionary;
-                var tank = new Cylinder(tankDict);
+                var tank = Cylinder.fromDictionaryPresentation(tankDict);
                 var tankUnits = tank.getUnitType();
                 if (tankUnits != filter) {
                     continue;

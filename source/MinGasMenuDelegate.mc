@@ -4,7 +4,6 @@ import Toybox.WatchUi;
 
 import Globals;
 import Units;
-import Trolling;
 
 class MinGasMenuDelegate extends WatchUi.Menu2InputDelegate {
     function initialize() {

@@ -33,7 +33,7 @@ class CylinderSelectionDelegate extends WatchUi.Menu2InputDelegate {
         }
 
         if (selectedTank != null) {
-            Globals.dive.setCylinder(selectedTank);
+            Globals.dive.setCylinder(Cylinder.fromDictionaryPresentation(selectedTank));
         }
 
         WatchUi.popView(WatchUi.SLIDE_DOWN);

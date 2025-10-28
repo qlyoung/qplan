@@ -3,7 +3,6 @@ import Toybox.System;
 import Toybox.WatchUi;
 
 import Globals;
-import Trolling;
 
 class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
     function initialize() {
