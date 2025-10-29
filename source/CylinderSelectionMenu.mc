@@ -17,16 +17,22 @@ class CylinderMenuItem extends WatchUi.MenuItem {
     private function formatServicePressure(cylinder as Cylinder) as String {
         var servicePressure = cylinder.getServicePressure();
         var pressureSymbol = Units.Symbols.getSymbol(cylinder.getUnitType(), Units.PRESSURE);
+        var volumeSymbol = Units.Symbols.getSymbol(cylinder.getUnitType(), Units.VOLUME);
 
-        // Convert service pressure to the cylinder's native unit type
+        // Convert service pressure and capacity to the cylinder's native unit type
         var displayPressure;
+        var displayCapacity;
         if (cylinder.getUnitType() == Units.METRIC) {
             displayPressure = servicePressure;
+            displayCapacity = cylinder.getWaterCapacity();
         } else {
             displayPressure = Units.Convert.BarToPsi(servicePressure);
+            displayCapacity = Units.Convert.LitersToCubicFeet(cylinder.getNominalCapacity());
         }
 
-        return displayPressure.format("%d") + " " + pressureSymbol;
+        var pressureLabel = displayPressure.format("%d") + " " + pressureSymbol;
+        var capLabel = Math.round(displayCapacity).format("%d") + " " + volumeSymbol;
+        return pressureLabel + " / " + capLabel;
     }
 }
 
