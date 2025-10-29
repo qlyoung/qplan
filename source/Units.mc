@@ -20,8 +20,26 @@ module Units {
     }
 
     function GetSystem() as UnitSystem {
-        // 0 = metric, 1 = imperial
-        return Properties.getValue("units") as UnitSystem;
+        var userpref = Properties.getValue("units");
+        if (!(userpref instanceof Number)) {
+            System.error("Unexpected type for unit system preference");
+        }
+        switch (userpref) {
+            case System.UNIT_METRIC:
+                return Units.METRIC;
+            case System.UNIT_STATUTE:
+                return Units.IMPERIAL;
+            case 2:
+                var settings = System.getDeviceSettings();
+                switch (settings.distanceUnits) {
+                    case System.UNIT_METRIC:
+                        return Units.METRIC;
+                    default:
+                        return Units.IMPERIAL;
+                }
+            default:
+                System.error("Unexpected value for unit system preference");
+        }
     }
 
     module Convert {

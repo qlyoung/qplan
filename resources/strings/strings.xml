@@ -24,6 +24,7 @@
 
     <string id="Metric">Metric</string>
     <string id="Imperial">Imperial</string>
+    <string id="SystemUnits">System units</string>
     <string id="UnitsTitle">Units</string>
     <string id="UnitsPrompt">Select units</string>
 
