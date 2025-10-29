@@ -14,7 +14,7 @@ module DiveCalculations {
         return cylinder.volumeToPressure(scr * CalculateAmbientP(depth));
     }
 
-    function CalculateSegmentTable(scr as Float, cylinder as Cylinder, startDepth as Float, interval as Float) as Array<Dictionary> {
+    function CalculateSegmentTable(scr as Float, cylinder as Cylinder, startDepth as Float, interval as Float) as Array<Dictionary<String, Float>> {
         var segments = [];
 
         for (var depth = startDepth; depth > 0; depth -= interval) {

@@ -159,7 +159,7 @@ class Dive {
     }
 
 
-    function calculateMinGas() as Dictionary<String, Numeric> {
+    function calculateMinGas() as Dictionary<String, SmallNumber> {
         // Total scenario consumption per second
         var consumption_sec = (getContingencySCR()/60.0) * getContingencySCRMultiplier();
         // Average pressure between bottom and next switch depth
@@ -187,7 +187,7 @@ class Dive {
             "avg_depth" => avgDepth,
             "ascent_time" => ascentTime,
             "total_time" => totalTime,
-        } as Dictionary<String, Numeric>;
+        };
     }
 
     function toDictionary() as Dictionary {

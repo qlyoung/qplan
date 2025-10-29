@@ -21,7 +21,7 @@ class CalcMinGasView extends WatchUi.View {
         cylinderTypeLabel.setText(Globals.dive.getCylinder().getTypeName());
 
         var consumption = minGasData["consumption"];
-        if (!(consumption instanceof Float)) {
+        if (consumption == null) {
             System.error("Type check failed for consumption");
         }
 
@@ -46,7 +46,7 @@ class CalcMinGasView extends WatchUi.View {
         var sd = Math.round(Units.Convert.MetersToSystem(Globals.dive.getSwitchDepth()));
         var depthRangeText = "(" + bd.format("%d") + " -> " + sd.format("%d") + ")";
         var avgPressure = minGasData["avg_pressure"];
-        if (!(avgPressure instanceof Float)) {
+        if (avgPressure == null) {
             System.error("Type check failed for avg_pressure");
         }
 
@@ -56,13 +56,13 @@ class CalcMinGasView extends WatchUi.View {
 
         var problemSolveMinutes = Math.ceil(Globals.dive.getProblemSolvingTime()/60.0).toNumber();
         var ascentTime = minGasData["ascent_time"];
-        if (!(ascentTime instanceof Number)) {
+        if (ascentTime == null) {
             System.error("Type check failed for ascent_time");
         }
         var ascentTimeMinutes = Math.ceil(ascentTime/60.0).toNumber();
         var switchTimeMinutes = Math.ceil(Globals.dive.getGasSwitchTime()/60.0).toNumber();
         var totalTime = minGasData["total_time"];
-        if (!(totalTime instanceof Number)) {
+        if (totalTime == null) {
             System.error("Type check failed for total_time");
         }
         var totalTimeMinutes = Math.ceil((totalTime/60.0)).toNumber();
@@ -75,7 +75,7 @@ class CalcMinGasView extends WatchUi.View {
         // Ceil liters to the nearest 1l and format as an integer
         // Ceil cubic feet to the nearest .1cf and format with 1 decimal
         var minGasVolume = minGasData["min_gas_volume"];
-        if (!(minGasVolume instanceof Float)) {
+        if (minGasVolume == null) {
             System.error("Type check failed for min_gas_pressure");
         }
         var mgv = Units.Convert.LitersToSystem(minGasVolume);
@@ -88,7 +88,7 @@ class CalcMinGasView extends WatchUi.View {
         // Ceil bar to the nearest .1bar and format with 1 decimal
         // Ceil PSI to the nearest 1psi and format as an integer
         var minGasPressure = minGasData["min_gas_pressure"];
-        if (!(minGasPressure instanceof Float)) {
+        if (minGasPressure == null) {
             System.error("Type check failed for min_gas_pressure");
         }
         minGasPressure = Units.Convert.BarToSystem(minGasPressure);

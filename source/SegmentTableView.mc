@@ -63,12 +63,12 @@ class SegmentTableView extends ScrollableView {
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
 
             var depth = segment["depth"];
-            if (!(depth instanceof Float)) {
+            if (depth == null) {
                 System.error("Type check failed for depth");
             }
             var depthText = Math.round(Units.Convert.MetersToSystem(depth)).format("%d") + Units.Symbols.Depth();
             var segmentVal = segment["segment"];
-            if (!(segmentVal instanceof Float)) {
+            if (segmentVal == null) {
                 System.error("Type check failed for segment");
             }
             var segmentText = Math.ceil(Units.Convert.BarToSystem(segmentVal)).format("%d") + Units.Symbols.Pressure();
