@@ -44,7 +44,7 @@ class MainMenuDelegate extends WatchUi.Menu2InputDelegate {
         } else if (item.getId() == :po2calc) {
             var setcb = method(:ShowPO2Table) as Invokable;
             var fo2View = new NumberSelectionView(0.21, "%.2f", "", "FO2");
-            var fo2Delegate = new NumberSelectionDelegate(fo2View, setcb, 0.01, 0.00, 1.00);
+            var fo2Delegate = new NumberSelectionDelegate(fo2View, setcb, 0.01, 0.01, 1.00);
             WatchUi.pushView(fo2View, fo2Delegate, WatchUi.SLIDE_LEFT);
         }
     }
