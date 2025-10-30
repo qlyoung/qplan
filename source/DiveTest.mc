@@ -37,7 +37,6 @@ module DiveTest {
         var dive = Dive.Default();
         dive.setImperialDefaults();
 
-
         // SCR should be converted from 0.7 cf/min to liters/min
         var expectedSCR = Units.Convert.CubicFeetToLiters(0.7);
         Test.assertEqual(dive.getSCR(), expectedSCR);
@@ -67,7 +66,6 @@ module DiveTest {
     function testSCRGetterSetter(logger as Logger) as Boolean {
         var dive = Dive.Default();
 
-
         dive.setSCR(25.0);
         Test.assertEqual(dive.getSCR(), 25.0);
 
@@ -81,7 +79,6 @@ module DiveTest {
     (:test)
     function testBottomDepthGetterSetter(logger as Logger) as Boolean {
         var dive = Dive.Default();
-
 
         dive.setBottomDepth(40.0);
         Test.assertEqual(dive.getBottomDepth(), 40.0);
@@ -103,7 +100,6 @@ module DiveTest {
             "service_pressure" => 200,
             "water_capacity" => 12.0
         });
-
 
         dive.setCylinder(cylinder);
         var retrievedCylinder = dive.getCylinder();
@@ -127,7 +123,6 @@ module DiveTest {
             "water_capacity" => 15.0
         });
 
-
         dive.setCylinder(cylinder);
         var retrievedCylinder = dive.getCylinder();
 
@@ -143,7 +138,6 @@ module DiveTest {
     function testContingencySCRMultiplierGetterSetter(logger as Logger) as Boolean {
         var dive = Dive.Default();
 
-
         dive.setContingencySCRMultiplier(2.5);
         Test.assertEqual(dive.getContingencySCRMultiplier(), 2.5);
 
@@ -157,7 +151,6 @@ module DiveTest {
     (:test)
     function testSwitchDepthGetterSetter(logger as Logger) as Boolean {
         var dive = Dive.Default();
-
 
         dive.setSwitchDepth(9.0);
         Test.assertEqual(dive.getSwitchDepth(), 9.0);
@@ -173,7 +166,6 @@ module DiveTest {
     function testProblemSolvingTimeGetterSetter(logger as Logger) as Boolean {
         var dive = Dive.Default();
 
-
         dive.setProblemSolvingTime(180);
         Test.assertEqual(dive.getProblemSolvingTime(), 180);
 
@@ -187,7 +179,6 @@ module DiveTest {
     (:test)
     function testGasSwitchTimeGetterSetter(logger as Logger) as Boolean {
         var dive = Dive.Default();
-
 
         dive.setGasSwitchTime(90);
         Test.assertEqual(dive.getGasSwitchTime(), 90);
@@ -203,7 +194,6 @@ module DiveTest {
     function testAscentRateGetterSetter(logger as Logger) as Boolean {
         var dive = Dive.Default();
 
-
         dive.setAscentRate(5.0);
         Test.assertEqual(dive.getAscentRate(), 5.0);
 
@@ -217,7 +207,6 @@ module DiveTest {
     (:test)
     function testContingencySCRDefaultsToMainSCR(logger as Logger) as Boolean {
         var dive = Dive.Default();
-
 
         dive.setSCR(20.0);
         dive.setContingencySCR(-1.0);
@@ -235,7 +224,6 @@ module DiveTest {
     (:test)
     function testContingencySCRIndependent(logger as Logger) as Boolean {
         var dive = Dive.Default();
-
 
         dive.setSCR(20.0);
         dive.setContingencySCR(40.0);
@@ -319,7 +307,6 @@ module DiveTest {
             "water_capacity" => 12.0
         });
         dive.setCylinder(cylinder);
-
 
         var result = dive.calculateMinGas();
 
@@ -421,7 +408,6 @@ module DiveTest {
         });
         dive.setCylinder(cyl);
 
-
         var result = dive.calculateMinGas();
 
         Test.assert(verifyMinGasInternalConsistency(result as Dictionary, dive, cyl));
@@ -460,7 +446,6 @@ module DiveTest {
         });
         dive.setCylinder(cyl);
 
-
         var result = dive.calculateMinGas();
 
         Test.assert(verifyMinGasInternalConsistency(result as Dictionary, dive, cyl));
@@ -497,7 +482,6 @@ module DiveTest {
             "water_capacity" => 15.0
         });
         dive.setCylinder(cylinder);
-
 
         var result = dive.calculateMinGas();
 
@@ -549,7 +533,6 @@ module DiveTest {
         });
         dive.setCylinder(cylinder);
 
-
         var result = dive.calculateMinGas();
 
         Test.assert(verifyMinGasInternalConsistency(result as Dictionary, dive, cylinder));
@@ -594,7 +577,6 @@ module DiveTest {
         });
         dive.setCylinder(cylinder);
 
-
         var result = dive.calculateMinGas();
 
         // Verify calculations maintain precision
@@ -622,7 +604,6 @@ module DiveTest {
         dive.setMetricDefaults();
         dive.setContingencySCRMultiplier(1.0);
 
-
         var result = dive.calculateMinGas();
 
         // Consumption should be SCR * 1.0
@@ -641,7 +622,6 @@ module DiveTest {
         var dive = Dive.Default();
         dive.setMetricDefaults();
         dive.setProblemSolvingTime(0);
-
 
         var result = dive.calculateMinGas();
 
@@ -668,7 +648,6 @@ module DiveTest {
         dive.setMetricDefaults();
         dive.setBottomDepth(6.0);
         dive.setSwitchDepth(6.0);
-
 
         var result = dive.calculateMinGas();
 
@@ -719,7 +698,6 @@ module DiveTest {
         });
         dive.setCylinder(cylinder);
 
-
         var result = dive.calculateMinGas();
 
         var minGasVolume = result["min_gas_volume"];
@@ -762,7 +740,6 @@ module DiveTest {
         });
         dive.setCylinder(cylinder);
 
-
         var result = dive.calculateMinGas();
 
         // Ascent time = 60 * ((25 - 6) / 4) ~= 265.12 s
@@ -781,7 +758,6 @@ module DiveTest {
     function testToDictionary(logger as Logger) as Boolean {
         var dive = Dive.Default();
         dive.setMetricDefaults();
-
 
         var dict = dive.toDictionary();
 
@@ -874,7 +850,6 @@ module DiveTest {
             "ascent_rate" => 5.0
         };
 
-
         var dive = Dive.fromDictionary(diveData);
 
         Test.assertEqual(dive.getSCR(), 25.0);
@@ -897,7 +872,6 @@ module DiveTest {
         dive1.setMetricDefaults();
         dive1.setSCR(22.5);
         dive1.setBottomDepth(35.0);
-
 
         var dive2 = Dive.fromDictionary(dive1.toDictionary());
 

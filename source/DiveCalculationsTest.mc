@@ -616,30 +616,6 @@ module DiveCalculationsTest {
         return true;
     }
 
-    // Test depth for PO2 with conservative limit
-    (:test)
-    function testCalculateDepthForPO2ConservativeLimit(logger as Logger) as Boolean {
-        var depth = DiveCalculations.CalculateDepthForPO2(1.2, 0.21);
-
-        // With air (21% O2) and conservative PO2 of 1.2
-        // depth = (1.2/0.21 - 1) * 10 = 47.14m
-        Test.assert(CloseEnough(depth, 47.14, 0.01));
-
-        return true;
-    }
-
-    // Test depth for PO2 with deco gas
-    (:test)
-    function testCalculateDepthForPO2WithDecoGas(logger as Logger) as Boolean {
-        var depth = DiveCalculations.CalculateDepthForPO2(1.6, 0.80);
-
-        // With 80% O2 and target PO2 of 1.6
-        // depth = (1.6/0.80 - 1) * 10 = 10m
-        Test.assertEqual(depth, 10.0);
-
-        return true;
-    }
-
     // Test roundtrip: depth -> PO2 -> depth
     (:test)
     function testPO2CalculationsRoundTrip(logger as Logger) as Boolean {

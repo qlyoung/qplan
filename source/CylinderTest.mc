@@ -111,8 +111,8 @@ module CylinderTest {
         var cylinder = Cylinder.fromDictionaryPresentation({
             "cylinder_type_name" => "HP100",
             "unit_type" => "imperial",
-            "service_pressure" => 3442,  // PSI
-            "nominal_capacity" => 100.0   // cubic feet
+            "service_pressure" => 3442,
+            "nominal_capacity" => 100.0
         });
 
         Test.assertEqual(cylinder.getTypeName(), "HP100");
