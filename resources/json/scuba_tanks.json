@@ -54,6 +54,12 @@
     "nominal_capacity": 240
   },
   {
+    "cylinder_type_name": "HP117",
+    "unit_type": "imperial",
+    "service_pressure": 3442,
+    "nominal_capacity": 117
+  },
+  {
     "cylinder_type_name": "HP130",
     "unit_type": "imperial",
     "service_pressure": 3442,
