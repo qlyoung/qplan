@@ -677,6 +677,119 @@ module DiveCalculationsTest {
     }
 
     // ========================================================================
+    // Boundary value tests
+    // ========================================================================
+
+    // Test CalculatePO2 with fO2 = 0 (should return 0)
+    (:test)
+    function testCalculatePO2WithZeroFO2(logger as Logger) as Boolean {
+        var po2 = DiveCalculations.CalculatePO2(0.0, 10.0);
+
+        // With 0% O2, PO2 should always be 0
+        Test.assertEqual(po2, 0.0);
+
+        return true;
+    }
+
+    // Test CalculatePO2 with fO2 = 1.0 (pure oxygen)
+    (:test)
+    function testCalculatePO2WithMaxFO2(logger as Logger) as Boolean {
+        var po2 = DiveCalculations.CalculatePO2(1.0, 10.0);
+
+        // With 100% O2 at 10m (2 bar), PO2 should be 2.0
+        Test.assertEqual(po2, 2.0);
+
+        return true;
+    }
+
+    // Test CalculateDepthConsumptionP with zero SCR
+    (:test)
+    function testCalculateDepthConsumptionPWithZeroSCR(logger as Logger) as Boolean {
+        var cylinder = Cylinder.fromDictionaryPresentation({
+            "cylinder_type_name" => "12L 232bar",
+            "unit_type" => "metric",
+            "service_pressure" => 232,
+            "water_capacity" => 12.0
+        });
+
+        var consumptionP = DiveCalculations.CalculateDepthConsumptionP(0.0, 10.0, cylinder);
+
+        // With zero SCR, consumption should be 0
+        Test.assertEqual(consumptionP, 0.0);
+
+        return true;
+    }
+
+    // Test CalculateDepthForPO2 with PO2 = fO2 (surface pressure)
+    (:test)
+    function testCalculateDepthForPO2WithPO2EqualsFO2(logger as Logger) as Boolean {
+        var depth = DiveCalculations.CalculateDepthForPO2(0.32, 0.32);
+
+        // When PO2 equals fO2, depth should be 0 (surface)
+        Test.assertEqual(depth, 0.0);
+
+        return true;
+    }
+
+    // Test CalculateSegmentTable with zero depth
+    (:test)
+    function testCalculateSegmentTableWithZeroDepth(logger as Logger) as Boolean {
+        var cylinder = Cylinder.fromDictionaryPresentation({
+            "cylinder_type_name" => "12L 232bar",
+            "unit_type" => "metric",
+            "service_pressure" => 232,
+            "water_capacity" => 12.0
+        });
+
+        var segments = DiveCalculations.CalculateSegmentTable(20.0, cylinder, 0.0, 3.0);
+
+        // Should have only one segment at 0m (surface)
+        Test.assertEqual(segments.size(), 1);
+
+        var seg = segments[0];
+        var depth = seg["depth"];
+        if (!(depth instanceof Float)) {
+            return false;
+        }
+        Test.assertEqual(depth, 0.0);
+
+        return true;
+    }
+
+    // Test CalculateSegmentTable with very small interval
+    (:test)
+    function testCalculateSegmentTableWithSmallInterval(logger as Logger) as Boolean {
+        var cylinder = Cylinder.fromDictionaryPresentation({
+            "cylinder_type_name" => "12L 232bar",
+            "unit_type" => "metric",
+            "service_pressure" => 232,
+            "water_capacity" => 12.0
+        });
+
+        var segments = DiveCalculations.CalculateSegmentTable(20.0, cylinder, 5.0, 1.0);
+
+        // Should have segments at: 5m, 4m, 3m, 2m, 1m, 0m
+        Test.assertEqual(segments.size(), 6);
+
+        // Verify each segment decreases by 1m
+        for (var i = 0; i < segments.size() - 1; i++) {
+            var currentSeg = segments[i];
+            var nextSeg = segments[i + 1];
+
+            var currentDepth = currentSeg["depth"];
+            var nextDepth = nextSeg["depth"];
+
+            if (!(currentDepth instanceof Float) || !(nextDepth instanceof Float)) {
+                return false;
+            }
+
+            Test.assert(CloseEnough(currentDepth - nextDepth, 1.0, 0.001));
+        }
+
+        return true;
+    }
+
+    // ========================================================================
     // Edge cases and integration tests
     // ========================================================================
 
