@@ -60,27 +60,35 @@ class MinGasMenu extends WatchUi.Menu2 {
 
         var switchDepthItem = getItem(findItemById(:min_gas_switch_depth));
         if (switchDepthItem != null) {
-            var switchDepthText = Units.Convert.MetersToSystem(Globals.dive.getSwitchDepth()).format("%d");
-            switchDepthText += " " + Units.Symbols.Depth();
+            var switchDepth = Globals.dive.getSwitchDepth();
+            switchDepth = Units.Convert.MetersToSystem(switchDepth);
+            switchDepth = Math.round(switchDepth);
+            var switchDepthText = switchDepth.format("%d") + " " + Units.Symbols.Depth();
             switchDepthItem.setSubLabel(switchDepthText);
         }
 
         var problemTimeItem = getItem(findItemById(:min_gas_problem_time));
         if (problemTimeItem != null) {
-            var probTimeText = (Globals.dive.getProblemSolvingTime()/60.0).format("%.1f") + " min";
+            var problemTime = Globals.dive.getProblemSolvingTime();
+            problemTime = Math.round((problemTime/60.0)/.1) * .1;
+            var probTimeText = problemTime.format("%.1f") + " min";
             problemTimeItem.setSubLabel(probTimeText);
         }
 
         var switchTimeItem = getItem(findItemById(:min_gas_switch_time));
         if (switchTimeItem != null) {
-            var switchTimeText = (Globals.dive.getGasSwitchTime()/60.0).format("%.1f") + " min";
+            var switchTime = Globals.dive.getGasSwitchTime();
+            switchTime = Math.round((switchTime/60.0)/.1) * .1;
+            var switchTimeText = switchTime.format("%.1f") + " min";
             switchTimeItem.setSubLabel(switchTimeText);
         }
 
         var ascentRateItem = getItem(findItemById(:min_gas_ascent_rate));
         if (ascentRateItem != null) {
-            var ascRateText = Units.Convert.MetersToSystem(Globals.dive.getAscentRate()).format("%d");
-            ascRateText += " " + Units.Symbols.DepthChange();
+            var ascRate = Globals.dive.getAscentRate();
+            ascRate = Units.Convert.MetersToSystem(ascRate);
+            ascRate = Math.round(ascRate);
+            var ascRateText = ascRate.format("%d") + " " + Units.Symbols.DepthChange();
             ascentRateItem.setSubLabel(ascRateText);
         }
     }
