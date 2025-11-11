@@ -23,7 +23,7 @@ class QplannerApp extends Application.AppBase {
             if (diveDict instanceof Dictionary) {
                 // Q: Why is this parameter cast necessary?
                 // A: Moron C
-                Globals.dive.fromDictionary(diveDict as Dictionary);
+                Globals.dive = Dive.fromDictionary(diveDict as Dictionary);
             } else {
                 System.error("Dive dictionary failed type check");
             }
