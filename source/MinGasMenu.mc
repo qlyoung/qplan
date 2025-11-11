@@ -12,35 +12,45 @@ class MinGasMenu extends WatchUi.Menu2 {
     }
 
     function buildMenu() as Void {
-        addItem(new WatchUi.MenuItem("Calculate", null, :calculate, {}));
+        addItem(new WatchUi.MenuItem(
+            Rez.Strings.menu_label_calculate,
+            "",
+            :calculate,
+            {}
+        ));
 
         addItem(new WatchUi.MenuItem(
-            "SCR", "",
+            Rez.Strings.menu_label_contingency_scr,
+            "",
             :min_gas_scr,
             {}
         ));
 
 
         addItem(new WatchUi.MenuItem(
-            "Switch Depth", "",
+            Rez.Strings.menu_label_switch_depth,
+            "",
             :min_gas_switch_depth,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            "Problem Time", "",
+            Rez.Strings.menu_label_problem_time,
+            "",
             :min_gas_problem_time,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            "Switch Time", "",
+            Rez.Strings.menu_label_switch_time,
+            "",
             :min_gas_switch_time,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            "Ascent Rate", "",
+            Rez.Strings.menu_label_ascent_rate,
+            "",
             :min_gas_ascent_rate,
             {}
         ));

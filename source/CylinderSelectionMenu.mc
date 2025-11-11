@@ -39,7 +39,7 @@ class CylinderMenuItem extends WatchUi.MenuItem {
 class CylinderSelectionMenu extends WatchUi.Menu2 {
 
     function initialize() {
-        Menu2.initialize({:title => "Select Cylinder"});
+        Menu2.initialize({:title => Rez.Strings.menu_label_cylinder_select});
         buildMenu();
     }
 

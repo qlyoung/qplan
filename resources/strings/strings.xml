@@ -3,24 +3,25 @@
 
     <string id="prompt">Click the menu button</string>
 
-    <string id="menu_label_1">Item 1</string>
-    <string id="menu_label_2">Item 2</string>
-    <string id="menu_setup">Setup</string>
-    <string id="menu_calc_segment">Segments</string>
-    <string id="menu_calc_mingas">Minimum gas</string>
-    <string id="menu_calc_po2">PO2 Calculator</string>
 
     <string id="tank_al80">AL80</string>
 
+    <string id="menu_label_segments">Segments</string>
+    <string id="menu_label_mingas">Minimum gas</string>
+    <string id="menu_label_calculate">Calculate</string>
+    <string id="menu_label_calc_po2">PO2 Calculator</string>
     <string id="menu_label_cylinder">Cylinder</string>
+    <string id="menu_label_cylinder_select">Select cylinder</string>
     <string id="menu_label_scr">SCR</string>
+    <string id="menu_label_contingency_scr">Stress SCR</string>
     <string id="menu_label_depth">Depth</string>
     <string id="menu_label_view">View</string>
     
     <string id="menu_label_bottom_depth">Bottom depth</string>
-    <string id="menu_label_next_gas_depth">Next gas depth</string>
+    <string id="menu_label_switch_depth">Switch depth</string>
     <string id="menu_label_problem_time">Problem time</string>
     <string id="menu_label_switch_time">Switch time</string>
+    <string id="menu_label_ascent_rate">Ascent rate</string>
 
     <string id="Metric">Metric</string>
     <string id="Imperial">Imperial</string>

@@ -11,42 +11,42 @@ class MainMenu extends WatchUi.Menu2 {
 
     function buildMenu() as Void {
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_label_cylinder) as String,
+            Rez.Strings.menu_label_cylinder,
             "",
             :cylinder,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_label_scr) as String,
+            Rez.Strings.menu_label_scr,
             "",
             :scr,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_label_depth) as String,
+            Rez.Strings.menu_label_bottom_depth,
             "",
             :depth,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_calc_segment) as String,
+            Rez.Strings.menu_label_segments,
             null,
             :segments,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_calc_mingas) as String,
+            Rez.Strings.menu_label_mingas,
             null,
             :mingas,
             {}
         ));
 
         addItem(new WatchUi.MenuItem(
-            WatchUi.loadResource(Rez.Strings.menu_calc_po2) as String,
+            Rez.Strings.menu_label_calc_po2,
             null,
             :po2calc,
             {}
