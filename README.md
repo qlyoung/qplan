@@ -19,3 +19,8 @@ Pre-release software under active development
 
 Supported:
 - Descent G1
+- Descent G2
+- Mk3/Mk3i
+- Mk2/Mk2i/Mk2 S
+- Fenix 6
+- Fenix 8 Solar 47mm
