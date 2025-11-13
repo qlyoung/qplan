@@ -14,42 +14,42 @@ class MainMenu extends WatchUi.Menu2 {
             Rez.Strings.menu_label_cylinder,
             "",
             :cylinder,
-            {}
+            {:icon => Rez.Drawables.Tank}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_scr,
             "",
             :scr,
-            {}
+            {:icon => Rez.Drawables.Lungs}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_bottom_depth,
             "",
             :depth,
-            {}
+            {:icon => Rez.Drawables.Depth}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_segments,
             null,
             :segments,
-            {}
+            {:icon => Rez.Drawables.Hourglass}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_mingas,
             null,
             :mingas,
-            {}
+            {:icon => Rez.Drawables.TankReserve}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_calc_po2,
             null,
             :po2calc,
-            {}
+            {:icon => Rez.Drawables.PO2Calc}
         ));
     }
 

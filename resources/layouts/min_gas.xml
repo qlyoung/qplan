@@ -2,7 +2,7 @@
     <drawable id="Background_white" />
 
     <!-- Title -->
-    <label id="titleLabel" x="50%" y="10%" text="Min Gas" font="Graphics.FONT_SYSTEM_LARGE" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="titleLabel" x="50%" y="8%" text="Min Gas" font="Graphics.FONT_SYSTEM_LARGE" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
 
     <!-- Cylinder type -->
     <label id="cylinderTypeLabel" x="50%" y="20%" text="" font="Graphics.FONT_SYSTEM_SMALL" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />

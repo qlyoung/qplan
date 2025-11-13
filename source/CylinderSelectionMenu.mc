@@ -11,7 +11,10 @@ class CylinderMenuItem extends WatchUi.MenuItem {
         var identifier = cylinder.getTypeName();
         self.cylinder = cylinder;
 
-        MenuItem.initialize(label, sublabel, identifier, {});
+        // var icon = loadResource(cylinder.isDouble() ?  Rez.Drawables.DoubleTank : Rez.Drawables.Tank) as Float;
+        var icon = cylinder.isDouble() ? Rez.Drawables.DoubleTank : Rez.Drawables.Tank;
+
+        MenuItem.initialize(label, sublabel, identifier, {:icon => icon});
     }
 
     private function formatServicePressure(cylinder as Cylinder) as String {
@@ -39,7 +42,7 @@ class CylinderMenuItem extends WatchUi.MenuItem {
 class CylinderSelectionMenu extends WatchUi.Menu2 {
 
     function initialize() {
-        Menu2.initialize({:title => Rez.Strings.menu_label_cylinder_select});
+        Menu2.initialize({:title => Rez.Strings.menu_label_cylinder_select, :icon => Rez.Drawables.Tank});
         buildMenu();
     }
 

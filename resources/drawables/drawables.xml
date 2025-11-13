@@ -1,5 +1,14 @@
 <drawables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <bitmap id="LauncherIcon" filename="launcher_icon.svg" dithering="none" />
+    <bitmap id="Tank" filename="tank.png" dithering="none" />
+    <bitmap id="DoubleTank" filename="doubletank.png" dithering="none" />
+    <bitmap id="PO2Calc" filename="po2calc.png" dithering="none" />
+    <bitmap id="MinGasCalc" filename="mincalc.png" dithering="none" />
+    <bitmap id="Lungs" filename="lungs.png" dithering="none" />
+    <bitmap id="TankReserve" filename="tankreserve.png" dithering="none" />
+    <bitmap id="Hourglass" filename="hourglass.png" dithering="none" />
+    <bitmap id="Depth" filename="depth.png" dithering="none" />
+    <bitmap id="AscentRate" filename="ascentrate.png" dithering="none" />
     <drawable-list id="Background_white" background="Gfx.COLOR_WHITE">
         <shape type="rectangle" x="0" y="0" width="100%" height="100%" />
     </drawable-list>

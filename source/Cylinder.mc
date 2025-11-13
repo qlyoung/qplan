@@ -62,6 +62,10 @@ class Cylinder {
         return _unitType != null && _unitType == Units.IMPERIAL;
     }
 
+    function isDouble() as Boolean {
+        return _typeName.toCharArray()[0] == 'D';
+    }
+
     function volumeToPressure(volume as Float) as Float {
         return volume / _waterCapacity;
     }

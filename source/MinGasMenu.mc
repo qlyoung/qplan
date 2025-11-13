@@ -16,14 +16,14 @@ class MinGasMenu extends WatchUi.Menu2 {
             Rez.Strings.menu_label_calculate,
             "",
             :calculate,
-            {}
+            {:icon => Rez.Drawables.MinGasCalc}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_contingency_scr,
             "",
             :min_gas_scr,
-            {}
+            {:icon => Rez.Drawables.Lungs}
         ));
 
 
@@ -31,28 +31,28 @@ class MinGasMenu extends WatchUi.Menu2 {
             Rez.Strings.menu_label_switch_depth,
             "",
             :min_gas_switch_depth,
-            {}
+            {:icon => Rez.Drawables.Depth}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_problem_time,
             "",
             :min_gas_problem_time,
-            {}
+            {:icon => Rez.Drawables.Hourglass}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_switch_time,
             "",
             :min_gas_switch_time,
-            {}
+            {:icon => Rez.Drawables.Hourglass}
         ));
 
         addItem(new WatchUi.MenuItem(
             Rez.Strings.menu_label_ascent_rate,
             "",
             :min_gas_ascent_rate,
-            {}
+            {:icon => Rez.Drawables.AscentRate}
         ));
 
     }
