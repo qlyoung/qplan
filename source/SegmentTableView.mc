@@ -6,8 +6,11 @@ import Toybox.Math;
 import Constants;
 
 class SegmentTableView extends ScrollableView {
+    private var _initialScrollSet as Boolean = false;
+
     function initialize() {
         ScrollableView.initialize();
+        _initialScrollSet = false;
     }
 
     function onLayout(dc as Dc) as Void {
@@ -31,13 +34,25 @@ class SegmentTableView extends ScrollableView {
 
     function drawSegmentTable(dc as Dc) as Void {
         var interval = (Units.GetSystem() == Units.METRIC) ? 1.0 : Units.Convert.FeetToMeters(10.0);
-        var startDepth = Globals.dive.getBottomDepth();
+
+        // Start from maximum supported depth
+        var startDepth = Constants.MAX_DEPTH;
         if (Units.GetSystem() == Units.IMPERIAL) {
             startDepth = Units.Convert.FeetToMeters(
                 (Math.ceil(Units.Convert.MetersToFeet(startDepth) / 10.0) * 10.0).toFloat()
             );
         } else {
             startDepth = Math.ceil(startDepth).toFloat();
+        }
+
+        // Calculate planned bottom depth with same rounding for scroll position
+        var plannedDepth = Globals.dive.getBottomDepth();
+        if (Units.GetSystem() == Units.IMPERIAL) {
+            plannedDepth = Units.Convert.FeetToMeters(
+                (Math.ceil(Units.Convert.MetersToFeet(plannedDepth) / 10.0) * 10.0).toFloat()
+            );
+        } else {
+            plannedDepth = Math.ceil(plannedDepth).toFloat();
         }
 
         var segments = DiveCalculations.CalculateSegmentTable(
@@ -57,6 +72,20 @@ class SegmentTableView extends ScrollableView {
         var maxVisibleLines = Math.floor(availableHeight / lineHeight);
 
         setMaxScroll(segments.size() - 1);
+
+        // Set initial scroll position to the planned bottom depth
+        if (!_initialScrollSet) {
+            var initialScrollIndex = ((startDepth - plannedDepth) / interval).toNumber();
+            if (initialScrollIndex < 0) {
+                initialScrollIndex = 0;
+            }
+            if (initialScrollIndex >= segments.size()) {
+                initialScrollIndex = segments.size() - 1;
+            }
+            _scrollOffset = initialScrollIndex;
+            _initialScrollSet = true;
+            updateScrollIndicators();
+        }
 
         for (var i = _scrollOffset; i < segments.size() && i < _scrollOffset + maxVisibleLines; i++) {
             var segment = segments[i];
@@ -79,10 +108,6 @@ class SegmentTableView extends ScrollableView {
         }
     }
 
-    function updateDynamic(dc as Dc) as Void {
-        drawSegmentTable(dc);
-    }
-
     function onUpdate(dc as Dc) as Void {
         // Output display
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
@@ -90,6 +115,6 @@ class SegmentTableView extends ScrollableView {
         updateLayout(dc);
         View.onUpdate(dc);
         // Must be done after View.onUpdate, or layout background will overwrite
-        updateDynamic(dc);
+        drawSegmentTable(dc);
     }
 }
