@@ -787,7 +787,7 @@ module DiveTest {
         if (!(contingencySCR instanceof Float)) {
             return false;
         }
-        Test.assertEqual(contingencySCR, -1.0);
+        Test.assertEqual(contingencySCR, 20.0);
 
         var contingencySCRMultiplier = dict["contingency_scr_multiplier"];
         if (!(contingencySCRMultiplier instanceof Float)) {

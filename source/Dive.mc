@@ -62,7 +62,7 @@ class Dive {
     function setMetricDefaults() as Void {
         _scr = 20.0;
         _bottomDepth = 30.0;
-        _contingencySCR = _scr;
+        _contingencySCR = 20.0;
         _contingencySCRMultiplier = 2.0;
         _switchDepth = 6.0;
         _problemSolvingTime = 60*2;
@@ -74,7 +74,7 @@ class Dive {
     function setImperialDefaults() as Void {
         _scr = Units.Convert.CubicFeetToLiters(0.7);
         _bottomDepth = Units.Convert.FeetToMeters(100.0);
-        _contingencySCR = _scr;
+        _contingencySCR = Units.Convert.CubicFeetToLiters(.75);
         _contingencySCRMultiplier = 2.0;
         _switchDepth = Units.Convert.FeetToMeters(20.0);
         _problemSolvingTime = 60*2;
