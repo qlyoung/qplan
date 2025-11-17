@@ -19,9 +19,7 @@ class SegmentTableView extends ScrollableView {
 
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.SegmentTableLayout(dc));
-    }
 
-    function updateLayout(dc as Dc) as Void {
         var cylinderTypeLabel = View.findDrawableById("cylinderTypeLabel") as Text;
         cylinderTypeLabel.setText(Globals.dive.getCylinder().getTypeName());
 
@@ -93,6 +91,9 @@ class SegmentTableView extends ScrollableView {
         var lineHeight = Graphics.getFontHeight(Graphics.FONT_TINY);
         var maxVisibleLines = Math.floor(availableHeight / lineHeight);
 
+        // Output display
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
+
         for (var i = _scrollOffset; i < _segmentTable.size() && i < _scrollOffset + maxVisibleLines; i++) {
             var segment = _segmentTable[i];
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
@@ -122,10 +123,6 @@ class SegmentTableView extends ScrollableView {
     }
 
     function onUpdate(dc as Dc) as Void {
-        // Output display
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
-
-        updateLayout(dc);
         View.onUpdate(dc);
         // Must be done after View.onUpdate, or layout background will overwrite
         drawSegmentTable(dc);
