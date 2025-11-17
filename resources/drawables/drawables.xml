@@ -9,6 +9,7 @@
     <bitmap id="Hourglass" filename="hourglass.png" dithering="none" />
     <bitmap id="Depth" filename="depth.png" dithering="none" />
     <bitmap id="AscentRate" filename="ascentrate.png" dithering="none" />
+    <bitmap id="Diver" filename="diver.png" dithering="none" />
     <drawable-list id="Background_white" background="Gfx.COLOR_WHITE">
         <shape type="rectangle" x="0" y="0" width="100%" height="100%" />
     </drawable-list>
