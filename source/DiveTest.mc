@@ -880,4 +880,157 @@ module DiveTest {
         return true;
     }
 
+    // Test that setting bottom depth less than switch depth adjusts switch depth down
+    (:test)
+    function testBottomDepthEnforcesMinimumSwitchDepth(logger as Logger) as Boolean {
+        var dive = Dive.Default();
+
+        // Set switch depth to 20m
+        dive.setSwitchDepth(20.0);
+        Test.assertEqual(dive.getSwitchDepth(), 20.0);
+
+        // Set bottom depth to 15m (less than switch depth)
+        // This should adjust switch depth down to 15m
+        dive.setBottomDepth(15.0);
+        Test.assertEqual(dive.getBottomDepth(), 15.0);
+        Test.assertEqual(dive.getSwitchDepth(), 15.0);
+
+        return true;
+    }
+
+    // Test that setting switch depth greater than bottom depth adjusts bottom depth up
+    (:test)
+    function testSwitchDepthEnforcesMinimumBottomDepth(logger as Logger) as Boolean {
+        var dive = Dive.Default();
+
+        // Set bottom depth to 10m
+        dive.setBottomDepth(10.0);
+        Test.assertEqual(dive.getBottomDepth(), 10.0);
+
+        // Set switch depth to 25m (greater than bottom depth)
+        // This should adjust bottom depth up to 25m
+        dive.setSwitchDepth(25.0);
+        Test.assertEqual(dive.getSwitchDepth(), 25.0);
+        Test.assertEqual(dive.getBottomDepth(), 25.0);
+
+        return true;
+    }
+
+    // Test that invariant bottomDepth >= switchDepth is maintained
+    (:test)
+    function testBottomDepthAlwaysGreaterOrEqualSwitchDepth(logger as Logger) as Boolean {
+        var dive = Dive.Default();
+
+        // Test various scenarios
+        dive.setBottomDepth(30.0);
+        dive.setSwitchDepth(6.0);
+        Test.assert(dive.getBottomDepth() >= dive.getSwitchDepth());
+
+        dive.setSwitchDepth(40.0);  // Greater than bottom depth
+        Test.assert(dive.getBottomDepth() >= dive.getSwitchDepth());
+        Test.assertEqual(dive.getBottomDepth(), 40.0);
+        Test.assertEqual(dive.getSwitchDepth(), 40.0);
+
+        dive.setBottomDepth(5.0);  // Less than switch depth
+        Test.assert(dive.getBottomDepth() >= dive.getSwitchDepth());
+        Test.assertEqual(dive.getBottomDepth(), 5.0);
+        Test.assertEqual(dive.getSwitchDepth(), 5.0);
+
+        return true;
+    }
+
+    // Test that setting bottom depth equal to switch depth is allowed
+    (:test)
+    function testBottomDepthEqualsSwitchDepthAllowed(logger as Logger) as Boolean {
+        var dive = Dive.Default();
+
+        dive.setBottomDepth(20.0);
+        dive.setSwitchDepth(20.0);
+
+        Test.assertEqual(dive.getBottomDepth(), 20.0);
+        Test.assertEqual(dive.getSwitchDepth(), 20.0);
+
+        return true;
+    }
+
+    // Test that setting bottom depth greater than switch depth doesn't modify switch depth
+    (:test)
+    function testBottomDepthGreaterThanSwitchDepthNoChange(logger as Logger) as Boolean {
+        var dive = Dive.Default();
+
+        dive.setSwitchDepth(10.0);
+        dive.setBottomDepth(30.0);  // Greater than switch depth
+
+        // Switch depth should remain unchanged
+        Test.assertEqual(dive.getSwitchDepth(), 10.0);
+        Test.assertEqual(dive.getBottomDepth(), 30.0);
+
+        return true;
+    }
+
+    // Test that setting switch depth less than bottom depth doesn't modify bottom depth
+    (:test)
+    function testSwitchDepthLessThanBottomDepthNoChange(logger as Logger) as Boolean {
+        var dive = Dive.Default();
+
+        dive.setBottomDepth(30.0);
+        dive.setSwitchDepth(6.0);  // Less than bottom depth
+
+        // Bottom depth should remain unchanged
+        Test.assertEqual(dive.getBottomDepth(), 30.0);
+        Test.assertEqual(dive.getSwitchDepth(), 6.0);
+
+        return true;
+    }
+
+    // Test initialization maintains invariant
+    (:test)
+    function testInitializationMaintainsInvariant(logger as Logger) as Boolean {
+        var cylinder = Cylinder.Default();
+
+        // Initialize with switch depth > bottom depth
+        var dive = new Dive(
+            20.0,  // scr
+            10.0,  // bottom depth
+            cylinder,
+            20.0,  // contingency SCR
+            2.0,   // contingency SCR multiplier
+            25.0,  // switch depth (greater than bottom)
+            120,   // problem solving time
+            60,    // gas switch time
+            3.0    // ascent rate
+        );
+
+        // Invariant should be enforced
+        Test.assert(dive.getBottomDepth() >= dive.getSwitchDepth());
+        Test.assertEqual(dive.getBottomDepth(), 25.0);
+        Test.assertEqual(dive.getSwitchDepth(), 25.0);
+
+        return true;
+    }
+
+    // Test metric defaults maintains invariant
+    (:test)
+    function testMetricDefaultsMaintainsInvariant(logger as Logger) as Boolean {
+        var dive = Dive.Default();
+        dive.setMetricDefaults();
+
+        // Verify invariant is maintained
+        Test.assert(dive.getBottomDepth() >= dive.getSwitchDepth());
+
+        return true;
+    }
+
+    // Test imperial defaults maintains invariant
+    (:test)
+    function testImperialDefaultsMaintainsInvariant(logger as Logger) as Boolean {
+        var dive = Dive.Default();
+        dive.setImperialDefaults();
+
+        // Verify invariant is maintained
+        Test.assert(dive.getBottomDepth() >= dive.getSwitchDepth());
+
+        return true;
+    }
+
 }

@@ -7,28 +7,28 @@ import Units;
  */
 class Dive {
     // Diver SCR (l/min)
-    private var _scr as Float;
+    private var _scr as Float = 0.0f;
     // Bottom depth (m)
-    private var _bottomDepth as Float;
+    private var _bottomDepth as Float = 0.0f;
     // Back gas cylinder
     private var _cylinder as Cylinder;
 
     // SCR of single diver in contingency scenario (l/min)
     // -1 = same as main SCR
-    private var _contingencySCR as Float;
+    private var _contingencySCR as Float = 0.0f;
     // Factor by which SCR increases in contingency scenario (scalar)
     // Examples:
     // - 2.0 to account for two divers sharing gas;
     // - 1.0 for solo diver
-    private var _contingencySCRMultiplier as Float;
+    private var _contingencySCRMultiplier as Float = 0.0f;
     // Depth of next breathable gas source (m)
-    private var _switchDepth as Float;
+    private var _switchDepth as Float = 0.0f;
     // Time spent on the bottom to attempt failure resolution (s)
-    private var _problemSolvingTime as Number;
+    private var _problemSolvingTime as Number = 0;
     // Time spent switching gas (s)
-    private var _gasSwitchTime as Number;
+    private var _gasSwitchTime as Number = 0;
     // Ascent rate (m/min)
-    private var _ascentRate as Float;
+    private var _ascentRate as Float = 0.0f;
 
     function initialize(
         scr as Float or Number,
@@ -41,15 +41,17 @@ class Dive {
         gasSwitchTime as Number,
         ascentRate as Float or Number)
     {
-        _scr = scr.toFloat();
-        _bottomDepth = bottomDepth.toFloat();
+        setSCR(scr.toFloat());
+        setBottomDepth(bottomDepth.toFloat());
+        // appease the compiler init checker
         _cylinder = cylinder;
-        _contingencySCR = contingencySCR.toFloat();
-        _contingencySCRMultiplier = contingencySCRMultiplier.toFloat();
-        _switchDepth = switchDepth.toFloat();
-        _problemSolvingTime = problemSolvingTime;
-        _gasSwitchTime = gasSwitchTime;
-        _ascentRate = ascentRate.toFloat();
+        setCylinder(cylinder);
+        setContingencySCR(contingencySCR.toFloat());
+        setContingencySCRMultiplier(contingencySCRMultiplier.toFloat());
+        setSwitchDepth(switchDepth.toFloat());
+        setProblemSolvingTime(problemSolvingTime);
+        setGasSwitchTime(gasSwitchTime);
+        setAscentRate(ascentRate.toFloat());
     }
 
     static function Default() as Dive {
@@ -60,26 +62,26 @@ class Dive {
 
     // Set default values to those familiar to metric-native divers
     function setMetricDefaults() as Void {
-        _scr = 20.0;
-        _bottomDepth = 30.0;
-        _contingencySCR = 20.0;
-        _contingencySCRMultiplier = 2.0;
-        _switchDepth = 6.0;
-        _problemSolvingTime = 60*2;
-        _gasSwitchTime = 60;
-        _ascentRate = 3.0;
+        setSCR(20.0);
+        setBottomDepth(30.0);
+        setContingencySCR(20.0);
+        setContingencySCRMultiplier(2.0);
+        setSwitchDepth(6.0);
+        setProblemSolvingTime(60*2);
+        setGasSwitchTime(60);
+        setAscentRate(3.0);
     }
 
     // Set default values to those familiar to imperial-native divers
     function setImperialDefaults() as Void {
-        _scr = Units.Convert.CubicFeetToLiters(0.7);
-        _bottomDepth = Units.Convert.FeetToMeters(100.0);
-        _contingencySCR = Units.Convert.CubicFeetToLiters(.75);
-        _contingencySCRMultiplier = 2.0;
-        _switchDepth = Units.Convert.FeetToMeters(20.0);
-        _problemSolvingTime = 60*2;
-        _gasSwitchTime = 60;
-        _ascentRate = Units.Convert.FeetToMeters(10.0);
+        setSCR(Units.Convert.CubicFeetToLiters(0.7));
+        setBottomDepth(Units.Convert.FeetToMeters(100.0));
+        setContingencySCR(Units.Convert.CubicFeetToLiters(.75));
+        setContingencySCRMultiplier(2.0);
+        setSwitchDepth(Units.Convert.FeetToMeters(20.0));
+        setProblemSolvingTime(60*2);
+        setGasSwitchTime(60);
+        setAscentRate(Units.Convert.FeetToMeters(10.0));
     }
 
     function getSCR() as Float {
@@ -96,6 +98,10 @@ class Dive {
 
     function setBottomDepth(depth as Float) as Void {
         _bottomDepth = depth;
+
+        if (_switchDepth > _bottomDepth) {
+            _switchDepth = _bottomDepth;
+        }
     }
 
     function getCylinder() as Cylinder {
@@ -120,6 +126,10 @@ class Dive {
 
     function setSwitchDepth(depth as Float) as Void {
         _switchDepth = depth;
+
+        if (_switchDepth > _bottomDepth) {
+            _bottomDepth = _switchDepth;
+        }
     }
 
     function getProblemSolvingTime() as Number {
