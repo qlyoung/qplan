@@ -6,11 +6,15 @@ import Toybox.Math;
 import Constants;
 
 class SegmentTableView extends ScrollableView {
-    private var _initialScrollSet as Boolean = false;
+    private var _segmentTable as Array<Dictionary<String, Float>>;
+    private var _interval as Float;
 
     function initialize() {
         ScrollableView.initialize();
-        _initialScrollSet = false;
+        _interval = (Units.GetSystem() == Units.METRIC) ? 1.0 : Units.Convert.FeetToMeters(10.0);
+        _segmentTable = calcSegmentTable();
+        resetScroll();
+        setMaxScroll(_segmentTable.size() - 1);
     }
 
     function onLayout(dc as Dc) as Void {
@@ -32,17 +36,31 @@ class SegmentTableView extends ScrollableView {
         segLabel.setText("@ " + Constants.SEGMENT_LENGTH.format("%d") + " min");
     }
 
-    function drawSegmentTable(dc as Dc) as Void {
-        var interval = (Units.GetSystem() == Units.METRIC) ? 1.0 : Units.Convert.FeetToMeters(10.0);
-
+    function calcSegmentTable() as Array<Dictionary<String, Float>> {
         // Start from maximum supported depth
         var startDepth = Constants.MAX_DEPTH;
+
         if (Units.GetSystem() == Units.IMPERIAL) {
-            startDepth = Units.Convert.FeetToMeters(
-                (Math.ceil(Units.Convert.MetersToFeet(startDepth) / 10.0) * 10.0).toFloat()
-            );
-        } else {
-            startDepth = Math.ceil(startDepth).toFloat();
+            // Set start depth to the nearest 10ft, represented in meters
+            var sdFt = Units.Convert.MetersToFeet(startDepth);
+            var sdFtRounded = (Math.ceil(sdFt / 10.0) * 10.0).toFloat();
+            startDepth = Units.Convert.FeetToMeters(sdFtRounded);
+        }
+
+        var segments = DiveCalculations.CalculateSegmentTable(
+            Globals.dive.getSCR(),
+            Globals.dive.getCylinder(),
+            startDepth,
+            _interval
+        );
+
+        return segments;
+    }
+
+    function resetScroll() as Void {
+        var startDepth = _segmentTable[0]["depth"];
+        if (!(startDepth instanceof Float)) {
+            System.error("Segment depth failed type check");
         }
 
         // Calculate planned bottom depth with same rounding for scroll position
@@ -54,14 +72,18 @@ class SegmentTableView extends ScrollableView {
         } else {
             plannedDepth = Math.ceil(plannedDepth).toFloat();
         }
+        var initialScrollIndex = ((startDepth - plannedDepth) / _interval).toNumber();
+        if (initialScrollIndex < 0) {
+            initialScrollIndex = 0;
+        }
+        if (initialScrollIndex >= _segmentTable.size()) {
+            initialScrollIndex = _segmentTable.size() - 1;
+        }
+        _scrollOffset = initialScrollIndex;
+        updateScrollIndicators();
+    }
 
-        var segments = DiveCalculations.CalculateSegmentTable(
-            Globals.dive.getSCR(),
-            Globals.dive.getCylinder(),
-            startDepth,
-            interval
-        );
-
+    function drawSegmentTable(dc as Dc) as Void {
         // Get label and calculate how many lines it can fit based on position and display height
         var width = dc.getWidth();
         var height = dc.getHeight();
@@ -71,40 +93,31 @@ class SegmentTableView extends ScrollableView {
         var lineHeight = Graphics.getFontHeight(Graphics.FONT_TINY);
         var maxVisibleLines = Math.floor(availableHeight / lineHeight);
 
-        setMaxScroll(segments.size() - 1);
-
-        // Set initial scroll position to the planned bottom depth
-        if (!_initialScrollSet) {
-            var initialScrollIndex = ((startDepth - plannedDepth) / interval).toNumber();
-            if (initialScrollIndex < 0) {
-                initialScrollIndex = 0;
-            }
-            if (initialScrollIndex >= segments.size()) {
-                initialScrollIndex = segments.size() - 1;
-            }
-            _scrollOffset = initialScrollIndex;
-            _initialScrollSet = true;
-            updateScrollIndicators();
-        }
-
-        for (var i = _scrollOffset; i < segments.size() && i < _scrollOffset + maxVisibleLines; i++) {
-            var segment = segments[i];
+        for (var i = _scrollOffset; i < _segmentTable.size() && i < _scrollOffset + maxVisibleLines; i++) {
+            var segment = _segmentTable[i];
             var yPos = startY + ((i - _scrollOffset) * lineHeight);
 
             var depth = segment["depth"];
-            if (depth == null) {
+            if (!(depth instanceof Float)) {
                 System.error("Type check failed for depth");
             }
-            var depthText = Math.round(Units.Convert.MetersToSystem(depth)).format("%d") + Units.Symbols.Depth();
+            var depthValue = Math.round(Units.Convert.MetersToSystem(depth));
+            var depthText = depthValue.format("%d") + Units.Symbols.Depth();
+
             var segmentVal = segment["segment"];
             if (segmentVal == null) {
                 System.error("Type check failed for segment");
             }
-            var segmentText = Math.ceil(Units.Convert.BarToSystem(segmentVal)).format("%d") + Units.Symbols.Pressure();
+            var segmentValue = Math.ceil(Units.Convert.BarToSystem(segmentVal));
+            var segmentText = segmentValue.format("%d") + Units.Symbols.Pressure();
 
             var thirty = width * .30;
             dc.drawText(thirty, yPos, Graphics.FONT_TINY, depthText, Graphics.TEXT_JUSTIFY_CENTER);
             dc.drawText(width - thirty, yPos, Graphics.FONT_TINY, segmentText, Graphics.TEXT_JUSTIFY_CENTER);
+
+            if (depthValue == 0) {
+                break;
+            }
         }
     }
 
