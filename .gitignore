@@ -2,6 +2,12 @@
 bin/
 *.prg
 
+# Exported builds
+export/
+
+# Store assets
+store/
+
 # Temporary files
 *.tmp
 *.temp

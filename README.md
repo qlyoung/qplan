@@ -2,7 +2,10 @@
 
 DIR-oriented dive planning toolbox for Garmin smartwatches
 
+[Install on ConnectIQ Store](https://apps-developer.garmin.com/apps/a7d219f7-e92a-4e32-9d57-7c9bd61b7203?tid=0)
+
 ![demo](./resources/misc/demo.gif)
+
 
 ## Features
 
@@ -10,10 +13,6 @@ DIR-oriented dive planning toolbox for Garmin smartwatches
 - Minimum gas calculator
 - Supports most common cylinders
 - Full support for metric & imperial
-
-## Status
-
-Pre-release software under active development
 
 ## Devices
 
